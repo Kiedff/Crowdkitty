@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 
+  description: MyText
+  value: 1
+  quantity: 1
+  delivery: 2015-12-04
+  ships_to: MyString
+
+two:
+  project_id: 
+  description: MyText
+  value: 1
+  quantity: 1
+  delivery: 2015-12-04
+  ships_to: MyString
