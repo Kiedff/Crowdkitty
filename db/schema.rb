@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204153335) do
+ActiveRecord::Schema.define(version: 20151204161545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,9 +37,11 @@ ActiveRecord::Schema.define(version: 20151204153335) do
     t.integer  "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "reward_id"
   end
 
   add_index "pledges", ["project_id"], name: "index_pledges_on_project_id", using: :btree
+  add_index "pledges", ["reward_id"], name: "index_pledges_on_reward_id", using: :btree
   add_index "pledges", ["user_id"], name: "index_pledges_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 20151204153335) do
 
   add_foreign_key "pictures", "projects"
   add_foreign_key "pledges", "projects"
+  add_foreign_key "pledges", "rewards"
   add_foreign_key "pledges", "users"
   add_foreign_key "projects", "categories"
   add_foreign_key "projects", "users"
