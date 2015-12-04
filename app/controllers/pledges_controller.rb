@@ -1,0 +1,3 @@
+class PledgesController < ApplicationController
+
+end
