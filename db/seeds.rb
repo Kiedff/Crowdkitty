@@ -8,10 +8,10 @@
 
 
 
-ada = User.create(name: "ada", email: "ada@email.example", password: 'password')
-obedia = User.create(name: "obedia", email: "obedia@email.example", password: 'password')
-tristan = User.create(name: "tristan", email: "tristan@email.example", password: 'password')
-isolde = User.create(name: "isolde", email: "isolde@email.example", password: 'password')
+ada = User.create(name: "ada", email: "ada@email.example", password: 'password', role: 'user')
+obedia = User.create(name: "obedia", email: "obedia@email.example", password: 'password', role: 'user')
+tristan = User.create(name: "tristan", email: "tristan@email.example", password: 'password', role: 'user')
+isolde = User.create(name: "isolde", email: "isolde@email.example", password: 'password', role: 'user')
 
 Category.create(name: 'sport')
 Category.create(name: 'space')

@@ -1,0 +1,25 @@
+<p>Project name:</p>
+<p><%= @project.name %> </p>
+
+<p>Project summary:</p>
+<p><%= @project.summary %> </p>
+
+<p>Target:</p>
+<p><%= @project.target %> </p>
+
+<p>End date:</p>
+<p><%= @project.end_date %> </p>
+
+<p>Created by:</p>
+<p><%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>
+
+<p>Location:</p>
+<p><%= @project.location %> </p>
+
+<p>Description:</p>
+<p><%= @project.description %> </p>
+
+<p>Created:</p>
+<p><%= @project.created_at %> </p>
+
+<%= link_to "Edit", edit_project_path %>
