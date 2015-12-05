@@ -14,6 +14,7 @@ class Ability
         can :cud, Reward # needs restrictions added 
         can :cud, Picture # needs restrictions added 
         can :create, Pledge 
+        can :update, User
         can :read, :all
       else
         can :read, :all
@@ -21,3 +22,5 @@ class Ability
     end
   end
 end
+
+
