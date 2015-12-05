@@ -17,13 +17,12 @@ class ProjectsController < ApplicationController
   end
   
   def index
-    # binding.pry
     if params[:category_id]
-      @projects = Project.where(category_id: params[:category_id])
+      @projects = Project.search(params[:search]).select {|p| p.category_id == params[:category_id].to_i}
     else
       @projects = Project.search(params[:search])
     end
-    # @categories = Category.all
+    @search = params[:search]
   end
 
   def show
