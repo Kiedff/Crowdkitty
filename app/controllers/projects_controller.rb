@@ -43,4 +43,8 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id)
   end
 
+  def new
+    @project = Project.new
+  end
+
 end

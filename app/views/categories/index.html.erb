@@ -1,0 +1,11 @@
+
+<main id="categories">
+  <h1>Categories</h1>
+  <% @categories.order("lower(name) ASC").each do |category| %>
+      <div>
+        <%= category.name %>
+        <%= link_to 'show', category %>
+      </div>
+  <% end %>
+</main>
+
