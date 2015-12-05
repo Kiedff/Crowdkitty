@@ -11,7 +11,7 @@
 <p><%= @project.end_date %> </p>
 
 <p>Created by:</p>
-<p><%= @project.user.try(:name) %> </p>
+<p><%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>
 
 <p>Location:</p>
 <p><%= @project.location %> </p>
@@ -22,3 +22,4 @@
 <p>Created:</p>
 <p><%= @project.created_at %> </p>
 
+<%= link_to "Edit", edit_project_path %>

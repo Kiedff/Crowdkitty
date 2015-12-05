@@ -17,7 +17,7 @@
       <li><%= link_to 'Categories', categories_path %></li>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "profile", user_path(current_user.id) %> 
+          <%= link_to "profile", users_path(current_user.id) %> 
           <%= link_to "logout", destroy_user_session_path, method: :delete %> 
         </li>
         <% else %>
