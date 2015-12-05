@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :pledges
   has_many :rewards, :through => :pledges
+
+  def role?(role_to_compare)
+    self.role.to_s == role_to_compare.to_s
+  end
 end
