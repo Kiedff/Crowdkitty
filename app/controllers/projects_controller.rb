@@ -17,7 +17,13 @@ class ProjectsController < ApplicationController
   end
   
   def index
-    @projects = Project.all
+    # binding.pry
+    if params[:category_id]
+      @projects = Project.where(category_id: params[:category_id])
+    else
+      @projects = Project.all
+    end
+    @categories = Category.all
   end
 
   def show
