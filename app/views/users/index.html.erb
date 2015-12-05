@@ -1,0 +1,27 @@
+<div class="side-image">
+<% @users.each do |user| %>
+
+<div class="images-wrapper myLeftPane">
+<%=image_tag(user.user_image, alt: 'alt text is really require', width:600) %>
+</div>
+
+<div class="side-image-content myRightPane">
+<h1>My Profile</h1>
+
+
+
+<h4><strong><%= user.name %> <%= user.last_name %></strong></h4>
+<h5><strong>Username:</strong></h5>
+<p><%= user.username %></p>
+
+<h5><strong>Birthday:</strong><br></h5>
+<%= user.human_readable_birthday if user.birthday %><br>
+
+
+
+<%= link_to 'Edit', edit_user_path(user) if can? :edit, User %>
+
+<% end %>
+
+  </div>
+</div>
