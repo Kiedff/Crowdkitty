@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
+  
+  root to: 'home#welcome'
+
   devise_for :users
   get 'category/name'
+
   resources :rewards
   resources :pictures
   resources :projects
   resources :pledges
   resources :categories
   resources :users
-  root to: 'projects#index'
+ 
 
 
   # The priority is based upon order of creation: first created -> highest priority.
