@@ -1,5 +1,5 @@
 <%= form_tag projects_path, method: "get" do %>
-  <%= select_tag 'category_id', options_for_select(@projects.map {|p| [p.category.name, p.category.id]}.uniq, selected: @projects.first.category.id) %>
+  <%= select_tag 'category_id', options_for_select(@projects.map {|p| [p.category.name, p.category.id]}.uniq.unshift(['all', 1]), selected: @projects.first.category.id) %>
   <% if @search %>
     <%= hidden_field_tag 'search', @search %>
   <% end %>
