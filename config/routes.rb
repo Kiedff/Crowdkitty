@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :pledges
   resources :categories
+  resources :users
   root to: 'projects#index'
 
 
