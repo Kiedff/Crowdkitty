@@ -13,8 +13,22 @@ obedia = User.create(name: "obedia", email: "obedia@email.example", password: 'p
 tristan = User.create(name: "tristan", email: "tristan@email.example", password: 'password', role: 'user')
 isolde = User.create(name: "isolde", email: "isolde@email.example", password: 'password', role: 'user')
 
-Category.create(name: 'sport')
-Category.create(name: 'space')
+Category.create(name: 'Arts')
+Category.create(name: 'Business')
+Category.create(name: 'Charities')
+Category.create(name: 'Civic Space')
+Category.create(name: 'Community')
+Category.create(name: 'Environment')
+Category.create(name: 'Film')
+Category.create(name: 'Food & Drink')
+Category.create(name: 'Music')
+Category.create(name: 'Publishing')
+Category.create(name: 'Schools')
+Category.create(name: 'Social Enterprise')
+Category.create(name: 'Sports')
+Category.create(name: 'Technology')
+Category.create(name: 'Theatre & Dance')
+Category.create(name: 'University & College')
 
 ada.projects.new(name: 'skatepark', summary: 'a new skatepark in edinburgh', target: '5000', start_date: '2015-12-25', end_date: '2015-3-25', location: 'edinburgh', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', category_id: 1).save
 
