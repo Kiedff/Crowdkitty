@@ -1,0 +1,27 @@
+<% @project = Project.new %>
+
+<%= form_for @project do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :summary %>
+  <%= f.text_area :summary %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.label :target %>
+  <%= f.number_field :target %>
+  <br>
+  <% @categories = Category.all %>
+  <%= f.label :category_id %>
+  <%= f.select :category_id, options_from_collection_for_select(@categories, 'id', 'name') %>
+  <br>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
+  <%= f.submit 'create!' %>
+
+<% end %>
+
