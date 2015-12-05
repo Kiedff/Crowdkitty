@@ -13,11 +13,15 @@ obedia = User.create(name: "obedia", email: "obedia@email.example", password: 'p
 tristan = User.create(name: "tristan", email: "tristan@email.example", password: 'password')
 isolde = User.create(name: "isolde", email: "isolde@email.example", password: 'password')
 
-ada.projects.new(name: 'skatepark', summary: 'a new skatepark in edinburgh', target: '5000', start_date: '2015-12-25', end_date: '2015-3-25', location: 'edinburgh', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.').save
+Category.create(name: 'sport')
+Category.create(name: 'space')
 
-obedia.projects.new(name: 'spacerocket', summary: "we're going to mars!", target: '5000000', start_date: '2016-01-25', end_date: '2015-2-25', location: 'glasgow', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.').save
+ada.projects.new(name: 'skatepark', summary: 'a new skatepark in edinburgh', target: '5000', start_date: '2015-12-25', end_date: '2015-3-25', location: 'edinburgh', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', category_id: 1).save
+
+obedia.projects.new(name: 'spacerocket', summary: "we're going to mars!", target: '5000000', start_date: '2016-01-25', end_date: '2015-2-25', location: 'glasgow', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', category_id: 2).save
 
 Project.first.rewards.new(description: 'free skateboard', value: '50', quantity: 20, delivery: '2015-04-01', ships_to: 'uk').save
+
 
 Project.last.rewards.new(description: 'spacesuit', value: '1000', quantity: 5, delivery: '2015-12-01', ships_to: 'worldwide').save
 
