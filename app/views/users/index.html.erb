@@ -9,12 +9,12 @@
 <div class="side-image-content myRightPane">
 <h1>My Profile</h1>
 
-
-
 <h4><strong><%= user.name %> <%= user.last_name %></strong></h4>
 <h5><strong>Username:</strong></h5>
 <p><%= user.username %></p>
 
+<h5><strong>Address:</strong></h5>
+<p><%= user.address1 %>, <%= user.address2 %>, <%= user.city %>, <%= user.postcode %></p>
 
 
 <%= link_to 'Edit', edit_user_path(user) if can? :edit, User %>
