@@ -1,5 +1,6 @@
 <%= form_tag projects_path, method: "get" do %>
-  <%= select_tag :category_id, options_for_select(@categories.map {|c| [c.name, c.id]}, selected: @projects.first.category.id) %>
+  <% binding.pry %>
+  <%= select_tag :project_id, options_for_select(@projects.map {|p| [p.category.name, p.category.id]}.uniq, selected: @projects.first.category.id) %>
   <%= submit_tag "Filter" %>
 <% end %>
 

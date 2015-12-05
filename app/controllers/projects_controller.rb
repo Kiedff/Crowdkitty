@@ -21,9 +21,9 @@ class ProjectsController < ApplicationController
     if params[:category_id]
       @projects = Project.where(category_id: params[:category_id])
     else
-      @projects = Project.all
+      @projects = Project.search(params[:search])
     end
-    @categories = Category.all
+    # @categories = Category.all
   end
 
   def show
@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search)
   end
 
   def new

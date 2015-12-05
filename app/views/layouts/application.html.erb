@@ -28,6 +28,12 @@
           <%= link_to "Register", new_user_registration_path %>
         </li> 
       <% end %>
+      <li>
+        <form class='nav-search' action="/projects" placeholder="search projects" role="search">
+          <input type="text" name="search" id="srch-term">
+          <button type="submit">Go</button>
+        </form>
+      </li>
     </ul>
   </nav>
 

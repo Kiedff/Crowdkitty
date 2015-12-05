@@ -21,4 +21,8 @@ nav ul {
 
 nav ul li {
   display: inline;
-  }
+}
+
+.nav-search {
+  display: inline;
+}
