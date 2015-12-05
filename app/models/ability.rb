@@ -7,23 +7,17 @@ class Ability
 
       user ||= User.new
 
-      if user 
+      if user.role? :admin
         can :manage, :all
-      else 
-        can :manage, :all
+      elsif user.role? :user
+        can :cud, Project, :user_id => user.id  
+        can :cud, Reward # needs restrictions added 
+        can :cud, Picture # needs restrictions added 
+        can :create, Pledge 
+        can :read, :all
+      else
+        can :read, :all
       end
-
-      # if user.role? :admin
-      #   can :manage, :all
-      # elsif user.role? :user
-      #   can :read, :all
-      #   can :cud, Project, :user_id => user.id  
-      #   can :cud, Reward # needs resrictions added 
-      #   can :cud, Picture # needs resrictions added 
-      #   can :create, Pledge 
-      # else
-      #   can :read, :all
-      # end
     end
   end
 end
