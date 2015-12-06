@@ -23,3 +23,16 @@
 <p><%= @project.created_at %> </p>
 
 <%= link_to "Edit", edit_project_path %>
+<br>
+
+<h1>Rewards</h1>
+<% @project.rewards.each do |reward| %>
+<%= reward.description %>,
+£<%= reward.value %>
+<%= reward.try(:quantity) %>
+<%= reward.delivery %>
+<%= reward.ships_to %>
+<br>
+<% end %>
+
+<%= render "rewards/new" if @project.user_id == current_user.id %>

@@ -1,0 +1,25 @@
+<br>
+<h1>Add reward</h1>
+<% @reward = Reward.new %>
+
+<%= form_for @reward do |f| %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <p>Enter minimun value to claim this reward</p>
+  <%= f.label :value %>
+  <%= f.number_field :value %>
+  <br>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+
+  <%= f.label :delivery %>
+  <%= f.text_field :delivery %>
+
+  <%= f.label :ships_to %>
+  <%= f.text_field :ships_to %>
+
+  <%= f.submit "Add reward"  %>
+
+<% end %>

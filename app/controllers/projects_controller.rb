@@ -10,10 +10,12 @@ class ProjectsController < ApplicationController
       project.user_id = current_user.id if current_user
       if project.save
         flash[:success] = "Project created! Good luck!"
+
         redirect_to project
       else
         render 'new'
       end
+
   end
   
   def index
@@ -28,6 +30,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @reward = Reward.new
   end
 
   def destroy
