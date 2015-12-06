@@ -4,9 +4,9 @@ class PledgesController < ApplicationController
     
     pledge = Pledge.new(pledge_params.merge( user_id: current_user.id, reward_id:params[:reward_id] ))
 
-    p_id = Pledge.joins(:reward).where(:rewards => { :id => pledge.reward_id})
-    pledge.project_id = p_id.first.project_id
-  
+    reward_project_id = Reward.where(id: pledge.reward_id).first.project_id
+    pledge.project_id = reward_project_id
+    
     if pledge.save
       flash[:success] = "Pledged successfully!"
       redirect_to :back

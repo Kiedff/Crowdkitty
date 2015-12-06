@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   end
 
   def total_raised
-
+    
     pledges = Pledge.where(project_id: self.id)
     pledge_values = pledges.map do |pledge| pledge.value 
     end
