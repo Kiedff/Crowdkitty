@@ -8,12 +8,15 @@ Rails.application.routes.draw do
 
   resources :pictures
 
-  resources :pledges
   resources :categories
   resources :users
 
   resources :projects do 
-    resources :rewards
+    resources :rewards 
+  end
+
+  resources :rewards do 
+    resources :pledges 
   end
  
 
