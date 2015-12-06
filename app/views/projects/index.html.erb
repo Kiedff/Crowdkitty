@@ -1,7 +1,16 @@
+<% if @search %>
+  <h3>Results for: <%= @search %></h3>
+<% end %>
+
 <%= form_tag projects_path, method: "get" do %>
-  <%= select_tag :category_id, options_for_select(@categories.map {|c| [c.name, c.id]}, selected: @projects.first.category.id) %>
+  <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
+  <% if @search %>
+    <%= hidden_field_tag 'search', @search %>
+  <% end %>
   <%= submit_tag "Filter" %>
 <% end %>
+
+<%# binding.pry %>
 
 <% @projects.each do |project| %>
 

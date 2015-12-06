@@ -15,10 +15,10 @@ class Ability
       can :create, Pledge 
       can :update, User
       can :read, :all
-      can :welcome, :Home
     else
       can :read, :all
     end
+    
   end
 end
 
