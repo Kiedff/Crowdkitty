@@ -17,12 +17,16 @@ class ProjectsController < ApplicationController
   end
   
   def index
-    if params[:category_id]
-      @projects = Project.search(params[:search]).select {|p| p.category_id == params[:category_id].to_i}
+    @category_id = params[:category_id]
+    if @category_id == 'all'
+      @projects = Project.search(params[:search])
+    elsif @category_id
+      @projects = Project.search(params[:search]).select {|p| p.category_id == @category_id.to_i}
     else
       @projects = Project.search(params[:search])
     end
     @search = params[:search]
+    @categories = Category.all
   end
 
   def show
