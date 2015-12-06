@@ -19,12 +19,15 @@ class ProjectsController < ApplicationController
   end
   
   def index
-    # binding.pry
-    if params[:category_id]
-      @projects = Project.where(category_id: params[:category_id])
+    @category_id = params[:category_id]
+    if @category_id == 'all'
+      @projects = Project.search(params[:search])
+    elsif @category_id
+      @projects = Project.search(params[:search]).select {|p| p.category_id == @category_id.to_i}
     else
-      @projects = Project.all
+      @projects = Project.search(params[:search])
     end
+    @search = params[:search]
     @categories = Category.all
   end
 
@@ -50,7 +53,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search)
   end
 
   def new
