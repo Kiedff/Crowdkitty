@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
-
+gem 'faker'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
