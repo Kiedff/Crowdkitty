@@ -16,7 +16,10 @@ class Project < ActiveRecord::Base
     pledge_values = pledges.map do |pledge| pledge.value 
     end
     pledge_values.sum
-    
+  end
+
+  def funds_needed
+    self.target - self.total_raised
   end
 
 end
