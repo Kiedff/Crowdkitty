@@ -2,7 +2,7 @@
 <h1>Add reward</h1>
 <% @reward = Reward.new %>
 
-<%= form_for @reward do |f| %>
+<%= form_for [@project, @reward] do |f| %>
 
   <%= f.label :description %>
   <%= f.text_area :description %>

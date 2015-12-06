@@ -5,12 +5,16 @@ Rails.application.routes.draw do
   devise_for :users
   get 'category/name'
 
-  resources :rewards
+
   resources :pictures
-  resources :projects
+
   resources :pledges
   resources :categories
   resources :users
+
+  resources :projects do 
+    resources :rewards
+  end
  
 
 

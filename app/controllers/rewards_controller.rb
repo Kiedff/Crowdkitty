@@ -1,15 +1,9 @@
 class RewardsController < ApplicationController
 
-  def new
-    raise
-    @project = current_user.projects.last
-    @reward = Reward.new
-  end
 
   def create
-      reward = Reward.new(reward_params)
-      reward.project_id = current_user.projects.last.id
-      project = current_user.projects.last
+      reward = Reward.new(reward_params.merge(project_id:params[:project_id]))
+      project = Project.find(params[:project_id])
       if reward.save
         flash[:success] = "Reward Successfully Created"
         redirect_to project
