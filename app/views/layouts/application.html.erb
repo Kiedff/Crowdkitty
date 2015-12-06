@@ -16,12 +16,9 @@
         <% if can? :create, Project %>
           <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
         <% end %>
-          <li class="nav-link"><%= link_to 'Projects', projects_path %></li>
-          <% if can? :create, Project %>
-            <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
-          <% end %>
+          <li class="nav-link"><%= link_to 'Discover Projects', projects_path %></li>
           
-          <li class="nav-link"><%= link_to 'Categories', categories_path %></li>
+          <li class="nav-link"><%= link_to 'Search Projects', categories_path %></li>
           <% if user_signed_in? %>
             <li class="nav-link">
               <%= link_to "Profile", current_user %> 
