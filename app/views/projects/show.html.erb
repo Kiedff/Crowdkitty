@@ -35,4 +35,6 @@
 <br>
 <% end %>
 
-<%= render "rewards/new" if @project.user_id == current_user.id %>
+<% if current_user %>
+  <%= render "rewards/new" if @project.user_id == current_user.id %>
+<% end %>
