@@ -12,6 +12,10 @@
     <div class="navigation-wrapper">
       <nav role="navigation">
         <ul class="centered-navigation-menu show">
+        <li class="nav-link"><%= link_to 'Home', root_path %></li>
+        <% if can? :create, Project %>
+          <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
+        <% end %>
           <li class="nav-link"><%= link_to 'Projects', projects_path %></li>
           <% if can? :create, Project %>
             <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
