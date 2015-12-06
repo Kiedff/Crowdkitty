@@ -10,4 +10,13 @@ class Project < ActiveRecord::Base
     Project.where("name ILIKE (?)", "%#{term}%").to_a
   end
 
+  def total_raised
+
+    pledges = Pledge.where(project_id: self.id)
+    pledge_values = pledges.map do |pledge| pledge.value 
+    end
+    pledge_values.sum
+    
+  end
+
 end
