@@ -1,0 +1,9 @@
+<% @pledge = Pledge.new %>
+
+<%= form_for [@reward, @pledge] do |f| %>
+
+  <p>Enter value you wish to pledge</p>
+  <%= f.number_field :value, :placeholder => @reward.value %>
+  <%= f.submit "Pledge!" %>
+
+  <% end %>

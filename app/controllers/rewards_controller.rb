@@ -1,6 +1,5 @@
 class RewardsController < ApplicationController
 
-
   def create
       reward = Reward.new(reward_params.merge(project_id:params[:project_id]))
       project = Project.find(params[:project_id])

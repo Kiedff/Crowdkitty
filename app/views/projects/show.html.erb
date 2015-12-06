@@ -25,15 +25,36 @@
 <%= link_to "Edit", edit_project_path %>
 <br>
 
+
 <h1>Rewards</h1>
+<br>
 <% @project.rewards.each do |reward| %>
+<div class="reward">
+<% @reward = reward %>
+<p>Description:</p>
 <%= reward.description %>,
+<br>
+<br>
+<p>Minimum pledge for reward:</p>
 £<%= reward.value %>
+<br>
+<p>Quantity available:</p>
 <%= reward.try(:quantity) %>
+<br>
+<p>Delivery:</p>
 <%= reward.delivery %>
+<br>
+<p>Ships to:</p>
 <%= reward.ships_to %>
 <br>
+<br>
+<%= render "pledges/new" %>
+
+<br>
+
+</div>
 <% end %>
+
 
 <% if current_user %>
   <%= render "rewards/new" if @project.user_id == current_user.id %>
