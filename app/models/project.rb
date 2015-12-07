@@ -12,6 +12,11 @@ class Project < ActiveRecord::Base
     .group('projects.id')
     .order('pledges_count DESC')
   }
+  # needs to include projects that don't have any pledges
+
+  def self.finishing_soon 
+    select('projects.*').sort_by{ |project| project.days_remaining }.select{|project| project.days_remaining >= 0}
+  end
 
   def self.search(term)
     Project.where("name ILIKE (?)", "%#{term}%").to_a

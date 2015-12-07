@@ -50,17 +50,28 @@
   </header>
 
   <main>
-    
-  </main>
-  
-  <footer>
-    
-  </footer>
-
-  <p class="notice"><%= notice %></p>
+     <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
   <%= yield %>
+  </main>
+  
+  <footer class="navigation" role="banner">
+    <nav role="navigation">
+      <ul class="centered-navigation-menu show">
+
+      <% if can? :create, Project %>
+        <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
+      <% end %>
+        <li class="nav-link"><%= link_to 'Discover Projects', projects_path %></li>
+        
+        <li class="nav-link"><%= link_to 'Search Projects', categories_path %></li>
+        
+      </ul>
+    </nav>
+  </footer>
+
+ 
 
 </body>
 </html>

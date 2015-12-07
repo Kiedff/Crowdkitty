@@ -1,11 +1,42 @@
 <div class="home_about">
 <h4>Working together to fund your local community.</h4>
-<li class="nav-link"><%= link_to 'About Us', 'pages/about' %></li>
+<div class="home_about_link"><%= link_to 'About Us', 'pages/about' %></div>
 </div>
 
 
 <h6>CrowdKitty helps local communities find the support they need to make their dreams for their community become a reality. Watch creative projects — big and small — come to life with the support of your community for your community.</h6>
 
+<div class="most-popular">
+  <h5>Most popular</h5>
+  <div class="cards">
+    <% @most_popular.each do |project| %>
+      <div class='card'>
+        <div class="card-image">
+          Project image
+        </div>
+        <div class='card-header'><%= project.name %></div>
+        <div class='card-copy'><p><%= project.summary %></p></div>
+      </div>
+    <% end %>
+  </div>
+  <a href="#">Show all</a>
+</div>
+
+<div class="finishing-soon">
+  <h5>Finishing soon</h5>
+  <div class="cards">
+    <% @finishing_soon.each do |project| %>
+      <div class='card'>
+        <div class="card-image">
+          Project image <%= project.days_remaining %> days remaining
+        </div>
+        <div class='card-header'><%= project.name %></div>
+        <div class='card-copy'><p><%= project.summary %></p></div>
+      </div>
+    <% end %>
+  </div>
+  <a href="#">Show all</a>
+</div>
 
 
 
