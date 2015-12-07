@@ -54,6 +54,11 @@ GEM
     builder (3.2.2)
     byebug (8.2.1)
     cancancan (1.13.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -171,6 +176,7 @@ GEM
     refills (0.1.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rmagick (2.15.4)
     sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -218,6 +224,7 @@ DEPENDENCIES
   bitters
   bourbon
   cancancan (~> 1.10)
+  carrierwave
   coffee-rails (~> 4.1.0)
   devise
   dotenv-rails
@@ -233,6 +240,7 @@ DEPENDENCIES
   pry-stack_explorer
   rails (= 4.2.4)
   refills
+  rmagick
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

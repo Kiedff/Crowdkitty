@@ -37,4 +37,8 @@ class Project < ActiveRecord::Base
     (self.end_date - self.start_date).to_i
   end
 
+  def active?
+    self.days_remaining > 0
+  end
+
 end
