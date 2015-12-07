@@ -12,4 +12,6 @@ reward for pledge:
 <%= @pledge.reward.description %>
 <% end %>
 <br>
+<% if @pledge.destroyable? %>
 <%= button_to 'cancel pledge', pledge_path( @pledge.id),method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
