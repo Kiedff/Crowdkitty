@@ -37,4 +37,12 @@ class Project < ActiveRecord::Base
     self.days_remaining > 0
   end
 
+  def success
+    self.total_raised >= self.target
+  end
+
+  def failed
+    (self.active? == false) && (self.success == false)
+  end
+
 end
