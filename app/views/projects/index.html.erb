@@ -7,6 +7,9 @@
   <% if @search %>
     <%= hidden_field_tag 'search', @search %>
   <% end %>
+  <% if @request_type %>
+    <%= hidden_field_tag 'request_type', @request_type %>
+  <% end %>
   <%= submit_tag "Filter" %>
 <% end %>
 

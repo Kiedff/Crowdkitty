@@ -6,6 +6,37 @@
 
 <h6>CrowdKitty helps local communities find the support they need to make their dreams for their community become a reality. Watch creative projects — big and small — come to life with the support of your community for your community.</h6>
 
+<div class="most-popular">
+  <h5>Most popular</h5>
+  <div class="cards">
+    <% @most_popular.each do |project| %>
+      <div class='card'>
+        <div class="card-image">
+          Project image
+        </div>
+        <div class='card-header'><%= project.name %></div>
+        <div class='card-copy'><p><%= project.summary %></p></div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'Show all', projects_path(:request_type => 'most_popular') %>
+</div>
+
+<div class="finishing-soon">
+  <h5>Finishing soon</h5>
+  <div class="cards">
+    <% @finishing_soon.each do |project| %>
+      <div class='card'>
+        <div class="card-image">
+          Project image <%= project.days_remaining %> days remaining
+        </div>
+        <div class='card-header'><%= project.name %></div>
+        <div class='card-copy'><p><%= project.summary %></p></div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'Show all', projects_path(:request_type => 'finishing_soon') %>
+</div>
 
 
 

@@ -7,7 +7,10 @@
 <%=image_tag(@project.project_image, alt: 'Project Image', width:600) %>
 </div>
 
-<div class="status_box">
+<%= render "projects/success" if @project.success %>
+<%= render "projects/failed" if @project.failed %>
+
+
 
 <p>Days remaining:</p>
 <p><%= @project.days_remaining %></p>
@@ -24,7 +27,6 @@
 <p>End date:</p>
 <p><%= @project.end_date %> </p>
 
-</div>
 
 <p>Created by:</p>
 <p><%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>

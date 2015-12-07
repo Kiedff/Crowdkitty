@@ -6,12 +6,13 @@ class Project < ActiveRecord::Base
   has_many :pictures
   has_many :rewards
 
-  scope :pledges_count, -> { 
-    select('projects.*, COUNT(pledges.project_id) AS pledges_count')
-    .joins(:pledges)
-    .group('projects.id')
-    .order('pledges_count DESC')
-  }
+  def self.sort_by_pledges(projects)
+    projects.sort_by {|p| p.pledges.count }.reverse
+  end
+
+  def self.sort_by_finishing_soon(projects)
+    projects.sort_by{ |project| project.days_remaining }.select{|project| project.days_remaining >= 0}
+  end
 
   def self.search(term)
     Project.where("name ILIKE (?)", "%#{term}%").to_a
@@ -34,6 +35,14 @@ class Project < ActiveRecord::Base
 
   def active?
     self.days_remaining > 0
+  end
+
+  def success
+    self.total_raised >= self.target
+  end
+
+  def failed
+    (self.active? == false) && (self.success == false)
   end
 
 end

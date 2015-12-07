@@ -22,15 +22,22 @@ class ProjectsController < ApplicationController
   
   def index
     @category_id = params[:category_id]
-    if @category_id == 'all'
-      @projects = Project.search(params[:search])
-    elsif @category_id
-      @projects = Project.search(params[:search]).select {|p| p.category_id == @category_id.to_i}
-    else
-      @projects = Project.search(params[:search])
-    end
+    @request_type = params[:request_type]
+    @projects = Project.search(params[:search])
     @search = params[:search]
     @categories = Category.all
+
+    case @request_type 
+    when 'most_popular'
+      @projects = Project.sort_by_pledges(@projects)
+    when 'finishing_soon'
+      @projects = Project.sort_by_finishing_soon(@projects)
+    end
+
+    if @category_id && @category_id != 'all'
+      @projects = @projects.select {|p| p.category_id == @category_id.to_i}
+    end
+    
   end
 
   def show
@@ -55,7 +62,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search, :days)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search, :days, :request_type)
   end
 
   def new
