@@ -3,8 +3,11 @@
 <head>
   <title>CrowdKitty</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
@@ -13,7 +16,7 @@
       <nav role="navigation">
         <ul class="centered-navigation-menu show">
         <li class="nav-link"><%= link_to 'Home', root_path %></li>
-        <li class="nav-link"><%= link_to 'About Us', '/pages/about' %></li>
+
         <% if can? :create, Project %>
           <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
         <% end %>
