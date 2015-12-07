@@ -21,7 +21,7 @@
           <li class="nav-link"><%= link_to 'Search Projects', categories_path %></li>
           <% if user_signed_in? %>
             <li class="nav-link">
-              <%= link_to "Profile", current_user %> 
+              <%= link_to "Profile", User.find(current_user.id) %> 
               <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
             </li>
             <% else %>
@@ -38,7 +38,7 @@
           <div class="search-bar">
             <form role="search" action="/projects" placeholder="search projects" >
               <input type="search" placeholder="Search projects" name="search" id="srch-term">
-              <button type="submit"><img src="search-icon.png" alt="Search Icon"></button>
+              <button type="submit"><img src=<%= image_path "search-icon.png" %> alt="Search Icon"></button>
             </form>
           </div>
         </div>      
