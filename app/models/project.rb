@@ -45,4 +45,8 @@ class Project < ActiveRecord::Base
     self.total_raised >= self.target
   end
 
+  def failed
+    (self.active? == false) && (self.success == false)
+  end
+
 end
