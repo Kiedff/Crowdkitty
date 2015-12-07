@@ -21,9 +21,9 @@ Rails.application.routes.draw do
     resources :pledges 
   end
  
- Rails.application.routes.draw do
-   get "/pages/:page" => "pages#show"
- end
+   Rails.application.routes.draw do
+     get "/pages/:page" => "pages#show"
+   end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
