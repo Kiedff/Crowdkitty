@@ -19,7 +19,7 @@
       </div>
     <% end %>
   </div>
-  <a href="#">Show all</a>
+  <%= link_to 'Show all', projects_path(:request_type => 'most_popular') %>
 </div>
 
 <div class="finishing-soon">
@@ -35,7 +35,7 @@
       </div>
     <% end %>
   </div>
-  <a href="#">Show all</a>
+  <%= link_to 'Show all', projects_path(:request_type => 'finishing_soon') %>
 </div>
 
 

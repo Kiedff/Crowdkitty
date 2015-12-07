@@ -6,16 +6,12 @@ class Project < ActiveRecord::Base
   has_many :pictures
   has_many :rewards
 
-  scope :pledges_count, -> { 
-    select('projects.*, COUNT(pledges.project_id) AS pledges_count')
-    .joins(:pledges)
-    .group('projects.id')
-    .order('pledges_count DESC')
-  }
-  # needs to include projects that don't have any pledges
+  def self.sort_by_pledges(projects)
+    projects.sort_by {|p| p.pledges.count }.reverse
+  end
 
-  def self.finishing_soon 
-    select('projects.*').sort_by{ |project| project.days_remaining }.select{|project| project.days_remaining >= 0}
+  def self.sort_by_finishing_soon(projects)
+    projects.sort_by{ |project| project.days_remaining }.select{|project| project.days_remaining >= 0}
   end
 
   def self.search(term)
