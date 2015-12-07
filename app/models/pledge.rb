@@ -1,5 +1,6 @@
 class Pledge < ActiveRecord::Base
   before_destroy :destroyable?
+  before_create :project_active?
 
   belongs_to :user
   belongs_to :project
@@ -7,6 +8,10 @@ class Pledge < ActiveRecord::Base
 
   def destroyable?
     created_at < 1.day.ago
+  end
+
+  def project_active?
+    self.project.active?
   end
 end
 

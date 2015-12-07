@@ -34,8 +34,12 @@
 <%= link_to "Edit", edit_project_path %>
 <br>
 <div class="reward">
+<% if @project.active? %>
 <h1>Pledge any value for no reward</h1>
 <%= render "pledges/rewardless" %>
+<% else %>
+<p>You can no longer pledge, this project has closed</p>
+<% end %>
 </div>
 
 <br>
@@ -62,7 +66,11 @@
 <%= reward.ships_to %>
 <br>
 <br>
-<%= render "pledges/new" %>
+<% if @project.active? %>
+<%= render "pledges/new"  %>
+<% else %>
+<p>this project is now closed</p>
+<% end %>
 
 <br>
 

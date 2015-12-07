@@ -11,7 +11,8 @@ class PledgesController < ApplicationController
       flash[:success] = "Pledged successfully!"
       redirect_to :back
     else
-      render 'new'
+      flash[:error] = "Pledge failed"
+      redirect_to :back
     end
   end
 
