@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151207150911) do
-=======
-ActiveRecord::Schema.define(version: 20151207145515) do
->>>>>>> b380b1c87a18c15735344b6045ecbb3fbf3a33d6
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,13 +72,10 @@ ActiveRecord::Schema.define(version: 20151207145515) do
     t.string   "location"
     t.text     "summary"
     t.integer  "category_id"
-
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "project_image"
-
     t.integer  "days"
-
+    t.string   "project_image"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
