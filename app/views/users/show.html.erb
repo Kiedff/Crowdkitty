@@ -7,10 +7,10 @@
 <br>
 £<%= pledge.value %>
 <br>
+<%= link_to "show details", pledge_path(pledge)%> 
+<br>
 <br>
 <% end %>
 
-
-
-<%= link_to "Edit or cancel account", edit_user_registration_path if @user == current_user %>
+<%= link_to "Edit or cancel account", edit_user_registration_path if @user == User.find(current_user.id) %>
 
