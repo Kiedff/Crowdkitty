@@ -29,4 +29,21 @@ body{
 .navigation-wrapper {
   font-family: 'Sansita One', cursive;
   color: #477DCA;
+  text-decoration: none;
+  list-style: none;
+}
+
+li, a {
+  list-style: none;
+}
+
+footer ul {
+  text-align: center;
+  margin-top: 40px;
+
+}
+
+footer li {
+  display: inline-block;
+  padding-right: 20px;
 }
