@@ -7,7 +7,9 @@ class ProjectsController < ApplicationController
 
   def create
       project = Project.new(project_params)
+
       project.user_id = current_user.id if current_user
+      project.end_date = Date.today + project.days
       if project.save
         flash[:success] = "Project created! Good luck!"
 
@@ -53,7 +55,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search, :days)
   end
 
   def new
