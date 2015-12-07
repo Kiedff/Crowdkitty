@@ -1,10 +1,5 @@
 class PledgesController < ApplicationController
 
-  def new
-    @pledge = Pledge.new
-    @project = Project.find(params[:project_id])
-  end
-
   def create
     pledge = Pledge.new(pledge_params.merge( user_id: current_user.id, reward_id:params[:reward_id], project_id: params[:project_id] ))
     if pledge.reward_id
