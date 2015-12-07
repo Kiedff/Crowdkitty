@@ -9,8 +9,7 @@ class PledgesController < ApplicationController
     
     if pledge.save
       flash[:success] = "Pledged successfully!"
-      project = Project.find(params[:project_id])
-      redirect_to project
+      redirect_to :back
     else
       render 'new'
     end
@@ -22,7 +21,7 @@ class PledgesController < ApplicationController
 
   def destroy
     Pledge.find(params[:id]).destroy
-    redirect_to(current_user)
+    redirect_to(user_path(current_user))
   end
 
   private
