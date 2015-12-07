@@ -1,1 +1,16 @@
+<%= @user.name %>
+<br>
+<h1>Pledges made</h1>
+<% @user.pledges.each do |pledge| %>
+
+<%= pledge.project.name %>
+<br>
+£<%= pledge.value %>
+<br>
+<br>
+<% end %>
+
+
+
 <%= link_to "Edit or cancel account", edit_user_registration_path if @user == current_user %>
+
