@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   
   root to: 'home#welcome'
 
-  devise_for :users
+  devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
+  
   get 'category/name'
 
   resources :pledges, only: [:show, :destroy]
@@ -19,9 +20,9 @@ Rails.application.routes.draw do
     resources :pledges 
   end
  
- Rails.application.routes.draw do
-   get "/pages/:page" => "pages#show"
- end
+   Rails.application.routes.draw do
+     get "/pages/:page" => "pages#show"
+   end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
