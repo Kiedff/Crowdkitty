@@ -11,7 +11,6 @@ class Project < ActiveRecord::Base
   end
 
   def total_raised
-    
     pledges = Pledge.where(project_id: self.id)
     pledge_values = pledges.map do |pledge| pledge.value 
     end
@@ -20,6 +19,10 @@ class Project < ActiveRecord::Base
 
   def funds_needed
     self.target - self.total_raised
+  end
+
+  def days_remaining
+    (self.end_date - self.start_date).to_i
   end
 
 end
