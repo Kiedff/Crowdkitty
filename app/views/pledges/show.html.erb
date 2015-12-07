@@ -7,8 +7,9 @@ pledge value:
 £<%= @pledge.value  %>
 
 <br>
-
+<% if @pledge.reward  %>
 reward for pledge:
 <%= @pledge.reward.description %>
+<% end %>
 <br>
 <%= button_to 'cancel pledge', pledge_path( @pledge.id),method: :delete, data: {confirm: "Are you sure?"} %>
