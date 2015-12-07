@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'time_ago_in_words', '~> 0.1.1'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'faker'
 gem 'bourbon'
 gem 'neat'
