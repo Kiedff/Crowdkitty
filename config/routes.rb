@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   
   get 'category/name'
 
-  
+  resources :pledges, only: [:show, :destroy]
   resources :pictures
-
   resources :categories
   resources :users
 

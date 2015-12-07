@@ -1,0 +1,14 @@
+pledge for:
+
+<%= @pledge.project.name %>
+<br>
+
+pledge value:
+£<%= @pledge.value  %>
+
+<br>
+
+reward for pledge:
+<%= @pledge.reward.description %>
+<br>
+<%= button_to 'cancel pledge', pledge_path( @pledge.id),method: :delete, data: {confirm: "Are you sure?"} %>

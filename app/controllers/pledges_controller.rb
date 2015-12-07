@@ -16,6 +16,15 @@ class PledgesController < ApplicationController
     end
   end
 
+  def show
+    @pledge = Pledge.find(params[:id])
+  end
+
+  def destroy
+    Pledge.find(params[:id]).destroy
+    redirect_to(current_user)
+  end
+
   private
   def pledge_params
     params.require(:pledge).permit(:value, :project_id, :user_id, :reward_id)
