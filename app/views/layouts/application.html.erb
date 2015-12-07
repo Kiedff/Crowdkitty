@@ -15,63 +15,79 @@
     <div class="navigation-wrapper">
       <nav role="navigation">
         <ul class="centered-navigation-menu show">
-        <li class="nav-link"><%= link_to 'Home', root_path %></li>
+          <li class="nav-link"><%= link_to 'Home', root_path %></li>
 
-        <% if can? :create, Project %>
+          <% if can? :create, Project %>
           <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
-        <% end %>
+          <% end %>
           <li class="nav-link"><%= link_to 'Discover Projects', projects_path %></li>
           
           <li class="nav-link"><%= link_to 'Search Projects', categories_path %></li>
           <% if user_signed_in? %>
-            <li class="nav-link">
-              <%= link_to "Profile", User.find(current_user.id) %> 
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
-            </li>
-            <% else %>
-            <li class="nav-link">
-              <%= link_to "Login", new_user_session_path %>    
-            </li>
-            <li class="nav-link">
-              <%= link_to "Register", new_user_registration_path %>
-            </li> 
+          <li class="nav-link">
+            <%= link_to "Profile", User.find(current_user.id) %> 
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
+          </li>
+          <% else %>
+          <li class="nav-link">
+            <%= link_to "Login", new_user_session_path %>    
+          </li>
+          <li class="nav-link">
+            <%= link_to "Register", new_user_registration_path %>
+          </li> 
           <% end %>
         </ul>
       </nav>
-        <div class="navigation-tools">
-          <div class="search-bar">
-            <form role="search" action="/projects" placeholder="search projects" >
-              <input type="search" placeholder="Search projects" name="search" id="srch-term">
-              <button type="submit"><img src=<%= image_path "search-icon.png" %> alt="Search Icon"></button>
-            </form>
-          </div>
-        </div>      
+      <div class="navigation-tools">
+        <div class="search-bar">
+          <form role="search" action="/projects" placeholder="search projects" >
+            <input type="search" placeholder="Search projects" name="search" id="srch-term">
+            <button type="submit"><img src=<%= image_path "search-icon.png" %> alt="Search Icon"></button>
+          </form>
+        </div>
+      </div>      
     </div>
   </header>
 
   <main>
-     <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
 
-  <%= yield %>
-  </main>
-  
-  <footer class="navigation" role="banner">
-    <nav role="navigation">
-      <ul class="centered-navigation-menu show">
+   <%= yield %>
+ </main>
 
+
+<footer class="footer" role="contentinfo">
+
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+      <li><a href="javascript:void(0)">Products</a></li>
+    </ul>
+    <ul>
+      <li><h3>Projects</h3></li>
       <% if can? :create, Project %>
-        <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
+      <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
       <% end %>
-        <li class="nav-link"><%= link_to 'Discover Projects', projects_path %></li>
-        
-        <li class="nav-link"><%= link_to 'Search Projects', categories_path %></li>
-        
-      </ul>
-    </nav>
-  </footer>
+      <li class="nav-link"><%= link_to 'Discover Projects', projects_path %></li>
 
- 
+      <li class="nav-link"><%= link_to 'Search Projects', categories_path %></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
+</footer>
+
+
 
 </body>
 </html>

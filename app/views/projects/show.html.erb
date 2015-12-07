@@ -1,11 +1,16 @@
-<p>Project name:</p>
-<p><%= @project.name %> </p>
+
+
+
+<h3><%= @project.name.capitalize %> </h3>
+
+<div class="images-wrapper">
+<%=image_tag(@project.project_image, alt: 'Project Image', width:600) %>
+</div>
+
+<div class="status_box">
 
 <p>Days remaining:</p>
 <p><%= @project.days_remaining %></p>
-
-<p>Project summary:</p>
-<p><%= @project.summary %> </p>
 
 <p>Target:</p>
 <p>£<%= @project.target %> </p>
@@ -19,11 +24,16 @@
 <p>End date:</p>
 <p><%= @project.end_date %> </p>
 
+</div>
+
 <p>Created by:</p>
 <p><%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>
 
 <p>Location:</p>
 <p><%= @project.location %> </p>
+
+<p>Project summary:</p>
+<p><%= @project.summary %> </p>
 
 <p>Description:</p>
 <p><%= @project.description %> </p>
@@ -33,6 +43,8 @@
 
 <%= link_to "Edit", edit_project_path %>
 <br>
+
+
 <div class="reward">
 <% if @project.active? %>
 <h1>Pledge any value for no reward</h1>

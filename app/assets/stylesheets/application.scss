@@ -3,6 +3,8 @@
 @import "base/base";
 @import "category";
 @import 'refills/_navigation';
+@import 'refills/_hover-tile-animation';
+@import 'refills/_footer';
 
 
 body{
@@ -10,40 +12,38 @@ body{
 }
 
 .home_about {
-  color: white;
-  background-image: url('garden.jpg');
-  height: 280px;
-  width:100%;
-  background-size: cover;
-  text-align: center;
-  border-radius: 0.5rem;
+color: white;
+background-image: url('garden.jpg');
+height: 280px;
+width:100%;
+background-size: cover;
+text-align: center;
+border-radius: 0.5rem;
 
 }
 
 .home_about h4 {
-  font-family: 'Sansita One', cursive;
-  font-size: 48px;
-  color: #477DCA;
+font-family: 'Sansita One', cursive;
+font-size: 38px;
+color: #477DCA;
+padding-top: 80px;
 }
 
 .navigation-wrapper {
-  font-family: 'Sansita One', cursive;
-  color: #477DCA;
-  text-decoration: none;
-  list-style: none;
+font-family: 'Sansita One', cursive;
+color: #477DCA;
+text-decoration: none;
+list-style: none;
 }
 
 li, a {
-  list-style: none;
+list-style: none;
 }
 
-footer ul {
-  text-align: center;
-  margin-top: 40px;
+.status_box {
 
 }
 
-footer li {
-  display: inline-block;
-  padding-right: 20px;
+.reward {
+
 }
