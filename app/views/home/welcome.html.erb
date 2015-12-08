@@ -8,9 +8,7 @@
 
 
 
-<div class="homepage_blurb">
-  <h6>CrowdKitty helps local communities find the support they need to make their dreams for their community become a reality. Watch creative projects — big and small — come to life with the support of your community for your community.</h6>
-</div>
+
 
 <div class="most-popular">
   <h5>Most popular</h5>
@@ -25,10 +23,10 @@
     </div>
     <% end %>
   </div>
-  
   <%= link_to 'See more...', projects_path(:request_type => 'most_popular') %>
-
 </div>
+
+
 
 <div class="finishing-soon">
   <h5>Finishing soon</h5>
@@ -43,9 +41,13 @@
     </div>
     <% end %>
   </div>
-  
   <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon') %>
+</div>
 
+<div class="homepage_blurb">
+  <div class="blurb">
+    CrowdKitty helps local communities find the support they need to make their dreams for their community become a reality. Watch creative projects — big and small — come to life with the support of your community for your community.
+  </div>
 </div>
 
 
