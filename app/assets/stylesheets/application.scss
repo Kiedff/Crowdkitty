@@ -12,8 +12,11 @@ main {
   @include outer-container;
 }
 
-.main {
-  margin-bottom: 10px;
+h5 {
+  font-family: 'Sansita One', cursive;
+  font-size: 22px;
+  margin: 20px;
+  width: 50%;
 }
 
 .logo {
@@ -21,29 +24,61 @@ main {
   width: auto;
 }
 
+.current_projects {
+  padding: 5px 5px;
+  border: 2px solid #d4d5d6;
+  margin-bottom: 5px;
+  /*border-radius: 0.5em;*/
+}
+
+.homepage_blurb {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.current_projects h6 {
+  text-align: center;
+}
+
+.most-popular {
+  padding: 5px 10px 5px 5px;
+  border: 2px solid #d4d5d6;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.finishing-soon {
+  padding: 5px;
+  border: 2px solid #d4d5d6;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .home_about {
-color: white;
-background-image: url('garden1.png');
-height: 280px;
-width:100%;
-background-size: cover;
-text-align: center;
-border-radius: 0.5rem;
-margin-bottom: 10px;
+  color: white;
+  background-image: url('garden1.png');
+  height: 360px;
+  width:100%;
+  background-size: cover;
+  text-align: center;
 }
 
 .home_about h4 {
   /*-webkit-text-stroke: 0.1px #57b382;*/
-font-family: 'Sansita One', cursive;
-font-size: 40px;
-text-shadow: 0 0 3px #121313;
-color: #fff;
-padding-top: 80px;
-opacity: 0.9;
+  font-family: 'Sansita One', cursive;
+  font-size: 40px;
+  text-shadow: 0 0 3px #121313;
+  color: #fff;
+  padding-top: 80px;
+  opacity: 0.95;
 }
 
 .home_about_link  {
-  margin-top: 20px;
+  margin-top: 70px;
 
 }
 
@@ -54,24 +89,32 @@ opacity: 0.9;
   border: 3px solid #fff;
   height: 20px;
   width: 40px;
-  padding: 8px 8px 8px 8px;
+  padding: 8px;
   border-radius: 0.5rem;
 }
 
 .home_about_link a:hover { 
-    background-color: #61C791;
-    border: 3px solid #61C791;
+  background-color: #61C791;
+  border: 3px solid #61C791;
+}
+
+.search_location {
+  background-color: #2A2F36;
+  height: 50px;
+  text-align: center;
+  opacity: 0.7;
+  margin-top: 85px;
 }
 
 .navigation-wrapper {
-font-family: 'Sansita One', cursive;
-color: #477DCA;
-text-decoration: none;
-list-style: none;
+  font-family: 'Sansita One', cursive;
+  color: #477DCA;
+  text-decoration: none;
+  list-style: none;
 }
 
 li, a {
-list-style: none;
+  list-style: none;
 }
 
 .status_box {
@@ -80,4 +123,8 @@ list-style: none;
 
 .reward {
 
+}
+
+.footer {
+  margin-top: 25px;
 }

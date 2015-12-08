@@ -1,22 +1,40 @@
 <% if @search %>
-  <h3>Search results for: <%= @search %></h3>
+<h3>Search results for: <%= @search %></h3>
 <% end %>
 
 <%= form_tag projects_path, method: "get" do %>
-  <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
-  <% if @search %>
-    <%= hidden_field_tag 'search', @search %>
-  <% end %>
-  <% if @request_type %>
-    <%= hidden_field_tag 'request_type', @request_type %>
-  <% end %>
-  <%= submit_tag "Filter" %>
+<%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
+<% if @search %>
+<%= hidden_field_tag 'search', @search %>
 <% end %>
+<% if @request_type %>
+<%= hidden_field_tag 'request_type', @request_type %>
+<% end %>
+<%= submit_tag "Filter" %>
+<% end %><br>
+
+<div class="current_projects">
+<h6>All Current Projects</h6><br>
 
 <%# binding.pry %>
+<div class="cards">
+  <% @projects.each do |project| %>
+  <div class='card'>
+    <div class="card-image">
+    </div>
+    <div class='card-header'>
+      <%= link_to "#{project.name}", project_path(project) %> </p>
+    </div>
+    <div class='card-copy'>
+      <p><%= project.summary %></p>
+    </div>
+  </div>
+  <%end %>
+  </div>
 
-<% @projects.each do |project| %>
 
-<p><%= link_to "#{project.name}", project_path(project) %> </p>
 
-<%end %>
+
+
+
+  
