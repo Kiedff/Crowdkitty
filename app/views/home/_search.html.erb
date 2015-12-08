@@ -1,0 +1,40 @@
+
+<div class="search-tools">
+  <div class="search-content">
+    <div class="filter">
+      <label class='search-heading'>Category</label>
+      <div>
+        <ol class='search-dropdown'>
+          <% @categories.each do |category| %>
+            <li>
+              <input id=<%= category.name %> type="checkbox">
+              <label for=<%= category.name %>><%= category.name %></label>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+    <div class="filter">
+      <label class='search-heading'>Location</label>
+      <div>
+        <ol class='search-dropdown'>
+          <li>
+            <input id="small" type="checkbox">
+            <label for="small">Small</label>
+          </li>
+          <li>
+            <input id="medium" type="checkbox">
+            <label for="medium">Medium</label>
+          </li>
+          <li>
+            <input id="large" type="checkbox">
+            <label for="large">Large</label>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="trigger">
+      <button class='search-update'>Update</button>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@
   <h4>Working together to fund your local community.</h4>
   <div class="home_about_link"><%= link_to 'Find Out More', 'pages/about' %></div>
   <div class="search_location">
-    testing testing
+    <%= render "home/search", :categories => @categories %>
   </div>
 </div>
 
