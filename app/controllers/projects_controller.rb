@@ -85,6 +85,7 @@ class ProjectsController < ApplicationController
     @projects = Project.search(@search)
     @categories = Category.all
     @cities = @@cities
+    @location = params[:loc]
 
     case @request_type 
     when 'most_popular'
@@ -127,7 +128,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image, :loc)
   end
 
   def new
