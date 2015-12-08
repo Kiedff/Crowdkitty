@@ -1,7 +1,9 @@
-<% @project = Project.new %>
 
 <%= form_for @project do |f| %>
 
+<% if (@project.start_date && @project.active?) && (current_user.role != "admin") %>
+<p> You cannot edit an active project </p>
+<% else %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br>
@@ -14,8 +16,8 @@
   <%= f.label :target %>
   <%= f.number_field :target %>
   <br>
-  <%= f.label :start_date %>
-  <%= f.date_select :start_date %>
+  <%= f.label :start_date  %>
+  <%= f.date_select :start_date  %>
   <br>
   <%= f.label :days %>
   <%= f.number_field :days %>
@@ -32,4 +34,5 @@
   <br>
   <%= f.submit button_text %>
 
+<% end %>
 <% end %>

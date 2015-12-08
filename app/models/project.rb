@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  before_update :editable?
 
   belongs_to :user
   belongs_to :category
@@ -32,7 +33,7 @@ class Project < ActiveRecord::Base
   end
 
   def days_remaining
-    (self.end_date - self.start_date).to_i
+    (self.end_date - self.start_date).to_i 
   end
 
   def active?
@@ -50,5 +51,10 @@ class Project < ActiveRecord::Base
   def not_open_yet
     Date.today < self.start_date
   end
+
+  def editable?
+    self.not_open_yet
+  end
+
 
 end
