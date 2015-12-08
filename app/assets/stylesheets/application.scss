@@ -3,11 +3,8 @@
 @import "base/base";
 @import "category";
 @import 'refills/_navigation';
-
 @import 'refills/_hover-tile-animation';
 @import 'refills/_footer';
-
-
 @import 'refills/_cards';
 
 
@@ -15,22 +12,55 @@ main {
   @include outer-container;
 }
 
+.main {
+  margin-bottom: 10px;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
 .home_about {
 color: white;
-background-image: url('garden.jpg');
+background-image: url('garden1.png');
 height: 280px;
 width:100%;
 background-size: cover;
 text-align: center;
 border-radius: 0.5rem;
-
+margin-bottom: 10px;
 }
 
 .home_about h4 {
+  /*-webkit-text-stroke: 0.1px #57b382;*/
 font-family: 'Sansita One', cursive;
-font-size: 38px;
-color: #477DCA;
+font-size: 40px;
+text-shadow: 0 0 3px #121313;
+color: #fff;
 padding-top: 80px;
+opacity: 0.9;
+}
+
+.home_about_link  {
+  margin-top: 20px;
+
+}
+
+.home_about_link a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  border: 3px solid #fff;
+  height: 20px;
+  width: 40px;
+  padding: 8px 8px 8px 8px;
+  border-radius: 0.5rem;
+}
+
+.home_about_link a:hover { 
+    background-color: #61C791;
+    border: 3px solid #61C791;
 }
 
 .navigation-wrapper {

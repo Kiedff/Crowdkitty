@@ -2,9 +2,10 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
-  has_many :pledges
-  has_many :pictures
-  has_many :rewards
+  has_many :pledges, dependent: :destroy
+  has_many :pictures, dependent: :destroy
+  has_many :rewards, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.sort_by_pledges(projects)
     projects.sort_by {|p| p.pledges.count }.reverse
