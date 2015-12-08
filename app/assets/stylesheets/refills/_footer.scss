@@ -1,9 +1,10 @@
 .footer {
   ///////////////////////////////////////////////////////////////////////////////////
-  $base-spacing: 1.5em !default;
-  $base-accent-color: #477DCA !default;
+  $base-spacing: 0.5em !default;
+  $base-accent-color: #31797D !default;
   $medium-screen: em(640) !default;
   $large-screen: em(860) !default;
+
   
   ul {
     padding: 0;
@@ -19,13 +20,13 @@
   }
   //////////////////////////////////////////////////////////////////////////////////
 
-  $footer-background: desaturate(darken($base-accent-color, 20%), 30%);
+  $footer-background: #2A2F36;
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, 0.6);
   $footer-disclaimer-color: transparentize($footer-color, 0.6);
 
   background: $footer-background;
-  padding: ($base-spacing * 2) $gutter;
+  padding: ($base-spacing * 0.5) $gutter;
   width: 100%;
 
   .footer-logo {
@@ -39,7 +40,7 @@
 
   .footer-links {
     @include clearfix;
-    margin-bottom: $base-spacing;
+    margin-bottom: 0.2px;
 
     @include media($medium-screen) {
       @include shift(3);
@@ -47,7 +48,7 @@
   }
 
   ul {
-    margin-bottom: $base-spacing * 2;
+    margin-bottom: $base-spacing * 0.5;
 
     @include media($medium-screen) {
       @include span-columns(3);

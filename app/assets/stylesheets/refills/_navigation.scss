@@ -8,16 +8,17 @@ header.navigation {
   
   a {
     text-decoration: none;
+    color: #61C791;
   }
   //////////////////////////////////////////////////////////////////////////////////
 
   $navigation-padding: 1em;
   $navigation-background: #fff;
   $navigation-color: transparentize(white, 0.3);
-  $navigation-color-hover: white;
+  $navigation-color-hover: #61C791;
   $navigation-height: 60px;
   $navigation-nav-button-background: #000;
-  $navigation-nav-button-background-hover: lighten($navigation-background, 10%);
+  /*$navigation-nav-button-background-hover: lighten($navigation-background, 10%);*/
   $navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20%);
   $navigation-search-background: lighten($navigation-background, 5);
   $navigation-search-border: 1px solid darken($navigation-background, 5);
@@ -69,7 +70,7 @@ header.navigation {
 
     &:focus,
     &:hover {
-      color: $navigation-color-hover;
+      color: #61C791;
     }
   }
 
@@ -137,7 +138,7 @@ header.navigation {
 
       &:focus,
       &:hover {
-        color: #099;
+        color: #61C791;
       }
     }
   }

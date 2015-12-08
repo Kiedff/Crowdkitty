@@ -49,22 +49,22 @@
     </div>
   </header>
 
-  <main>
+  <div class="main">
    <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
 
    <%= yield %>
- </main>
+ </div>
 
 
-<footer class="footer" role="contentinfo">
+ <footer class="footer" role="contentinfo">
 
   <div class="footer-links">
     <ul>
       <li><h3>Content</h3></li>
       <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">FAQs</a></li>
       <li><a href="javascript:void(0)">Contact</a></li>
-      <li><a href="javascript:void(0)">Products</a></li>
     </ul>
     <ul>
       <li><h3>Projects</h3></li>
@@ -72,7 +72,6 @@
       <li class="nav-link"><%= link_to 'Create Project', new_project_path %></li>
       <% end %>
       <li class="nav-link"><%= link_to 'Discover Projects', projects_path %></li>
-
       <li class="nav-link"><%= link_to 'Search Projects', categories_path %></li>
     </ul>
     <ul>
