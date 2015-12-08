@@ -11,9 +11,12 @@
 <%= render "projects/failed" if @project.failed %>
 
 
-
 <p>Days remaining:</p>
+<% if @project.not_open_yet %>
+<p> <%= "This project opens on #{@project.start_date}" %> </p>
+<% else %>
 <p><%= @project.days_remaining %></p>
+<% end %>
 
 <p>Target:</p>
 <p>£<%= @project.target %> </p>
@@ -25,7 +28,7 @@
 <p>£<%= @project.funds_needed %></p>
 
 <p>Start date:</p>
-<p> <% @project.start_date %> </p>
+<p> <%= @project.start_date %> </p>
 
 <p>End date:</p>
 <p><%= @project.end_date %> </p>
@@ -56,7 +59,7 @@
 <h1>Pledge any value for no reward</h1>
 <%= render "pledges/rewardless" %>
 <% else %>
-<p>You can no longer pledge, this project has closed</p>
+<p>This project is not currently open to pledges</p>
 <% end %>
 </div>
 
@@ -87,7 +90,7 @@
 <% if @project.active? %>
 <%= render "pledges/new"  %>
 <% else %>
-<p>this project is now closed</p>
+<p>this project is not currently open to pledges</p>
 <% end %>
 
 <br>

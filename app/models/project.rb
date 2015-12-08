@@ -36,7 +36,7 @@ class Project < ActiveRecord::Base
   end
 
   def active?
-    self.days_remaining > 0
+    (self.days_remaining > 0) && (Date.today > self.start_date)
   end
 
   def success
@@ -45,6 +45,10 @@ class Project < ActiveRecord::Base
 
   def failed
     (self.active? == false) && (self.success == false)
+  end
+
+  def not_open_yet
+    Date.today < self.start_date
   end
 
 end
