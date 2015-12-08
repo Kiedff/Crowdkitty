@@ -1,12 +1,14 @@
-<% if @search %>
-<h3>Search results for: <%= @search %></h3>
-<% end %>
 
-<%= form_tag projects_path, method: "get" do %>
-<%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
+
+<%= form_tag projects_path, method: "get", class: 'projects-filter' do %>
 <% if @search %>
-<%= hidden_field_tag 'search', @search %>
+<h3>Search results for </h3>
+<% else %>
+<h3>Search for </h3>
 <% end %>
+<%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'search') %> show
+<%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %> projects in
+<%= select_tag 'loc', options_for_select(@cities.map {|city| [city, city]}.uniq.unshift(['all locations', 'all'])) %>
 <% if @request_type %>
 <%= hidden_field_tag 'request_type', @request_type %>
 <% end %>

@@ -132,7 +132,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 }
 
 .home_about_link  {
-  margin-top: 70px;
+  margin-top: 60px;
 
 }
 
@@ -190,13 +190,13 @@ li, a {
   margin-top: 25px;
 }
 
-.fancy-search * {
+.fancy-search *, .projects-filter * {
   display: inline;
 }
 
 .search_location {
-  height: 50px;
-  margin-top: 37px;
+  height: 87px;
+  margin-top: 60px;
   border-radius: 0;
   text-align: left;
 }
@@ -205,9 +205,16 @@ li, a {
   background-color: rgba(42,47,54,0.7);
   border: none;
   text-align: center;
+  height: 87px;
+  vertical-align: middle;
+  padding: 26px;
 }
 
 .fancy-search .search-text {
+  width: 20%;
+}
+
+.projects-filter .projects-search {
   width: 20%;
 }
 
