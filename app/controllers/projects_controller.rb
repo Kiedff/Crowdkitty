@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
       project = Project.new(project_params)
 
       project.user_id = current_user.id if current_user
-      project.end_date = Date.today + project.days
+      project.end_date = project.start_date + project.days
       if project.save
         flash[:success] = "Project created! Good luck!"
 
