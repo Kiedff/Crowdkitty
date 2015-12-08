@@ -1,6 +1,3 @@
-
-
-
 <h1><%= @project.name.capitalize %> </h1>
 <%= render "projects/success" if @project.success %>
 <%= render "projects/failed" if @project.failed %>
@@ -12,30 +9,25 @@
   </div>
 
   <div class="project_status">
-    <p>Target:</p>
-    <p>£<%= @project.target %> </p>
+    <p><strong>Target:</strong> £<%= @project.target %></p>
 
-    <p>Total raised so far:</p>
-    <p>£<%= @project.total_raised %></p>
-
-    <p>Total pledges needed to reach target</p>
-    <p>£<%= @project.funds_needed %></p>
-
+    <p><strong>Total raised so far:</strong>
     <div class="progress-bar-indication">
-      <span class="meter" style="width: 60%">
-        <p>60%</p>
+      <span class="meter" style="width: <%= @project.current_percentage %>">
+        <p>£<%= @project.total_raised %></p>
       </span>
-    </div>
+    </div> </p>
 
-    <p>Days remaining:</p>
+    <p><strong>Total pledges needed to reach target:</strong> £<%= @project.funds_needed %></p>
+
+    <p><strong>Days remaining:</strong>
     <% if @project.not_open_yet %>
-    <p> <%= "This project opens on #{@project.start_date}" %> </p>
+    <%= "This project opens on #{@project.start_date}" %>
     <% else %>
-    <p><%= @project.days_remaining %></p>
-    <% end %>
+    <%= @project.days_remaining %>
+    <% end %></p>
 
-    <p>End date:</p>
-    <p><%= @project.end_date %> </p>
+    <p><strong>End date:</strong> <%= @project.human_readable_date %> </p>
 
     <% if @project.active? %>
     <h4>Pledge any value for no reward</h4>
@@ -50,7 +42,7 @@
 
 <ul class="accordion-tabs-minimal">
   <li class="tab-header-and-content">
-    <a href="#" class="tab-link is-active">Tab Item</a>
+    <a href="#" class="tab-link is-active">Project Summary</a>
     <div class="tab-content">
       <p>Start date:</p>
       <p> <%= @project.start_date %> </p>
@@ -58,8 +50,8 @@
       <p>End date:</p>
       <p><%= @project.end_date %> </p>
 
-      <p>Created by:</p>
-      <p><%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>
+      <p>Created by:
+      <%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>
 
       <p>Location:</p>
       <p><%= @project.location %> </p>
@@ -76,7 +68,7 @@
   </li>
   
   <li class="tab-header-and-content">
-    <a href="#" class="tab-link">Another Tab</a>
+    <a href="#" class="tab-link">Rewards</a>
     <div class="tab-content">
       <% @project.rewards.each do |reward| %>
       <div class="reward">
@@ -109,7 +101,7 @@
     </div>
   </li>
   <li class="tab-header-and-content">
-    <a href="#" class="tab-link">Third</a>
+    <a href="#" class="tab-link">Comments</a>
     <div class="tab-content">
       <% @comment = Comment.new %>
       <%= render "comments/new" %>
@@ -119,8 +111,6 @@
 
       <% @user = User.find(comment[:user_id])%>
 
-
-      <h1>Comments</h1>
 
       <% if @project.active? %>
       <% @comment = Comment.new %>

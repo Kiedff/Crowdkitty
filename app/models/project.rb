@@ -56,5 +56,11 @@ class Project < ActiveRecord::Base
     self.not_open_yet
   end
 
+  def human_readable_date
+    end_date.strftime('%A, %d %B %Y')
+  end
 
+  def current_percentage
+    (self.total_raised.to_f/self.target.to_f) * 100
+  end
 end
