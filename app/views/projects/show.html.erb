@@ -1,6 +1,9 @@
 <h1><%= @project.name.capitalize %> </h1>
 <%= render "projects/success" if @project.success %>
-<%= render "projects/failed" if @project.failed %>
+<% unless @project.not_open_yet %>
+<%= render "projects/failed" if @project.failed  %>
+<% end %>
+
 
 
 <div class="top_of_page_project">
