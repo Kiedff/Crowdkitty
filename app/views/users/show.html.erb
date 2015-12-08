@@ -16,8 +16,8 @@
 
 <div class="pledge">
   <% if pledge.project.active? || pledge.project.success %>
-
-  <% if pledge.project.success %>
+  
+  <% if pledge.project.success && pledge.user.id == current_user.id %>
   <div class="payment_due"> 
     <p>Project reached target! This Payment is now due</p> 
   </div>
