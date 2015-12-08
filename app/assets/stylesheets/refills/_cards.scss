@@ -11,7 +11,7 @@
   $base-background-color: white !default;
   $base-spacing: 1.5em !default;
   $base-accent-color: #61C791 !default;
-  $base-link-color: $base-accent-color !default;
+  $base-link-color: #61C791;
   $dark-gray: #333 !default;
   $base-font-color: $dark-gray !default;
   //////////////////////////////////////////////////////////////////////////////////
@@ -21,7 +21,7 @@
   $card-background: lighten($card-border-color, 10%);
   $card-header-background: $card-background;
   $card-hover-background: lighten($card-background, 5%);
-  $card-image-background: #DBD199;
+  $card-image-background: #61C791;
   $card-image-hover-background: lighten($card-image-background, 5%);
   $card-margin: 1em;
 

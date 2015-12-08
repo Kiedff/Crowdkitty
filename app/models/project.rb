@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  mount_uploader :project_image, ProjectImageUploader
+
   before_update :editable?
 
   belongs_to :user
@@ -58,6 +60,14 @@ class Project < ActiveRecord::Base
 
   def human_readable_date
     end_date.strftime('%A, %d %B %Y')
+  end
+
+  def human_readable_end_date
+    end_date.strftime('%d %B %Y')
+  end
+
+  def human_readable_start_date
+    start_date.strftime('%d %B %Y')
   end
 
   def current_percentage

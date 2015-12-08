@@ -16,18 +16,40 @@ main {
   @include outer-container;
 }
 
+.expander {
+  width: 100%;
+  margin:0;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Sansita One', cursive;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 20px;
 }
 
 h5 {
   font-size: 22px;
-  margin: 20px;
+  margin-left: 0px;
   width: 50%;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  background-color: #61C791;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"]:hover { 
+  background-color: #F23C55;
+}
+
+.card a {
+  color: #61C791;
+  text-align: center;
 }
 
 .logo {
@@ -47,11 +69,23 @@ h5 {
 }
 
 .homepage_blurb {
-  @include span-columns(6);
+  @include outer-container;
   margin-bottom: 15px;
   margin-top: 15px;
   padding: 5px 10px 5px 5px;
   border: 2px solid #d4d5d6;
+}
+.blurb {
+  @include span-columns(6);
+ float: left;
+ font-size: 26px;
+ text-align: center;
+ padding-top: 90px;
+}
+
+.blurb_image {
+  @include span-columns(6);
+  float: right;
 }
 
 .current_projects h6 {
@@ -60,7 +94,8 @@ h5 {
 
 .most-popular {
   padding: 5px 10px 5px 5px;
-  border: 2px solid #d4d5d6;
+  border: 2px solid #E0FFB3;
+  background-color: #E0FFB3;
   margin-bottom: 15px;
   margin-top: 25px;
   margin-left: 0px;
@@ -69,7 +104,8 @@ h5 {
 
 .finishing-soon {
   padding: 5px;
-  border: 2px solid #d4d5d6;
+  border: 2px solid #99e7ff;
+  background-color: #99e7ff;
   margin-bottom: 15px;
   margin-top: 25px;
   margin-left: 0px;
@@ -121,6 +157,7 @@ h5 {
   color: #477DCA;
   text-decoration: none;
   list-style: none;
+  font-size: 18px;
 }
 
 li, a {
@@ -139,7 +176,14 @@ li, a {
 
 .project_image {
   @include span-columns(6);
-  
+}
+
+.reward {
+  background-color: #e9eaea;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 0.5em;
+  height: auto;
 }
 
 .footer {
