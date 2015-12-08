@@ -24,7 +24,7 @@
     <% if @project.not_open_yet %>
     <%= "This project opens on #{@project.human_readable_start_date}." %>
     <% else %>
-    <%= @project.days_remaining %>
+    <h1><%= @project.days_remaining %></h1>
     <% end %></p>
 
     <p><strong>End date:</strong> <%= @project.human_readable_date %> </p>
