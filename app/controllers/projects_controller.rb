@@ -2,6 +2,63 @@ class ProjectsController < ApplicationController
 
   load_and_authorize_resource
 
+    @@cities = [
+  'Aberdeen',
+  'Airdrie',
+  'Alloa',
+  'Arbroath',
+  'Ayr',
+  'Barrhead',
+  'Bathgate',
+  'Bearsden',
+  'Bellshill',
+  'Bishopbriggs',
+  'Blantyre',
+  'Bonnyrigg',
+  'Broxburn',
+  'Cambuslang',
+  'Clydebank',
+  'Coatbridge',
+  'Cumbernauld',
+  'Dumbarton',
+  'Dumfries',
+  'Dundee',
+  'Dunfermline',
+  'East Kilbride',
+  'Edinburgh',
+  'Elgin',
+  'Erskine',
+  'Falkirk',
+  'Glasgow',
+  'Glenrothes',
+  'Grangemouth',
+  'Greenock',
+  'Hamilton',
+  'Inverness',
+  'Irvine',
+  'Johnstone',
+  'Kilmarnock',
+  'Kilwinning',
+  'Kirkcaldy and Dysart',
+  'Kirkintilloch',
+  'Larkhall',
+  'Livingston',
+  'Motherwell',
+  'Musselburgh',
+  'Newton Mearns',
+  'Paisley',
+  'Penicuik',
+  'Perth',
+  'Peterhead',
+  'Port Glasgow',
+  'Renfrew',
+  'Rutherglen',
+  'St Andrews',
+  'Stirling',
+  'Viewpark',
+  'Wishaw'
+  ]
+
   def new
     @project = Project.new
   end
@@ -27,6 +84,7 @@ class ProjectsController < ApplicationController
     @search = params[:search]
     @projects = Project.search(@search)
     @categories = Category.all
+    @cities = @@cities
 
     case @request_type 
     when 'most_popular'
@@ -38,6 +96,10 @@ class ProjectsController < ApplicationController
     if @category_id && @category_id != 'all'
       @projects = @projects.select {|p| p.category_id == @category_id.to_i}
     end
+
+    if @location && @location != 'all'
+      @projects = @projects.select {|p| p.location == @location}
+    end   
     
   end
 

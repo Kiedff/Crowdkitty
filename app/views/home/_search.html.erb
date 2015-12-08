@@ -1,9 +1,11 @@
 <div class='fancy-search'>
-<%= form_tag root_path, method: "get" do %>
-  <%= label_tag('search', "Search for:") %>
-  <%= text_field_tag('search', @search, class: 'search-text') %>
+<%= form_tag root_path, method: "get", class: 'search-form' do %>
+  <%= label_tag('search', "Search for") %>
+  <%= text_field_tag('search', @search, class: 'search-text', placeholder: 'leave blank to show all') %>
+  show
   <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
-  <%= select_tag 'loc', options_for_select(@cities.map {|city| [city, city]}.uniq.unshift(['all', 'all'])) %>
+  projects in
+  <%= select_tag 'loc', options_for_select(@cities.map {|city| [city, city]}.uniq.unshift(['all locations', 'all'])) %>
   <%= submit_tag "Go" %>
 <% end %>
 </div>

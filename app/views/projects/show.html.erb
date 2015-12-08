@@ -44,6 +44,7 @@
   <li class="tab-header-and-content">
     <a href="#" class="tab-link is-active">Project Summary</a>
     <div class="tab-content">
+      <p>Category: <%= @project.category.name %></p>
       <p>Start date: <%= @project.human_readable_start_date %> </p>
 
       <p>End date: <%= @project.human_readable_end_date %> </p>

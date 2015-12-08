@@ -23,7 +23,7 @@
     </div>
     <% end %>
   </div>
-  <%= link_to 'See more...', projects_path(:request_type => 'most_popular') %>
+  <%= link_to 'See more...', projects_path(:request_type => 'most_popular', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
 
@@ -41,7 +41,7 @@
     </div>
     <% end %>
   </div>
-  <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon') %>
+  <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
 <div class="homepage_blurb">

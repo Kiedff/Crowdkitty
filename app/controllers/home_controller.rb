@@ -59,8 +59,8 @@ class HomeController < ApplicationController
 
   def welcome
     @categories = Category.order(:name)
-    @projects = Project.search(params[:search])
     @search = params[:search]
+    @projects = Project.search(@search)
     @category_id = params[:category_id]
     @location = params[:loc]
 
