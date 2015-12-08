@@ -95,6 +95,23 @@
 </div>
 <% end %>
 
+<% @comment = Comment.new %>
+<%= render "comments/new" %>
+
+<% comments_ordered = @project.comments.order(:created_at).reverse %>
+<% comments_ordered.each do |comment| %>
+
+<% @user = User.find(comment[:user_id])%>
+
+<div class=comment>
+  
+  <h5> <%= "#{@user.name}" %> says: </h5>
+  <p> <%= "#{comment.content}" %> </p>
+  <h6><%= "#{comment.created_at.ago_in_words }" %> </h6>
+  <%= link_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
+  
+</div>
+<% end %>
 
 <% if current_user %>
   <%= render "rewards/new" if @project.user_id == current_user.id %>
