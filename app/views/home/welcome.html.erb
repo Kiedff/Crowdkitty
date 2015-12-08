@@ -14,6 +14,7 @@
   <h5>Most popular</h5>
   <div class="cards">
     <% @most_popular.each do |project| %>
+    <% if project.active? %>
     <div class='card'>
       <div class="card-image">
         Project image
@@ -21,6 +22,7 @@
       <div class='card-header'><%= project.name %></div>
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
+    <% end %>
     <% end %>
   </div>
   <%= link_to 'See more...', projects_path(:request_type => 'most_popular') %>
@@ -49,7 +51,7 @@
     CrowdKitty helps local communities find the support they need to make their dreams for their community become a reality. Watch creative projects — big and small — come to life with the support of your community for your community.
   </div>
   <div class="blurb_image">
-  <%=image_tag('helping.jpg', alt: "Home") %>
+    <%=image_tag('helping.jpg', alt: "Home") %>
   </div>
 </div>
 
