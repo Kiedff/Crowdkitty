@@ -7,7 +7,7 @@ class Pledge < ActiveRecord::Base
   belongs_to :reward
 
   def destroyable?
-    created_at < 1.day.ago
+    self.created_at > 1.day.ago
   end
 
   def project_active?
