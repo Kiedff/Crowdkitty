@@ -24,6 +24,9 @@
 <p>Total pledges needed to reach target</p>
 <p>£<%= @project.funds_needed %></p>
 
+<p>Start date:</p>
+<p> <% @project.start_date %> </p>
+
 <p>End date:</p>
 <p><%= @project.end_date %> </p>
 
@@ -43,7 +46,8 @@
 <p>Created:</p>
 <p><%= @project.created_at.ago_in_words %> </p>
 
-<%= link_to "Edit", edit_project_path %>
+<%= button_to "Edit", edit_project_path, method: :get %>
+<%= button_to 'delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
 <br>
 
 
