@@ -35,6 +35,10 @@ h5 {
   width: auto;
 }
 
+.accordion-tabs-minimal {
+  padding-top: 10px;
+}
+
 .current_projects {
   padding: 5px 5px;
   border: 2px solid #d4d5d6;
@@ -149,24 +153,14 @@ li, a {
   list-style: none;
 }
 
-.bottom_of_page_project{
+.top_of_page_project{
   @include outer-container;
-}
-
-.reward_box {
-  @include span-columns(6);
-  float: right;
-  margin-top: 20px;
-}
-
-.summary {
-  @include span-columns(6);
-  float:left;
+  margin-bottom: 20px;
 }
 
 .project_status {
   @include span-columns(6);
-  
+  font-size: 18px;
 }
 
 .project_image {
