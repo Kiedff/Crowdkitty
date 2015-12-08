@@ -6,6 +6,7 @@
 @import 'refills/_hover-tile-animation';
 @import 'refills/_footer';
 @import 'refills/_cards';
+@import 'refills/_search-tools';
 @import 'refills/_progress-bar-indication';
 @import 'refills/_expander';
 @import 'refills/_accordion-tabs-minimal';
@@ -112,12 +113,30 @@ h5 {
 }
 
 .search_location {
-  background-color: #2A2F36;
   height: 50px;
-  text-align: center;
-  opacity: 0.7;
-  margin-top: 85px;
+  margin-top: 37px;
+  border-radius: 0;
+  text-align: left;
 }
+
+.search-tools {
+  background-color: rgba(42,47,54,0.7);
+  border: none;
+}
+
+.search-tools * {
+  color: black;
+}
+
+.search-heading {
+  color: white;
+}
+
+.search-content {
+  display: block;
+  margin: 0 auto;
+}
+
 
 .navigation-wrapper {
   font-family: 'Sansita One', cursive;
@@ -158,3 +177,21 @@ li, a {
 .footer {
   margin-top: 25px;
 }
+
+.fancy-search * {
+  display: inline;
+}
+
+.search-tools .trigger button {
+  background-color: #61C791;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+
+/*.filter div {
+  position:absolute;
+  z-index:99;
+  width:100%;
+}*/
