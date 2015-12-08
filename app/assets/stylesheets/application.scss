@@ -116,32 +116,6 @@ h5 {
   border: 3px solid #61C791;
 }
 
-.search_location {
-  height: 50px;
-  margin-top: 37px;
-  border-radius: 0;
-  text-align: left;
-}
-
-.search-tools {
-  background-color: rgba(42,47,54,0.7);
-  border: none;
-}
-
-.search-tools * {
-  color: black;
-}
-
-.search-heading {
-  color: white;
-}
-
-.search-content {
-  display: block;
-  margin: 0 auto;
-}
-
-
 .navigation-wrapper {
   font-family: 'Sansita One', cursive;
   color: #477DCA;
@@ -176,16 +150,20 @@ li, a {
   display: inline;
 }
 
-.search-tools .trigger button {
-  background-color: #61C791;
-  font-weight: bold;
-  font-size: 18px;
+.search_location {
+  height: 50px;
+  margin-top: 37px;
+  border-radius: 0;
+  text-align: left;
 }
 
+.fancy-search {
+  background-color: rgba(42,47,54,0.7);
+  border: none;
+  text-align: center;
+}
 
+.fancy-search .search-text {
+  width: 20%;
+}
 
-/*.filter div {
-  position:absolute;
-  z-index:99;
-  width:100%;
-}*/

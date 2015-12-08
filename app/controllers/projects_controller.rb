@@ -24,8 +24,8 @@ class ProjectsController < ApplicationController
   def index
     @category_id = params[:category_id]
     @request_type = params[:request_type]
-    @projects = Project.search(params[:search])
     @search = params[:search]
+    @projects = Project.search(@search)
     @categories = Category.all
 
     case @request_type 
@@ -63,7 +63,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search, :days, :request_type, :start_date)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image)
   end
 
   def new
