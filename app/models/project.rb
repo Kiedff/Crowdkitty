@@ -39,7 +39,7 @@ class Project < ActiveRecord::Base
   end
 
   def active?
-    (self.days_remaining > 0) && (Date.today > self.start_date)
+    (self.days_remaining > 0) && (Date.today >= self.start_date)
   end
 
   def not_open_yet

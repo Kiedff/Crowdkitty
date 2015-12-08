@@ -24,10 +24,12 @@
 <div class="pledge">
   <% if pledge.project.active? || pledge.project.success %>
   
+  <% if current_user %>
   <% if pledge.project.success && pledge.user.id == current_user.id %>
   <div class="payment_due"> 
     <p>Project reached target! This Payment is now due</p> 
   </div>
+  <% end %>
   <% end %>
 
   <%= pledge.project.name %>
@@ -46,5 +48,7 @@
 <br>
 <% end %>
 
+<% if current_user %>
 <%= link_to "Edit or cancel account", edit_user_registration_path if @user == User.find(current_user.id) %>
+<% end %>
 
