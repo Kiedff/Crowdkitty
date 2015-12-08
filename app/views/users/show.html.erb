@@ -1,6 +1,17 @@
-<%= @user.name %>
-<br>
+<h1><%= @user.username %></h1>
+
+<p>Full name:</p>
+<p><%= @user.name %> <%= @user.last_name %></p>
+
+<p>Location:</p>
+<p> <%= @user.city %> </p>
+
+<p>Last online:</p>
+<p> <%= @user.last_sign_in_at %> </p>
+
 <h1>Pledges made</h1>
+
+
 <% @user.pledges.each do |pledge| %>
 
 <%= pledge.project.name %>
