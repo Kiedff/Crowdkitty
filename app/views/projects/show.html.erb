@@ -98,8 +98,14 @@
 </div>
 <% end %>
 
+<h1>Comments</h1>
+
+<% if @project.active? %>
 <% @comment = Comment.new %>
 <%= render "comments/new" %>
+<% else %>
+<p>This project is not currently open for comments.</p>
+<% end %>
 
 <% comments_ordered = @project.comments.order(:created_at).reverse %>
 <% comments_ordered.each do |comment| %>
