@@ -24,6 +24,7 @@ class Project < ActiveRecord::Base
     end
     pledge_values.sum
   end
+  
 
   def funds_needed
     self.target - self.total_raised

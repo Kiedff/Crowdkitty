@@ -8,8 +8,8 @@
 @import 'refills/_cards';
 
 
-body{
-
+main {
+  @include outer-container;
 }
 
 .main {
