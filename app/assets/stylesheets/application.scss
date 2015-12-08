@@ -47,11 +47,23 @@ h5 {
 }
 
 .homepage_blurb {
-  @include span-columns(6);
+  @include outer-container;
   margin-bottom: 15px;
   margin-top: 15px;
   padding: 5px 10px 5px 5px;
   border: 2px solid #d4d5d6;
+}
+.blurb {
+  @include span-columns(6);
+ float: left;
+ font-size: 26px;
+ text-align: center;
+ padding-top: 90px;
+}
+
+.blurb_image {
+  @include span-columns(6);
+  float: right;
 }
 
 .current_projects h6 {
