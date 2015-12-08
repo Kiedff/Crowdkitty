@@ -135,5 +135,5 @@
 </ul>
 
 
-<%= button_to "Edit", edit_project_path, method: :get %>
+<%= button_to "Edit", edit_project_path, method: :get if @project.editable? %>
 <%= button_to 'delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
