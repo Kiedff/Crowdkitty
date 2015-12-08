@@ -6,14 +6,22 @@
 @import 'refills/_hover-tile-animation';
 @import 'refills/_footer';
 @import 'refills/_cards';
+@import 'refills/_progress-bar-indication';
 
 
 main {
   @include outer-container;
 }
 
-h5 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Sansita One', cursive;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h5 {
   font-size: 22px;
   margin: 20px;
   width: 50%;
@@ -32,8 +40,11 @@ h5 {
 }
 
 .homepage_blurb {
+  @include span-columns(6);
   margin-bottom: 15px;
   margin-top: 15px;
+  padding: 5px 10px 5px 5px;
+  border: 2px solid #d4d5d6;
 }
 
 .current_projects h6 {
@@ -117,12 +128,28 @@ li, a {
   list-style: none;
 }
 
-.status_box {
-
+.bottom_of_page_project{
+  @include outer-container;
 }
 
-.reward {
+.reward_box {
+  @include span-columns(6);
+  float: right;
+}
 
+.summary {
+  @include span-columns(6);
+  float:left;
+}
+
+.project_status {
+  @include span-columns(6);
+  
+}
+
+.project_image {
+  @include span-columns(6);
+  
 }
 
 .footer {

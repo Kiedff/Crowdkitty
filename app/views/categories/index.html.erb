@@ -2,10 +2,16 @@
 <main id="categories">
   <h1>Categories</h1>
   <% @categories.order("lower(name) ASC").each do |category| %>
-      <div>
-        <%= category.name %>
-        <%= link_to 'show', category %>
+  <div class="hover-tile-outer">
+    <div class="hover-tile-container">
+      <div class="hover-tile hover-tile-visible"><%= category.name %></div>
+      <div class="hover-tile hover-tile-hidden">
+        <h4>Hidden Copy</h4>
+        <p><%= link_to 'show', category %></p>
       </div>
+    </div>
+  </div>
   <% end %>
 </main>
+
 
