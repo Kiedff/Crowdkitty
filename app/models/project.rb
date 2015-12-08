@@ -2,9 +2,10 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
-  has_many :pledges
-  has_many :pictures
-  has_many :rewards
+  has_many :pledges, dependent: :destroy
+  has_many :pictures, dependent: :destroy
+  has_many :rewards, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.sort_by_pledges(projects)
     projects.sort_by {|p| p.pledges.count }.reverse
@@ -35,7 +36,7 @@ class Project < ActiveRecord::Base
   end
 
   def active?
-    self.days_remaining > 0
+    (self.days_remaining > 0) && (Date.today > self.start_date)
   end
 
   def success
@@ -44,6 +45,10 @@ class Project < ActiveRecord::Base
 
   def failed
     (self.active? == false) && (self.success == false)
+  end
+
+  def not_open_yet
+    Date.today < self.start_date
   end
 
 end
