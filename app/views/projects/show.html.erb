@@ -22,7 +22,7 @@
 
     <p><strong>Days remaining:</strong>
     <% if @project.not_open_yet %>
-    <%= "This project opens on #{@project.start_date}" %>
+    <%= "This project opens on #{@project.human_readable_start_date}." %>
     <% else %>
     <%= @project.days_remaining %>
     <% end %></p>
@@ -44,20 +44,16 @@
   <li class="tab-header-and-content">
     <a href="#" class="tab-link is-active">Project Summary</a>
     <div class="tab-content">
-      <p>Start date:</p>
-      <p> <%= @project.start_date %> </p>
+      <p>Start date: <%= @project.human_readable_start_date %> </p>
 
-      <p>End date:</p>
-      <p><%= @project.end_date %> </p>
+      <p>End date: <%= @project.human_readable_end_date %> </p>
 
       <p>Created by:
-      <%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>
+      <%= link_to "#{@project.user.try(:name).capitalize}", user_path(@project.user) %> </p>
 
-      <p>Location:</p>
-      <p><%= @project.location %> </p>
+      <p>Location: <%= @project.location.capitalize %> </p>
 
-      <p>Project summary:</p>
-      <p><%= @project.summary %> </p>
+      <p>Project summary: <%= @project.summary %> </p>
 
       <p>Description:</p>
       <p><%= @project.description %> </p>
@@ -73,23 +69,16 @@
       <% @project.rewards.each do |reward| %>
       <div class="reward">
         <% @reward = reward %>
-        <p>Description:</p>
-        <%= reward.description %>,
-        <br>
-        <br>
-        <p>Minimum pledge for reward:</p>
-        £<%= reward.value %>
-        <br>
-        <p>Quantity available:</p>
-        <%= reward.try(:quantity) %>
-        <br>
-        <p>Delivery:</p>
-        <%= reward.delivery %>
-        <br>
-        <p>Ships to:</p>
-        <%= reward.ships_to %>
-        <br>
-        <br>
+        <h2><%= reward.description %></h2>
+       
+        <p>Minimum pledge for reward: £<%= reward.value %></p>
+     
+        <p>Quantity available: <%= reward.try(:quantity) %></p>
+      
+        <p>Delivery: <%= reward.delivery %></p>
+    
+        <p>Ships to: <%= reward.ships_to %></p>
+      
         <% if @project.active? %>
         <%= render "pledges/new"  %>
         <% else %>
