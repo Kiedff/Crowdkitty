@@ -7,6 +7,8 @@
 @import 'refills/_footer';
 @import 'refills/_cards';
 @import 'refills/_progress-bar-indication';
+@import 'refills/_expander';
+@import 'refills/_accordion-tabs-minimal';
 
 
 main {
@@ -135,6 +137,7 @@ li, a {
 .reward_box {
   @include span-columns(6);
   float: right;
+  margin-top: 20px;
 }
 
 .summary {

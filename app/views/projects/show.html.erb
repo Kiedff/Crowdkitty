@@ -37,113 +37,121 @@
     <p>End date:</p>
     <p><%= @project.end_date %> </p>
 
-  </div>
-</div>
-
-<div class="bottom_of_page_project">
-  <div class="summary"
-  <p>Start date:</p>
-  <p> <%= @project.start_date %> </p>
-
-  <p>End date:</p>
-  <p><%= @project.end_date %> </p>
-
-  <p>Created by:</p>
-  <p><%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>
-
-  <p>Location:</p>
-  <p><%= @project.location %> </p>
-
-  <p>Project summary:</p>
-  <p><%= @project.summary %> </p>
-
-  <p>Description:</p>
-  <p><%= @project.description %> </p>
-
-  <p>Created:</p>
-  <p><%= @project.created_at.ago_in_words %> </p>
-
-  <%= button_to "Edit", edit_project_path, method: :get %>
-  <%= button_to 'delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
-  <br>
-</div>
-
-<div class="reward_box"
-<div class="reward">
-  <% if @project.active? %>
-  <h1>Pledge any value for no reward</h1>
-  <%= render "pledges/rewardless" %>
-  <% else %>
-  <p>This project is not currently open to pledges</p>
-  <% end %>
-
-
-  <br>
-
-  <h1>Rewards</h1>
-  <br>
-  <% @project.rewards.each do |reward| %>
-  <div class="reward">
-    <% @reward = reward %>
-    <p>Description:</p>
-    <%= reward.description %>,
-    <br>
-    <br>
-    <p>Minimum pledge for reward:</p>
-    £<%= reward.value %>
-    <br>
-    <p>Quantity available:</p>
-    <%= reward.try(:quantity) %>
-    <br>
-    <p>Delivery:</p>
-    <%= reward.delivery %>
-    <br>
-    <p>Ships to:</p>
-    <%= reward.ships_to %>
-    <br>
-    <br>
     <% if @project.active? %>
-    <%= render "pledges/new"  %>
+    <h4>Pledge any value for no reward</h4>
+    <%= render "pledges/rewardless" %>
     <% else %>
-    <p>this project is not currently open to pledges</p>
+    <p>This project is not currently open to pledges</p>
     <% end %>
-    <br>
+
   </div>
-  <% end %>
-</div>
-</div>
 </div>
 
-<div class="comment_box"> 
- <% @comment = Comment.new %>
- <%= render "comments/new" %>
 
- <% comments_ordered = @project.comments.order(:created_at).reverse %>
- <% comments_ordered.each do |comment| %>
+<ul class="accordion-tabs-minimal">
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link is-active">Tab Item</a>
+    <div class="tab-content">
+      <p>Start date:</p>
+      <p> <%= @project.start_date %> </p>
 
- <% @user = User.find(comment[:user_id])%>
+      <p>End date:</p>
+      <p><%= @project.end_date %> </p>
+
+      <p>Created by:</p>
+      <p><%= link_to "#{@project.user.try(:name)}", user_path(@project.user) %> </p>
+
+      <p>Location:</p>
+      <p><%= @project.location %> </p>
+
+      <p>Project summary:</p>
+      <p><%= @project.summary %> </p>
+
+      <p>Description:</p>
+      <p><%= @project.description %> </p>
+
+      <p>Created:</p>
+      <p><%= @project.created_at.ago_in_words %> </p>
+    </div>
+  </li>
+  
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Another Tab</a>
+    <div class="tab-content">
+      <% @project.rewards.each do |reward| %>
+      <div class="reward">
+        <% @reward = reward %>
+        <p>Description:</p>
+        <%= reward.description %>,
+        <br>
+        <br>
+        <p>Minimum pledge for reward:</p>
+        £<%= reward.value %>
+        <br>
+        <p>Quantity available:</p>
+        <%= reward.try(:quantity) %>
+        <br>
+        <p>Delivery:</p>
+        <%= reward.delivery %>
+        <br>
+        <p>Ships to:</p>
+        <%= reward.ships_to %>
+        <br>
+        <br>
+        <% if @project.active? %>
+        <%= render "pledges/new"  %>
+        <% else %>
+        <p>this project is not currently open to pledges</p>
+        <% end %>
+        <br>
+      </div>
+      <% end %>
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Third</a>
+    <div class="tab-content">
+      <% @comment = Comment.new %>
+      <%= render "comments/new" %>
+
+      <% comments_ordered = @project.comments.order(:created_at).reverse %>
+      <% comments_ordered.each do |comment| %>
+
+      <% @user = User.find(comment[:user_id])%>
 
 
-<h1>Comments</h1>
+      <h1>Comments</h1>
 
-<% if @project.active? %>
-<% @comment = Comment.new %>
-<%= render "comments/new" %>
-<% else %>
-<p>This project is not currently open for comments.</p>
-<% end %>
-
-
-
- <h5> <%= "#{@user.name}" %> says: </h5>
- <p> <%= "#{comment.content}" %> </p>
- <h6><%= "#{comment.created_at.ago_in_words }" %> </h6>
- <%= link_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
+      <% if @project.active? %>
+      <% @comment = Comment.new %>
+      <%= render "comments/new" %>
+      <% else %>
+      <p>This project is not currently open for comments.</p>
+      <% end %>
 
 
- <% end %>
 
- <% if current_user %>
- <%= render "rewards/new" if @project.user_id == current_user.id %>
- <% end %>
-</div>
+      <h5> <%= "#{@user.name}" %> says: </h5>
+      <p> <%= "#{comment.content}" %> </p>
+      <h6><%= "#{comment.created_at.ago_in_words }" %> </h6>
+      <%= link_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
+
+
+      <% end %>
+
+      <% if current_user %>
+      <%= render "rewards/new" if @project.user_id == current_user.id %>
+      <% end %>    
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Last Item</a>
+    <div class="tab-content">
+      <p>blah</p>
+    </div>
+  </li>
+</ul>
+
+
+<%= button_to "Edit", edit_project_path, method: :get %>
+<%= button_to 'delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
