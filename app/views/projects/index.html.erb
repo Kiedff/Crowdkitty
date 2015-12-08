@@ -20,6 +20,7 @@
 <%# binding.pry %>
 <div class="cards">
   <% @projects.each do |project| %>
+  <% if project.active? %>
   <div class='card'>
     <div class="card-image">
     </div>
@@ -30,6 +31,7 @@
       <p><%= project.summary %></p>
     </div>
   </div>
+  <% end %>
   <%end %>
   </div>
 

@@ -1,5 +1,6 @@
 <h1><%= @user.username %></h1>
 
+
 <p>Full name:</p>
 <p><%= @user.name %> <%= @user.last_name %></p>
 
@@ -8,6 +9,12 @@
 
 <p>Last online:</p>
 <p> <%= @user.last_sign_in_at %> </p>
+
+<h1>Projects</h1>
+<% @user.projects.each do |project| %>
+<%= link_to "#{project.name}", project_path(project)%>
+<% end %>
+<br>
 
 <h1>Pledges made</h1>
 

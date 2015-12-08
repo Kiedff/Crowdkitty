@@ -119,7 +119,9 @@ class ProjectsController < ApplicationController
 
   def update
     project = Project.find(params[:id])
-    project.update(project_params)
+     project.update(project_params)
+    project.end_date = project.start_date + project.days
+    project.save
     redirect_to(project_path(project))
   end
 

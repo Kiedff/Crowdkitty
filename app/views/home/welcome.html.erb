@@ -14,6 +14,8 @@
   <h5>Most popular</h5>
   <div class="cards">
     <% @most_popular.each do |project| %>
+
+    <% if project.active? && (project.not_open_yet == false)%>
     <div class='card'>
       <div class="card-image">
         Project image
@@ -21,6 +23,7 @@
       <div class='card-header'><%= project.name %></div>
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
+    <% end %>
     <% end %>
   </div>
   <%= link_to 'See more...', projects_path(:request_type => 'most_popular', :category_id => @category_id, :search => @search, :loc => @location) %>
@@ -32,6 +35,7 @@
   <h5>Finishing soon</h5>
   <div class="cards">
     <% @finishing_soon.each do |project| %>
+    <% if project.active? && (project.not_open_yet == false)%>
     <div class='card'>
       <div class="card-image">
         Project image <%= project.days_remaining %> days remaining
@@ -39,6 +43,7 @@
       <div class='card-header'><%= project.name %></div>
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
+    <% end %>s
     <% end %>
   </div>
   <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>
@@ -49,7 +54,7 @@
     CrowdKitty helps local communities find the support they need to make their dreams for their community become a reality. Watch creative projects — big and small — come to life with the support of your community for your community.
   </div>
   <div class="blurb_image">
-  <%=image_tag('helping.jpg', alt: "Home") %>
+    <%=image_tag('helping.jpg', alt: "Home") %>
   </div>
 </div>
 
