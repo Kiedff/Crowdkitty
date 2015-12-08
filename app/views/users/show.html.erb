@@ -14,11 +14,27 @@
 
 <% @user.pledges.each do |pledge| %>
 
-<%= pledge.project.name %>
-<br>
-£<%= pledge.value %>
-<br>
-<%= link_to "show details", pledge_path(pledge)%> 
+<div class="pledge">
+  <% if pledge.project.active? || pledge.project.success %>
+
+  <% if pledge.project.success %>
+  <div class="payment_due"> 
+    <p>Project reached target! This Payment is now due</p> 
+  </div>
+  <% end %>
+
+  <%= pledge.project.name %>
+  <br>
+  £<%= pledge.value %>
+  <br>
+  <%= link_to "show details", pledge_path(pledge)%> 
+
+  <% else %>
+  <div class="project_failed"> 
+    <p>Project failed to meet target, pledge deleted.</p>
+  </div>
+  <% end %> 
+</div>
 <br>
 <br>
 <% end %>
