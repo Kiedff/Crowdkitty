@@ -32,6 +32,9 @@
   <% end %>
   <% end %>
 
+  <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get %>
+  <br>
+
   <%= pledge.project.name %>
   <br>
   £<%= pledge.value %>

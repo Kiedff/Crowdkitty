@@ -11,6 +11,10 @@
 </head>
 <body>
 
+<% if current_user %>
+<%= render "layouts/due" if current_user.pledge_payments_due %>
+<% end %>
+
   <header class="navigation" role="banner">
     <div class="navigation-wrapper">
       <nav role="navigation">

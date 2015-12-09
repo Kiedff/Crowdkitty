@@ -2,6 +2,7 @@ class PledgesController < ApplicationController
 
   def create
     pledge = Pledge.new(pledge_params.merge( user_id: current_user.id, reward_id:params[:reward_id], project_id: params[:project_id] ))
+    pledge.paid = false
     if pledge.reward_id
     reward_project_id = Reward.where(id: pledge.reward_id).first.project_id
     pledge.project_id = reward_project_id
@@ -22,6 +23,13 @@ class PledgesController < ApplicationController
 
   def destroy
     Pledge.find(params[:id]).destroy
+    redirect_to(user_path(current_user))
+  end
+
+  def edit
+    pledge = Pledge.find(params[:id])
+    pledge.paid = true
+    pledge.save
     redirect_to(user_path(current_user))
   end
 
