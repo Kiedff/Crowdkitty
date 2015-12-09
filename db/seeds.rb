@@ -52,3 +52,6 @@ p18 = Project.create(name: "Grow an Entrepreneur for Tomorrow", summary: "Help u
 p18.project_image = File.open(File.join(Rails.root, "public/business.jpg"))
 p18.save!
 
+Pledge.create(user_id: 2, project_id: 17, value: 7344, paid: false)
+
+

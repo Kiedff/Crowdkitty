@@ -10,6 +10,7 @@
 <div class="top_of_page_project">
   <div class="project_image">
     <%=image_tag(@project.project_image, alt: 'Project Image', width:600) %>
+    <p><%= @project.description %> </p>
   </div>
 
   <div class="project_status">
@@ -60,11 +61,7 @@
 
       <p>Project summary: <%= @project.summary %> </p>
 
-      <p>Description:</p>
-      <p><%= @project.description %> </p>
-
-      <p>Created:</p>
-      <p><%= @project.created_at.ago_in_words %> </p>
+      <p>Created: <%= @project.created_at.ago_in_words %> </p>
     </div>
   </li>
   
