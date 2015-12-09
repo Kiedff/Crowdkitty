@@ -80,14 +80,14 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   /*border-radius: 0.5em;*/
 }
 
-.homepage_blurb {
+.homepage_blurb_1 {
   @include outer-container;
   margin-bottom: 15px;
   margin-top: 15px;
   padding: 5px 10px 5px 5px;
   border: 2px solid #d4d5d6;
 }
-.blurb {
+.blurb_1 {
   @include span-columns(6);
  float: left;
  font-size: 26px;
@@ -95,11 +95,30 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
  padding-top: 90px;
 }
 
-.blurb_image {
+.blurb_image_1 {
   @include span-columns(6);
   float: right;
 }
 
+.homepage_blurb_2 {
+  @include outer-container;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 5px 10px 5px 5px;
+  border: 2px solid #d4d5d6;
+}
+.blurb_2 {
+  @include span-columns(6);
+ float: right;
+ font-size: 26px;
+ text-align: center;
+ padding-top: 90px;
+}
+
+.blurb_image_2 {
+  @include span-columns(6);
+  float: left;
+}
 .current_projects h6 {
   text-align: center;
 }
