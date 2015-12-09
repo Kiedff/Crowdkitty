@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 20151209120701) do
     t.integer  "category_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "project_image"
     t.integer  "days"
+    t.string   "project_image"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree

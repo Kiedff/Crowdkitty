@@ -12,7 +12,7 @@ reward for pledge:
 <%= @pledge.reward.description %>
 <% end %>
 <br>
-<%= button_to 'Pay now',  edit_project_pledge_path( @pledge.project.id, @pledge.id),method: :get  if @pledge.project.success_and_closed%>
+<%= button_to 'Pay now',  edit_project_pledge_path( @pledge.project.id, @pledge.id),method: :get  if @pledge.project.success_and_closed && (@pledge.paid == false) %>
 
 <br>
 <% if @pledge.destroyable? %>
