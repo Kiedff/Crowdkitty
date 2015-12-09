@@ -7,9 +7,6 @@
 <p>Location:</p>
 <p> <%= @user.city %> </p>
 
-<p>Last online:</p>
-<p> <%= @user.last_sign_in_at.ago_in_words %> </p>
-
 <h1>Projects</h1>
 <% @user.projects.each do |project| %>
 <%= link_to "#{project.name}", project_path(project)%>
