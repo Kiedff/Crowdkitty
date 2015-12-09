@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208101154) do
+ActiveRecord::Schema.define(version: 20151209120701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20151208101154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "reward_id"
+    t.boolean  "paid"
   end
 
   add_index "pledges", ["project_id"], name: "index_pledges_on_project_id", using: :btree

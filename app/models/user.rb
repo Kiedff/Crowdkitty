@@ -18,6 +18,12 @@ before_save :set_default_role
     self.role.to_s == role_to_compare.to_s
   end
 
+  def pledge_payments_due
+    a = Pledge.where(user_id: self.id, paid: false)
+    b = a.map {|pledge| pledge.project.success_and_closed}
+    b.include? true
+  end
+
   private
   def set_default_role
     self.role = "user" unless self.role == "admin"
