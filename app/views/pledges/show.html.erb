@@ -14,6 +14,19 @@ reward for pledge:
 <br>
 <%= button_to 'Pay now',  edit_project_pledge_path( @pledge.project.id, @pledge.id),method: :get  if @pledge.project.success_and_closed && (@pledge.paid == false) %>
 
+<% if @pledge.project.success_and_closed && (@pledge.paid == true) %>
+<div class="received">
+  <p>Payment received, thank you.</p>
+</div>
+<% end %>
+
+<% if (@pledge.project.active? == false) && (@pledge.project.success == false) %>
+<div class="failed_project">
+  <p>This project failed to meet it's target</p>
+  </div>
+<% end %>
+
+
 <br>
 <% if @pledge.destroyable? %>
 <%= button_to 'cancel pledge', pledge_path( @pledge.id),method: :delete, data: {confirm: "Are you sure?"} %>

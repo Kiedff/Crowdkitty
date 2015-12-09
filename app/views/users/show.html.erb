@@ -1,13 +1,16 @@
 <h1><%= @user.username %></h1>
 
+<div class="profile_box">
+  <div class="profile_image">
+    <%= image_tag(@user.user_image.url, alt: "Profile Image", width:400) %>
+  </div>
+  <div class="profile_info">
+    <p>Full name:<%= @user.name %> <%= @user.last_name %></p>
+    <p>Location: <%= @user.city %> </p>
+  </div>
+</div>
 
-<p>Full name:</p>
-<p><%= @user.name %> <%= @user.last_name %></p>
-
-<p>Location:</p>
-<p> <%= @user.city %> </p>
-
-<h1>Projects</h1>
+<h3>Projects</h3>
 <div class="cards">
   <% @user.projects.each do |project| %>
   <div class='card'>
@@ -21,7 +24,7 @@
 </div>
 <br>
 
-<h1>Pledges made</h1>
+<h3>Pledges made</h3>
 
 <div class="cards">
   <% @user.pledges.each do |pledge| %>
@@ -34,7 +37,7 @@
         <% if pledge.project.active? || pledge.project.success %>
 
           <% if current_user %>
-            <% if pledge.project.success && pledge.user.id == current_user.id %>
+            <% if pledge.project.success && pledge.user.id == current_user.id && (pledge.paid == false) %>
             <div class="payment_due"> 
               <p><strong>Project reached target! This Payment is now due.</strong></p> 
             </div>
@@ -44,16 +47,26 @@
 
           <% if current_user %>
             <% if @user.id == current_user.id %>
+
+            <% if pledge.project.success_and_closed && (pledge.paid == false) %>
             <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get if pledge.project.success_and_closed && (pledge.paid == false) %>
+            <% end %>
+            <% if pledge.project.success_and_closed && (pledge.paid == true) %>
+            <div class="received">
+              <p><strong>Payment received, thank you.</strong></p>
+            </div>
+            <% end %>
             <br>
             <%= link_to "show details", pledge_path(pledge)%> 
             <% end %>
           <% end %>
 
         <% else %>
+        <% if (pledge.project.active? == false) && (pledge.project.success == false) %>
           <div class="project_failed"> 
             <p><strong><%= "#{pledge.project.name} failed to meet target, pledge deleted." %></strong></p>
           </div>
+          <% end %>
         <% end %> 
       </div>
     </div>

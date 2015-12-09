@@ -105,6 +105,19 @@ p17.save!
 p18.project_image = File.open(File.join(Rails.root, "db/images/business.jpg"))
 p18.save!
 
-Pledge.create(user_id: 2, project_id: 17, value: 7344, paid: false)
+Pledge.create(user_id: 2, project_id: 17, value: 73)
+Pledge.create(user_id: 2, project_id: 18, value: 7344)
+Pledge.create(user_id: 3, project_id: 1, value: 10)
+Pledge.create(user_id: 3, project_id: 5, value: 500)
+Pledge.create(user_id: 3, project_id: 10, value: 54)
+Pledge.create(user_id: 4, project_id: 4, value: 60)
+Pledge.create(user_id: 4, project_id: 10, value: 15)
+Pledge.create(user_id: 4, project_id: 11, value: 44)
+Pledge.create(user_id: 5, project_id: 2, value: 100)
+Pledge.create(user_id: 5, project_id: 6, value: 70)
+Pledge.create(user_id: 5, project_id: 10, value: 20)
+
+
+
 
 
