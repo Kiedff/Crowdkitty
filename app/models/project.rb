@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   validates_presence_of :name, :summary, :description, :target, :start_date, :category, :location
+  validates_inclusion_of :days, :in => 1..90
 
   def self.sort_by_pledges(projects)
     projects.sort_by {|p| p.pledges.count }.reverse
@@ -26,8 +27,7 @@ class Project < ActiveRecord::Base
 
   def total_raised
     pledges = Pledge.where(project_id: self.id)
-    pledge_values = pledges.map do |pledge| pledge.value 
-    end
+    pledge_values = pledges.map {|pledge| pledge.value} || 0
     pledge_values.sum
   end
   

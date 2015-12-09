@@ -11,6 +11,11 @@ class RewardsController < ApplicationController
       end
   end
 
+  def destroy
+    Reward.find(params[:id]).destroy
+    redirect_to project_path(params[:project_id])
+  end
+
   private
   def reward_params
     params.require(:reward).permit(:description, :project_id, :value, :quantity, :delivery, :ships_to)

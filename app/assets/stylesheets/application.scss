@@ -11,6 +11,10 @@
 @import 'refills/_expander';
 @import 'refills/_accordion-tabs-minimal';
 
+/*
+ *= require jquery-ui
+ */
+
 
 main {
   @include outer-container;
@@ -218,6 +222,12 @@ li, a {
   padding: 26px;
 }
 
+.search-container {
+  text-align: center;
+  padding-top: 10px;
+  height: 70px;
+}
+
 .fancy-search .search-text {
   width: 20%;
 }
@@ -226,3 +236,24 @@ li, a {
   width: 20%;
 }
 
+.styled-select select {
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  height: 36px;
+  border: 1px solid #ddd;
+}
+
+.styled-select {
+  height: 36px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.most-popular a, .finishing-soon a {
+  color: #61C791;
+}
+
+.date-select * {
+  display: inline;
+}

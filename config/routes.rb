@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :users
 
+
   resources :projects do 
     resources :rewards 
     resources :pledges

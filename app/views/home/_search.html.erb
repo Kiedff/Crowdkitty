@@ -1,11 +1,15 @@
 <div class='fancy-search'>
-<%= form_tag root_path, method: "get", class: 'search-form' do %>
+<%= form_tag projects_path, method: "get", class: 'search-form' do %>
   <%= label_tag('search', "Search for") %>
   <%= text_field_tag('search', @search, class: 'search-text', placeholder: 'leave blank to show all') %>
   show
+  <div class="styled-select">
   <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
+  </div>
   projects in
+  <div class="styled-select">
   <%= select_tag 'loc', options_for_select(@cities.map {|city| [city, city]}.uniq.unshift(['all locations', 'all']), selected: @location) %>
+  </div>
   <%= submit_tag "Go" %>
 <% end %>
 </div>

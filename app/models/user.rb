@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  before_save :set_default_role
+
+before_save :set_default_role
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,8 +12,7 @@ class User < ActiveRecord::Base
   has_many :rewards, :through => :pledges
   has_many :comments, dependent: :destroy
 
-  validates_presence_of :name, :last_name, :address1, :address2, :city, :postcode, :username
-  validates_uniqueness_of :username
+  validates_presence_of :name, :last_name, :email
 
   def role?(role_to_compare)
     self.role.to_s == role_to_compare.to_s
@@ -19,8 +20,7 @@ class User < ActiveRecord::Base
 
   private
   def set_default_role
-    self.role = "user"
-
+    self.role = "user" unless self.role == "admin"
   end
   
 end
