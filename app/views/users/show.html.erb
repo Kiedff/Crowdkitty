@@ -49,15 +49,14 @@
             <% if @user.id == current_user.id %>
 
             <% if pledge.project.success_and_closed && (pledge.paid == false) %>
-            <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get if pledge.project.success_and_closed && (pledge.paid == false) %>
+            <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get %>
             <% end %>
             <% if pledge.project.success_and_closed && (pledge.paid == true) %>
             <div class="received">
-              <p><strong>Payment received, thank you.</strong></p>
+              <strong>Payment received, thank you.</strong>
             </div>
             <% end %>
-            <br>
-            <%= link_to "show details", pledge_path(pledge)%> 
+             <p><%= link_to "show details", pledge_path(pledge)%></p>
             <% end %>
           <% end %>
 
@@ -72,9 +71,11 @@
     </div>
   </div>
   <% end %>
+
 </div>
 
 <% if current_user %>
-<%= link_to "Edit or cancel account", edit_user_registration_path if @user == User.find(current_user.id) %>
+<div class="input"><%= link_to "Edit or cancel account", edit_user_registration_path if @user == User.find(current_user.id) %></div>
 <% end %>
+
 

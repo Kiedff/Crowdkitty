@@ -63,6 +63,26 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   background-color: #F23C55;
 }
 
+.input {
+  color: white;
+    background-color: #61C791;
+    font-weight: bold;
+    font-size: 18px;
+    border: 3px solid #fff;
+    width: 220px;
+    padding: 8px;
+    border-radius: 0.5rem;
+}
+
+.input:hover {
+  background-color: #F23C55;
+  border: 3px solid #F23C55;
+}
+
+.input a{
+  color: white;
+}
+
 .card a {
   color: #61C791;
   text-align: center;
@@ -97,6 +117,13 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 .profile_image {
   @include span-columns(6);
   float: left;
+}
+
+.pledge {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 5px 10px 5px 5px;
+  border: 2px solid #d4d5d6;
 }
 
 .homepage_blurb_1 {
