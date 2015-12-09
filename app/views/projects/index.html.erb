@@ -1,5 +1,5 @@
 
-
+<div class="search-container">
 <%= form_tag projects_path, method: "get", class: 'projects-filter' do %>
 <h3>Search for </h3>
 <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'search') %> show
@@ -15,7 +15,7 @@
 <% end %>
 <%= submit_tag "Go" %>
 <% end %><br>
-
+</div>
 <div class="current_projects">
 <h6>All Current Projects</h6><br>
 <%# binding.pry %>
