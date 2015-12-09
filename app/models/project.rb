@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   mount_uploader :project_image, ProjectImageUploader
 
-  before_update :editable?
+  # before_update :editable?
 
   belongs_to :user
   belongs_to :category
