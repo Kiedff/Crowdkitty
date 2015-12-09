@@ -30,7 +30,7 @@
 
 <div class="pledge">
 
-  <%= pledge.project.name %>
+<h2><%= pledge.project.name %></h2>
   <br>
   £<%= pledge.value %>
   <br>
@@ -51,22 +51,23 @@
   <% if (pledge.project.active? == false) && (pledge.project.success == false) %>
 
   <div class="failed_project">
-    <p>This project failed to meet it's target</p>
-    </div>
+    <p>This project failed to meet it's target.</p>
+  </div>
   <% end %>
 
-  <%= link_to "show details", pledge_path(pledge)%> 
+  <%= link_to "Show Details", pledge_path(pledge)%> 
   <% end %>
   
   <% end %>
 
- 
+
 </div>
 <br>
 <br>
 <% end %>
 
 <% if current_user %>
-<%= link_to "Edit or cancel account", edit_user_registration_path if @user == User.find(current_user.id) %>
+<div class="input"><%= link_to "Edit or cancel account", edit_user_registration_path if @user == User.find(current_user.id) %></div>
 <% end %>
+
 
