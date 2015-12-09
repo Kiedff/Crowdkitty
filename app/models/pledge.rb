@@ -1,6 +1,6 @@
 class Pledge < ActiveRecord::Base
   before_destroy :destroyable?
-  before_create :project_active?
+  #before_create :project_active?
 
   belongs_to :user
   belongs_to :project

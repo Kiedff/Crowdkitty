@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   validates_presence_of :name, :summary, :description, :target, :start_date, :category, :location
-  validates_inclusion_of :days, :in => 1..150
+  validates_inclusion_of :days, :in => -1..150
 
   def self.sort_by_pledges(projects)
     projects.sort_by {|p| p.pledges.count }.reverse
@@ -37,11 +37,11 @@ class Project < ActiveRecord::Base
   end
 
   def days_remaining
-    (self.end_date - self.start_date).to_i 
+    (self.end_date - Date.today).to_i 
   end
 
   def active?
-    (self.days_remaining > 0) && (Date.today >= self.start_date)
+    (self.days_remaining > 0) && ((Date.today - self.start_date) > 0)
   end
 
   def not_open_yet
