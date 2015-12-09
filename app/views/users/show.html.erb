@@ -2,7 +2,7 @@
 
 <div class="profile_box">
   <div class="profile_image">
-    <%= image_tag(@user.user_image.url, alt: "Profile Image") %>
+    <%= image_tag(@user.user_image.url, alt: "Profile Image", width:400) %>
   </div>
   <div class="profile_info">
     <p>Full name:<%= @user.name %> <%= @user.last_name %></p>
