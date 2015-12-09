@@ -89,6 +89,11 @@
         <% else %>
         <p>this project is not currently open to pledges</p>
         <% end %>
+
+        <% if current_user %>
+
+        <%= link_to 'Delete reward', project_reward_path( reward.project.id, reward.id),method: :delete, data: {confirm: "Are you sure?"} if @project.user_id == current_user.id %>
+        <% end %> 
         <br>
 
       </div>
