@@ -1,27 +1,30 @@
 <h1><%= @user.username %></h1>
 
-
-<p>Full name:</p>
-<p><%= @user.name %> <%= @user.last_name %></p>
-
-<p>Location:</p>
-<p> <%= @user.city %> </p>
-
-<h1>Projects</h1>
-<div class="cards">
-<% @user.projects.each do |project| %>
-<div class='card'>
-  <div class="card-image">
-    <%= link_to image_tag(project.project_image), project_path(project) %>
+<div class="profile_box">
+  <div class="profile_image">
+    <%= image_tag(@user.user_image.url, alt: "Profile Image") %>
   </div>
-  <div class='card-header'><%= link_to project.name, project_path(project) %></div>
-  <div class='card-copy'><p><%= project.summary %></p></div>
+  <div class="profile_info">
+    <p>Full name:<%= @user.name %> <%= @user.last_name %></p>
+    <p>Location: <%= @user.city %> </p>
+  </div>
 </div>
-<% end %>
+
+<h3>Projects</h3>
+<div class="cards">
+  <% @user.projects.each do |project| %>
+  <div class='card'>
+    <div class="card-image">
+      <%= link_to image_tag(project.project_image), project_path(project) %>
+    </div>
+    <div class='card-header'><%= link_to project.name, project_path(project) %></div>
+    <div class='card-copy'><p><%= project.summary %></p></div>
+  </div>
+  <% end %>
 </div>
 <br>
 
-<h1>Pledges made</h1>
+<h3>Pledges made</h3>
 
 <% @user.pledges.each do |pledge| %>
 
