@@ -15,7 +15,6 @@
   <div class="cards">
     <% @most_popular.each do |project| %>
 
-    <% if project.active? && (project.not_open_yet == false)%>
     
     <div class='card'>
       <div class="card-image">
@@ -25,7 +24,6 @@
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
     <% end %>
-    <% end %>
   </div>
   <%= link_to 'See more...', projects_path(:request_type => 'most_popular', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
@@ -34,7 +32,6 @@
   <h5>Finishing soon</h5>
   <div class="cards">
     <% @finishing_soon.each do |project| %>
-    <% if project.active? && (project.not_open_yet == false)%>
     <div class='card'>
       <div class="card-image">
         <%= link_to image_tag(project.project_image), project_path(project) %>
@@ -43,7 +40,6 @@
       <div class='card-header'><%= link_to project.name, project_path(project) %></div>
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
-    <% end %>
     <% end %>
   </div>
   <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>

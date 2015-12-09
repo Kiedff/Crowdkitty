@@ -60,7 +60,7 @@ class HomeController < ApplicationController
   def welcome
     @categories = Category.order(:name)
     @search = params[:search]
-    @projects = Project.search(@search)
+    @projects = Project.search(@search).select{|project| project.active? && (project.not_open_yet == false)}
     @category_id = params[:category_id]
     @location = params[:loc]
 
