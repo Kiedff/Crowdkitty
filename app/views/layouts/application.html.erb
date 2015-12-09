@@ -78,12 +78,12 @@
       <li class="nav-link"><%= link_to 'Create a Project', new_project_path %></li>
       <% end %>
       <li class="nav-link"><%= link_to 'Discover Projects', projects_path %></li>
-      <li class="nav-link"><%= link_to 'Search Categories', categories_path %></li>
+      
     </ul>
     <ul>
       <li><h3>Legal</h3></li>
-      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
-      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+      <li class="nav-link"><%= link_to 'Terms and Conditions', '/pages/terms' %></li>
+      <li class="nav-link"><%= link_to 'Privacy Policy', '/pages/privacy' %></li>
     </ul>
   </div>
 

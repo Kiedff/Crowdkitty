@@ -10,6 +10,8 @@
 @import 'refills/_progress-bar-indication';
 @import 'refills/_expander';
 @import 'refills/_accordion-tabs-minimal';
+@import 'refills/_vertical-tabs';
+@import 'refills/_scroll-on-page';
 
 /*
  *= require jquery-ui
@@ -18,6 +20,10 @@
 
 main {
   @include outer-container;
+}
+
+.contact_us {
+  font-size: 18px;
 }
 
 .image_maps {
