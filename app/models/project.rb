@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   validates_presence_of :name, :summary, :description, :target, :start_date, :category, :location
+  validates_inclusion_of :days, :in => 1..90
 
   def self.sort_by_pledges(projects)
     projects.sort_by {|p| p.pledges.count }.reverse
