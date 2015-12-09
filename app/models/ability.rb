@@ -17,6 +17,8 @@ class Ability
       can :create, Pledge 
       can :update, User, :id => user.id 
       can :read, :all
+      can :create, Comment
+      can :destroy, Comment, :user_id => user.id 
     else
       can :read, :all
     end

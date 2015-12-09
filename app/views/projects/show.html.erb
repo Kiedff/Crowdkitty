@@ -10,6 +10,7 @@
 <div class="top_of_page_project">
   <div class="project_image">
     <%=image_tag(@project.project_image, alt: 'Project Image', width:600) %>
+    <p><%= @project.description %> </p>
   </div>
 
   <div class="project_status">
@@ -60,11 +61,7 @@
 
       <p>Project summary: <%= @project.summary %> </p>
 
-      <p>Description:</p>
-      <p><%= @project.description %> </p>
-
-      <p>Created:</p>
-      <p><%= @project.created_at.ago_in_words %> </p>
+      <p>Created: <%= @project.created_at.ago_in_words %> </p>
     </div>
   </li>
   
@@ -106,15 +103,6 @@
   <li class="tab-header-and-content">
     <a href="#" class="tab-link">Comments</a>
     <div class="tab-content">
-      <% @comment = Comment.new %>
-      <%= render "comments/new" %>
-
-      <% comments_ordered = @project.comments.order(:created_at).reverse %>
-      <% comments_ordered.each do |comment| %>
-
-      <% @user = User.find(comment[:user_id])%>
-
-
       <% if @project.active? %>
       <% @comment = Comment.new %>
       <%= render "comments/new" %>
@@ -122,14 +110,18 @@
       <p>This project is not currently open for comments.</p>
       <% end %>
 
-
+      <% comments_ordered = @project.comments.order(:created_at).reverse %>
+      <% comments_ordered.each do |comment| %>
+      <div class="comment-wrapper">
+      <% @user = User.find(comment[:user_id])%>
 
       <h5> <%= "#{@user.name}" %> says: </h5>
       <p> <%= "#{comment.content}" %> </p>
       <h6><%= "#{comment.created_at.ago_in_words }" %> </h6>
-      <%= link_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
-
-
+      <% if can? :destroy, comment %>
+        <%= link_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
+      </div>
       <% end %>
   
     </div>
@@ -142,6 +134,12 @@
   </li>
 </ul>
 
+<% if can? :edit, @project %>
+  <%= button_to "Edit", edit_project_path, method: :get if @project.editable? %>
+<% end %>
 
-<%= button_to "Edit", edit_project_path, method: :get if @project.editable? %>
-<%= button_to 'delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
+<% if can? :destory, @project %>
+  <%= button_to 'Delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
+
+
