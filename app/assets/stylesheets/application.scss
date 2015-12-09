@@ -16,6 +16,14 @@ main {
   @include outer-container;
 }
 
+.image_maps {
+  float: right;
+}
+
+.contact_details {
+  float: left;
+}
+
 .expander {
   width: 100%;
   margin:0;
@@ -94,8 +102,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .most-popular {
   padding: 5px 10px 5px 5px;
-  border: 2px solid #E0FFB3;
-  background-color: #E0FFB3;
+  /*border: 2px solid #E0FFB3;
+  background-color: #E0FFB3;*/
   margin-bottom: 15px;
   margin-top: 25px;
   margin-left: 0px;
@@ -104,8 +112,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .finishing-soon {
   padding: 5px;
-  border: 2px solid #99e7ff;
-  background-color: #99e7ff;
+  /*border: 2px solid #99e7ff;
+  background-color: #99e7ff;*/
   margin-bottom: 15px;
   margin-top: 25px;
   margin-left: 0px;
