@@ -39,6 +39,12 @@
   <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get  %>
   <%end%>
 
+  <% if pledge.project.success_and_closed && (pledge.paid == true) %>
+  <div class="received">
+    <p>Payment received, thank you.</p>
+  </div>
+  <% end %>
+
   <% if (pledge.project.active? == false) && (pledge.project.success == false) %>
 
   <div class="failed_project">

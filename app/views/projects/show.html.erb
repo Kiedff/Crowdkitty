@@ -36,7 +36,7 @@
 
     <% if @project.active? %>
     <h4>Pledge any value for no reward</h4>
-    <%= render "pledges/rewardless" %>
+    <%= render "pledges/rewardless" if current_user%>
     <% else %>
     <p>This project is not currently open to pledges</p>
     <% end %>
@@ -82,7 +82,9 @@
         <p>Ships to: <%= reward.ships_to %></p>
       
         <% if @project.active? %>
-        <%= render "pledges/new"  %>
+
+        <%= render "pledges/new" if current_user  %>
+
         <% else %>
         <p>this project is not currently open to pledges</p>
         <% end %>
@@ -92,7 +94,6 @@
         <%= link_to 'Delete reward', project_reward_path( reward.project.id, reward.id),method: :delete, data: {confirm: "Are you sure?"} if @project.user_id == current_user.id %>
         <% end %> 
         <br>
-
       </div>
       <% end %>
       <% if current_user %>
@@ -105,7 +106,7 @@
     <div class="tab-content">
       <% if @project.active? %>
       <% @comment = Comment.new %>
-      <%= render "comments/new" %>
+      <%= render "comments/new" if current_user %>
       <% else %>
       <p>This project is not currently open for comments.</p>
       <% end %>
