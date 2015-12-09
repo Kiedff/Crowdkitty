@@ -18,3 +18,58 @@
 //= require_tree .
 
 
+var crowdkittyApp = crowdkittyApp || {};
+
+// function filter(data) {
+//   $.each(data, function(i, project) {
+
+// }
+
+// function ajaxRequest(data) {
+//   var ajaxOptions = {
+//     url: '/projects',
+//     type: 'GET',
+//     data: data
+//   };
+//   return $.ajax(ajaxOptions).success(filter);
+// }
+
+crowdkittyApp.setup = function() {
+  console.log('setting up');
+  // $('.projects-filter').on('submit', crowdkittyApp.searchHandler);
+  $('#new_pledge').on('submit', crowdkittyApp.pledgeHandler);
+};
+
+// crowdkittyApp.searchHandler = function(e) {
+//   e.preventDefault();
+//   console.log('search');
+//   ajaxRequest({
+//     'search': $('#search').val(),
+//     'loc': $('#loc').val(),
+//     'category_id': $('#category_id').val()
+//   });
+// };
+
+// function pledgeAjaxRequest(data) {
+//   var ajaxOptions = {
+//     url: '/projects/12/pledges',
+//     type: 'POST',
+//     data: data
+//   };
+//   return $.ajax(ajaxOptions).success();
+// }
+
+crowdkittyApp.pledgeHandler = function(e) {
+  console.log('pledge');
+  // e.preventDefault();
+  // pledgeAjaxRequest({
+  //   'user_id': $('#user_id').val(),
+  //   'project_id': $('#project_id').val(),
+  //   'value': $('#pledge_value').val()
+  // });
+  $('#successful-pledge').slideDown()
+};
+
+$(document).ready(function() {
+  crowdkittyApp.setup(); 
+});
