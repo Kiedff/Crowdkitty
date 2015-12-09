@@ -142,8 +142,8 @@ Reward.create(project_id: 16, description: "Pirate costume", value: 700 , quanti
 
 
 
-Pledge.create(user_id: 2, project_id: 17, value: 73, reward_id: 1)
-Pledge.create(user_id: 2, project_id: 17, value: 7344, reward_id: 2)
+Pledge.create(user_id: 2, project_id: 17, value: 73, reward_id: 1, paid: false)
+Pledge.create(user_id: 2, project_id: 17, value: 7344, reward_id: 2, paid: false)
 Pledge.create(user_id: 3, project_id: 1, value: 10, reward_id: 3)
 Pledge.create(user_id: 3, project_id: 5, value: 500, reward_id: 7)
 Pledge.create(user_id: 3, project_id: 10, value: 54)
