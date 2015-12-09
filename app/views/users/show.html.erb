@@ -9,56 +9,57 @@
 
 <h1>Projects</h1>
 <div class="cards">
-<% @user.projects.each do |project| %>
-<div class='card'>
-  <div class="card-image">
-    <%= link_to image_tag(project.project_image), project_path(project) %>
+  <% @user.projects.each do |project| %>
+  <div class='card'>
+    <div class="card-image">
+      <%= link_to image_tag(project.project_image), project_path(project) %>
+    </div>
+    <div class='card-header'><%= link_to project.name, project_path(project) %></div>
+    <div class='card-copy'><p><%= project.summary %></p></div>
   </div>
-  <div class='card-header'><%= link_to project.name, project_path(project) %></div>
-  <div class='card-copy'><p><%= project.summary %></p></div>
-</div>
-<% end %>
+  <% end %>
 </div>
 <br>
 
 <h1>Pledges made</h1>
 
-<% @user.pledges.each do |pledge| %>
+<div class="cards">
+  <% @user.pledges.each do |pledge| %>
+  <div class='card'>
+    <div class='card-header'>
+      <%= pledge.project.name %>
+    </div>
+    <div class='card-copy'>
+      <div class="pledge">
+        <% if pledge.project.active? || pledge.project.success %>
 
-<div class="pledge">
-  <% if pledge.project.active? || pledge.project.success %>
-  
-  <% if current_user %>
-  <% if pledge.project.success && pledge.user.id == current_user.id %>
-  <div class="payment_due"> 
-    <p>Project reached target! This Payment is now due</p> 
+          <% if current_user %>
+            <% if pledge.project.success && pledge.user.id == current_user.id %>
+            <div class="payment_due"> 
+              <p><strong>Project reached target! This Payment is now due.</strong></p> 
+            </div>
+            <% end %>
+          <% end %>
+          Pledge value: £<%= pledge.value %>
+
+          <% if current_user %>
+            <% if @user.id == current_user.id %>
+            <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get if pledge.project.success_and_closed && (pledge.paid == false) %>
+            <br>
+            <%= link_to "show details", pledge_path(pledge)%> 
+            <% end %>
+          <% end %>
+
+        <% else %>
+          <div class="project_failed"> 
+            <p><strong><%= "#{pledge.project.name} failed to meet target, pledge deleted." %></strong></p>
+          </div>
+        <% end %> 
+      </div>
+    </div>
   </div>
   <% end %>
-  <% end %>
-
-  <br>
-
-  <%= pledge.project.name %>
-  <br>
-  £<%= pledge.value %>
-  <br>
-  <br>
-  <% if current_user %>
-  <% if @user.id == current_user.id %>
-  <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get if pledge.project.success_and_closed && (pledge.paid == false) %>
-  <%= link_to "show details", pledge_path(pledge)%> 
-  <% end %>
-  <% end %>
-
-  <% else %>
-  <div class="project_failed"> 
-    <p><%= "#{pledge.project.name} failed to meet target, pledge deleted." %></p>
-  </div>
-  <% end %> 
 </div>
-<br>
-<br>
-<% end %>
 
 <% if current_user %>
 <%= link_to "Edit or cancel account", edit_user_registration_path if @user == User.find(current_user.id) %>
