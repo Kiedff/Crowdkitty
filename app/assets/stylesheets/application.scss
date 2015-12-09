@@ -226,3 +226,17 @@ li, a {
   width: 20%;
 }
 
+.styled-select select {
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  height: 36px;
+  border: 1px solid #ddd;
+}
+
+.styled-select {
+  height: 36px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
