@@ -83,7 +83,7 @@ class ProjectsController < ApplicationController
     @category_id = params[:category_id]
     @request_type = params[:request_type]
     @search = params[:search]
-    @projects = Project.search(@search)
+    @projects = Project.search(@search).select{|project|project.active?}
     @categories = Category.all
     @cities = @@cities
     @location = params[:loc]

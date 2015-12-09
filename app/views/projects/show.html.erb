@@ -140,7 +140,7 @@
       </li>
     </ul>
 
-    <%# binding.pry %>
+
 
     <% if can? :edit, @project %>
     <%= button_to "Edit", edit_project_path, method: :get if @project.editable? %>
@@ -150,4 +150,14 @@
     <%= button_to 'Delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
     <% end %>
 
+
+  <div class="project-controls">
+<% if can? :edit, @project %>
+  <%= button_to "Edit", edit_project_path, method: :get %>
+<% end %>
+
+<% if can? :destroy, @project %>
+  <%= button_to 'Delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
+</div>
 

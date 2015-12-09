@@ -21,7 +21,6 @@
 <%# binding.pry %>
 <div class="cards">
   <% @projects.each do |project| %>
-  <% if project.active? %>
   <div class='card'>
     <div class="card-image">
       <%= link_to image_tag(project.project_image), project_path(project) %>
@@ -34,7 +33,6 @@
     </div>
   </div>
   <% end %>
-  <%end %>
   </div>
 
 

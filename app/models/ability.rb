@@ -11,7 +11,7 @@ class Ability
     elsif user.role? :user
       can :create, Project 
       can :update, Project, :user_id => user.id 
-      can :delete, Project, :user_id => user.id 
+      can :destroy, Project, :user_id => user.id 
       can :cud, Reward # needs restrictions added 
       can :cud, Picture # needs restrictions added 
       can :create, Pledge 

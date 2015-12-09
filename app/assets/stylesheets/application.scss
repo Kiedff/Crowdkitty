@@ -326,7 +326,6 @@ li, a {
 
 }
 
-
 .date-select * {
   display: inline;
 }
@@ -335,6 +334,21 @@ li, a {
   margin: 10px 0 10px 0;
   padding: 10px 10px 10px 10px;
   border: 2px solid #d4d5d6;
+}
+
+.project-controls * {
+  display: inline;
+}
+
+.form-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid #d4d5d6;
+  padding: 20px 20px 20px 20px;
+}
+
+.login-button, .social-login-button img {
+  margin: 10px 0 10px 0;
 }
 
 .failed_project {
