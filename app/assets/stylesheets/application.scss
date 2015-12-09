@@ -11,6 +11,10 @@
 @import 'refills/_expander';
 @import 'refills/_accordion-tabs-minimal';
 
+/*
+ *= require jquery-ui
+ */
+
 
 main {
   @include outer-container;
@@ -250,9 +254,15 @@ li, a {
   color: #61C791;
 }
 
+
 .due_notification {
   background-color: #FFFF99;
   padding-top: 2px;
 
+}
+
+
+.date-select * {
+  display: inline;
 }
 

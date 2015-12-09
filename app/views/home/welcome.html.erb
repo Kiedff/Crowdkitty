@@ -19,9 +19,9 @@
     
     <div class='card'>
       <div class="card-image">
-        Project image
+        <%= link_to image_tag(project.project_image), project_path(project) %>
       </div>
-      <div class='card-header'><%= link_to project.name, projects_path(project) %></div>
+      <div class='card-header'><%= link_to project.name, project_path(project) %></div>
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
     <% end %>
@@ -39,9 +39,10 @@
     <% if project.active? && (project.not_open_yet == false)%>
     <div class='card'>
       <div class="card-image">
-        Project image <%= project.days_remaining %> days remaining
+        <%= link_to image_tag(project.project_image), project_path(project) %>
+        <%= project.days_remaining %> days remaining
       </div>
-      <div class='card-header'><%= project.name %></div>
+      <div class='card-header'><%= link_to project.name, project_path(project) %></div>
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
     <% end %>
