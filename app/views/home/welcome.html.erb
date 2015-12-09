@@ -21,7 +21,7 @@
       <div class="card-image">
         Project image
       </div>
-      <div class='card-header'><%= link_to project.name, projects_path(project) %></div>
+      <div class='card-header'><%= link_to project.name, project_path(project) %></div>
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
     <% end %>
@@ -41,7 +41,7 @@
       <div class="card-image">
         Project image <%= project.days_remaining %> days remaining
       </div>
-      <div class='card-header'><%= project.name %></div>
+      <div class='card-header'><%= link_to project.name, project_path(project) %></div>
       <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
     <% end %>
