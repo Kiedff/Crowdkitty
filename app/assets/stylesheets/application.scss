@@ -291,6 +291,7 @@ li, a {
 }
 
 .reward {
+  font-size: 18px;
   background-color: #e9eaea;
   margin-bottom: 10px;
   padding: 20px;
@@ -366,9 +367,23 @@ li, a {
 }
 
 .comment-wrapper {
-  margin: 10px 0 10px 0;
+  /*margin: 10px 0 10px 0;
   padding: 10px 10px 10px 10px;
-  border: 2px solid #d4d5d6;
+  border: 2px solid #d4d5d6;*/
+  background-color: #e9eaea;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 0.5em;
+  height: auto;
+}
+
+.comment-wrapper p {
+  font-size: 22px;
+}
+
+.summary {
+  font-size: 18px;
 }
 
 .project-controls * {
