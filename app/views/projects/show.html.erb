@@ -49,19 +49,21 @@
       <li class="tab-header-and-content">
         <a href="#" class="tab-link is-active">Project Summary</a>
         <div class="tab-content">
-          <p>Category: <%= @project.category.name %></p>
-          <p>Start date: <%= @project.human_readable_start_date %> </p>
+        <div class="summary">
+          <p><strong>Category:</strong> <%= @project.category.name %></p>
+          <p><strong>Start date:</strong> <%= @project.human_readable_start_date %> </p>
 
-          <p>End date: <%= @project.human_readable_end_date %> </p>
+          <p><strong>End date:</strong> <%= @project.human_readable_end_date %> </p>
 
-          <p>Created by:
+          <p><strong>Created by:</strong>
             <%= link_to "#{@project.user.try(:name).capitalize}", user_path(@project.user) %> </p>
 
-            <p>Location: <%= @project.location.capitalize %> </p>
+            <p><strong>Location:</strong> <%= @project.location.capitalize %> </p>
 
-            <p>Project summary: <%= @project.description %> </p>
+            <p><strong>Project summary:</strong> <%= @project.description %> </p>
 
-            <p>Created: <%= @project.created_at.ago_in_words %> </p>
+            <p><strong>Created:</strong> <%= @project.created_at.ago_in_words %> </p>
+          </div>
           </div>
         </li>
 
@@ -104,6 +106,7 @@
         <li class="tab-header-and-content">
           <a href="#" class="tab-link">Comments</a>
           <div class="tab-content">
+          
             <% if @project.active? %>
             <% @comment = Comment.new %>
             <%= render "comments/new" if current_user %>
@@ -114,28 +117,31 @@
             <% comments_ordered = @project.comments.order(:created_at).reverse %>
             <% comments_ordered.each do |comment| %>
             <div class="comment-wrapper">
+            
               <% @user = User.find(comment[:user_id])%>
 
               <h5> <%= "#{@user.name}" %> says: </h5>
-              <p> <%= "#{comment.content}" %> </p>
-              <h6><%= "#{comment.created_at.ago_in_words }" %> </h6>
+              <p> "<%= "#{comment.content}" %>" </p>
+              <div class="terms"><%= "#{comment.created_at.ago_in_words }" %> </div>
               <% if can? :destroy, comment %>
               <%= button_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
               <% end %>
             </div>
             <% end %>
-
-          </div>
+            </div>
+        
         </li>
         <li class="tab-header-and-content">
           <a href="#" class="tab-link">Gallery</a>
           <div class="tab-content">
+          <div class="summary">
             <p>
               Coming to a website near you soon!
               <br>
               <br>
               Hello, you've caught us in the middle of building this bit. Please come back later and you will see our new multi-image gallery.
             </p>
+            </div>
         </div>
       </li>
     </ul>
