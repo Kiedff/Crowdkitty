@@ -383,6 +383,21 @@ li, a {
   font-size: 22px;
 }
 
+.summary_box {
+  @include outer-container;
+}
+
+.summary_image {
+  @include span-columns(6);
+  float:right;
+}
+
+.summary_2 p{
+  @include span-columns(6);
+  font-size: 18px;
+  float: left;
+}
+
 .summary {
   font-size: 18px;
 }
