@@ -120,7 +120,7 @@
               <p> <%= "#{comment.content}" %> </p>
               <h6><%= "#{comment.created_at.ago_in_words }" %> </h6>
               <% if can? :destroy, comment %>
-              <%= link_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
+              <%= button_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
               <% end %>
             </div>
             <% end %>
