@@ -75,7 +75,9 @@
 </div>
 
 <% if current_user %>
-<div class="input"><%= link_to "Edit or cancel account", edit_user_registration_path if @user.id == current_user.id %></div>
+<% if @user.id == current_user.id %>
+<div class="input"><%= link_to "Edit or cancel account", edit_user_registration_path %></div>
+<% end %>
 <% end %>
 
 
