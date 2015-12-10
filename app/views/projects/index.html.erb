@@ -17,8 +17,15 @@
 <% end %><br>
 </div>
 <div class="current_projects">
-<h6>All Current Projects</h6><br>
-<%# binding.pry %>
+<% case @request_type %>
+<% when 'most_popular' %>
+<h6>Most Popular Projects</h6>
+<% when 'finishing_soon' %>
+<h6>Projects Finishing Soon</h6>
+<% else %>
+<h6>Current Projects</h6>
+<% end %><br>
+
 <div class="cards">
   <% @projects.each do |project| %>
   <div class='card'>
@@ -26,7 +33,13 @@
       <%= link_to image_tag(project.project_image), project_path(project) %>
     </div>
     <div class='card-header'>
-      <%= link_to "#{project.name}", project_path(project) %> </p>
+      <%= link_to "#{project.name}", project_path(project) %> 
+      <% case @request_type %>
+      <% when 'finishing_soon' %>
+      <p><%= project.days_remaining %> days left</p>
+      <% when 'most_popular' %>
+      <p><%= project.pledges.count %> pledges</p>
+      <% end %>
     </div>
     <div class='card-copy'>
       <p><%= project.summary %></p>
