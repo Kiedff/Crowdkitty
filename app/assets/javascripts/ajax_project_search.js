@@ -6,7 +6,7 @@ projectSearch.setup = function() {
 };
 
 projectSearch.searchHandler = function(e) {
-  e.preventDefault();
+  // e.preventDefault();
   projectSearch.ajaxRequest({
     'search': $('#search').val(),
     'category_id': $('#category_id').val(),
