@@ -102,7 +102,11 @@ class ProjectsController < ApplicationController
     if @location && @location != 'all'
       @projects = @projects.select {|p| p.location == @location}
     end   
-    
+
+    respond_to do |format|
+      format.html
+      format.json {render :json =>  @projects }
+    end
   end
 
   def show
