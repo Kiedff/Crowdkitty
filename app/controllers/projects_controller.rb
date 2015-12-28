@@ -113,6 +113,11 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @reward = Reward.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy

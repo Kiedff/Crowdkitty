@@ -1,6 +1,6 @@
 <% @pledge = Pledge.new %>
 <% @user = current_user if current_user %>
-<%= form_for [@project, @pledge] do |f| %>
+<%= form_for [@project, @pledge], :remote => true do |f| %>
 
   <p>Enter value you wish to pledge:</p>
   <%= f.number_field :value %>

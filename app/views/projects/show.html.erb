@@ -14,152 +14,122 @@
   </div>
 
   <div class="project_status">
-    <p><strong>Target:</strong> £<%= @project.target %></p>
+    <%= render "status" %>
+  </div>
+</div>
 
-    <p><strong>Total raised so far:</strong>
-      <div class="progress-bar-indication">
-        <span class="meter" style="width: <%= @project.current_percentage < 100 ? @project.current_percentage : 100 %>%">
-          <p>£<%= @project.total_raised %></p>
-        </span>
-      </div> </p>
 
-      <% if @project.funds_needed > 0 %>
-      <p><strong>Total pledges needed to reach target:</strong> £<%= @project.funds_needed %></p>
-      <% else %>
-      <p><strong>Exceeded target by:</strong> £<%= @project.funds_needed.abs %></p>
-      <% end %>
+<ul class="accordion-tabs-minimal">
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link is-active">Project Summary</a>
+    <div class="tab-content">
+      <div class="summary">
+        <p><strong>Category:</strong> <%= @project.category.name %></p>
+        <p><strong>Start date:</strong> <%= @project.human_readable_start_date %> </p>
 
-      <p><strong>Days remaining:</strong>
-        <% if @project.not_open_yet %>
-        <%= "This project opens on #{@project.human_readable_start_date}." %>
-        <% else %>
-        <h1><%= @project.days_remaining %></h1>
-        <% end %></p>
+        <p><strong>End date:</strong> <%= @project.human_readable_end_date %> </p>
 
-        <p><strong>End date:</strong> <%= @project.human_readable_date %> </p>
+        <p><strong>Created by:</strong>
+          <%= link_to "#{@project.user.try(:name).capitalize}", user_path(@project.user) %> </p>
+
+          <p><strong>Location:</strong> <%= @project.location.capitalize %> </p>
+
+          <p><strong>Project summary:</strong> <%= @project.description %> </p>
+
+          <p><strong>Created:</strong> <%= @project.created_at.ago_in_words %> </p>
+        </div>
+      </div>
+  </li>
+
+    <li class="tab-header-and-content">
+      <a href="#" class="tab-link">Rewards</a>
+      <div class="tab-content">
+        <% @project.rewards.each do |reward| %>
+        <div class="reward">
+          <% @reward = reward %>
+          <h2><%= reward.description %></h2>
+
+          <p>Minimum pledge for reward: £<%= reward.value %></p>
+
+          <p>Quantity available: <%= reward.try(:quantity) %></p>
+
+          <p>Delivery: <%= reward.delivery %></p>
+
+          <p>Ships to: <%= reward.ships_to %></p>
+
+          <% if @project.active? %>
+
+          <%= render "pledges/new" if current_user  %>
+
+          <% else %>
+          <p>this project is not currently open to pledges</p>
+          <% end %>
+
+          <% if current_user %>
+
+          <%= link_to 'Delete reward', project_reward_path( reward.project.id, reward.id),method: :delete, data: {confirm: "Are you sure?"} if @project.user_id == current_user.id %>
+          <% end %> 
+          <br>
+        </div>
+        <% end %>
+        <% if current_user %>
+        <%= render "rewards/new" if @project.user_id == current_user.id %>
+        <% end %> 
+      </div>
+    </li>
+
+    <li class="tab-header-and-content">
+      <a href="#" class="tab-link">Comments</a>
+      <div class="tab-content">
 
         <% if @project.active? %>
-        <h4>Pledge any value for no reward</h4>
-        <%= render "pledges/rewardless" if current_user%>
+        <% @comment = Comment.new %>
+        <%= render "comments/new" if current_user %>
         <% else %>
-        <p>This project is not currently open to pledges</p>
+        <p>This project is not currently open for comments.</p>
         <% end %>
 
-      </div>
-    </div>
+        <% comments_ordered = @project.comments.order(:created_at).reverse %>
+        <% comments_ordered.each do |comment| %>
+        <div class="comment-wrapper">
 
+          <% @user = User.find(comment[:user_id])%>
 
-    <ul class="accordion-tabs-minimal">
-      <li class="tab-header-and-content">
-        <a href="#" class="tab-link is-active">Project Summary</a>
-        <div class="tab-content">
-        <div class="summary">
-          <p><strong>Category:</strong> <%= @project.category.name %></p>
-          <p><strong>Start date:</strong> <%= @project.human_readable_start_date %> </p>
-
-          <p><strong>End date:</strong> <%= @project.human_readable_end_date %> </p>
-
-          <p><strong>Created by:</strong>
-            <%= link_to "#{@project.user.try(:name).capitalize}", user_path(@project.user) %> </p>
-
-            <p><strong>Location:</strong> <%= @project.location.capitalize %> </p>
-
-            <p><strong>Project summary:</strong> <%= @project.description %> </p>
-
-            <p><strong>Created:</strong> <%= @project.created_at.ago_in_words %> </p>
-          </div>
-          </div>
-        </li>
-
-        <li class="tab-header-and-content">
-          <a href="#" class="tab-link">Rewards</a>
-          <div class="tab-content">
-            <% @project.rewards.each do |reward| %>
-            <div class="reward">
-              <% @reward = reward %>
-              <h2><%= reward.description %></h2>
-
-              <p>Minimum pledge for reward: £<%= reward.value %></p>
-
-              <p>Quantity available: <%= reward.try(:quantity) %></p>
-
-              <p>Delivery: <%= reward.delivery %></p>
-
-              <p>Ships to: <%= reward.ships_to %></p>
-
-              <% if @project.active? %>
-
-              <%= render "pledges/new" if current_user  %>
-
-              <% else %>
-              <p>this project is not currently open to pledges</p>
-              <% end %>
-
-              <% if current_user %>
-
-              <%= link_to 'Delete reward', project_reward_path( reward.project.id, reward.id),method: :delete, data: {confirm: "Are you sure?"} if @project.user_id == current_user.id %>
-              <% end %> 
-              <br>
-            </div>
-            <% end %>
-            <% if current_user %>
-            <%= render "rewards/new" if @project.user_id == current_user.id %>
-            <% end %> 
-          </div>
-        </li>
-        <li class="tab-header-and-content">
-          <a href="#" class="tab-link">Comments</a>
-          <div class="tab-content">
-          
-            <% if @project.active? %>
-            <% @comment = Comment.new %>
-            <%= render "comments/new" if current_user %>
-            <% else %>
-            <p>This project is not currently open for comments.</p>
-            <% end %>
-
-            <% comments_ordered = @project.comments.order(:created_at).reverse %>
-            <% comments_ordered.each do |comment| %>
-            <div class="comment-wrapper">
-            
-              <% @user = User.find(comment[:user_id])%>
-
-              <h5> <%= "#{@user.name}" %> says: </h5>
-              <p> "<%= "#{comment.content}" %>" </p>
-              <div class="terms"><%= "#{comment.created_at.ago_in_words }" %> </div>
-              <% if can? :destroy, comment %>
-              <%= button_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
-              <% end %>
-            </div>
-            <% end %>
-            </div>
-        
-        </li>
-        <li class="tab-header-and-content">
-          <a href="#" class="tab-link">Gallery</a>
-          <div class="tab-content">
-          <div class="summary_2">
-          <%=image_tag('kittypic.jpg', alt: "Tech Support", class: 'summary_image', width:400) %>
-            <p>
-              Coming to a website near you soon!
-              <br>
-              <br>
-              Hello, you've caught us in the middle of building this bit. Please come back later and you will see our new multi-image gallery.
-            </p>
-            </div>
-  
+          <h5> <%= "#{@user.name}" %> says: </h5>
+          <p> "<%= "#{comment.content}" %>" </p>
+          <div class="terms"><%= "#{comment.created_at.ago_in_words }" %> </div>
+          <% if can? :destroy, comment %>
+          <%= button_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
         </div>
-      </li>
-    </ul>
+        <% end %>
+      </div>
+    </li>
+
+    <li class="tab-header-and-content">
+      <a href="#" class="tab-link">Gallery</a>
+      <div class="tab-content">
+        <div class="summary_2">
+          <%=image_tag('kittypic.jpg', alt: "Tech Support", class: 'summary_image', width:400) %>
+          <p>
+            Coming to a website near you soon!
+            <br>
+            <br>
+            Hello, you've caught us in the middle of building this bit. Please come back later and you will see our new multi-image gallery.
+          </p>
+        </div>
+      </div>
+    </li>
+</ul>
 
 
   <div class="project-controls">
-<% if can? :edit, @project %>
-  <%= button_to "Edit", edit_project_path, method: :get %>
-<% end %>
+    <% if can? :edit, @project %>
+    <%= button_to "Edit", edit_project_path, method: :get %>
+    <% end %>
 
-<% if can? :destroy, @project %>
-  <%= button_to 'Delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
-  <% end %>
-</div>
+    <% if can? :destroy, @project %>
+    <%= button_to 'Delete', project_path( @project.id),method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
 
