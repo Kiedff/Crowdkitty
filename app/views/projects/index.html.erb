@@ -1,6 +1,6 @@
 
 <div class="search-container">
-  <%= form_tag projects_path, method: "get", class: 'projects-filter' do %>
+  <%= form_tag projects_path, method: "get", class: 'projects-filter', :remote => true do %>
   <h3>Search for </h3>
   <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'search') %> show
   <div class="styled-select">
@@ -26,8 +26,9 @@
   <h6>Current Projects</h6>
   <% end %><br>
 
-  <%= render "projects", :projects => @projects %>
-
+  <div class="cards" id="projects">
+    <%= render "projects", :projects => @projects %>
+  </div>
 </div>
 
 
