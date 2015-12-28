@@ -5,7 +5,7 @@
     <%= image_tag(@user.user_image.url, alt: "Profile Image", width:400) %>
   </div>
   <div class="profile_info">
-  
+
     <p><strong>Full name:</strong> <%= @user.name %> <%= @user.last_name %></p>
     <p><strong>Location:</strong> <%= @user.city %> </p>
   </div>
@@ -49,10 +49,11 @@
           <% if current_user %>
             <% if @user.id == current_user.id %>
 
-            <% if pledge.project.success_and_closed && (pledge.paid == false) %>
+            <% if pledge.due %>
             <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get %>
             <% end %>
-            <% if pledge.project.success_and_closed && (pledge.paid == true) %>
+            <% if pledge.paid %>
+            
             <div class="received">
               <strong>Payment received, thank you.</strong>
             </div>
