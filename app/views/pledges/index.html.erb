@@ -1,0 +1,21 @@
+<div class="cards">
+
+  <% @pledges_due.each do |pledge| %>
+  <div class='card'>
+    <div class='card-header'>
+      <%= pledge.project.name %>
+    </div>
+
+    <div class='card-copy'>
+      <div class="pledge">
+        <br>
+         <strong><p>Reward claimed:</p></strong> <%= pledge.reward.description %>
+        <br>
+        <br>
+       <strong><p>Pledge value:</p></strong> £<%= pledge.value %>
+      </div>
+    </div>
+  </div>
+
+  <% end %> 
+</div>

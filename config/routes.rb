@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   resources :pledges, only: [:show, :destroy]
   resources :pictures
   resources :categories
-  resources :users
+  
+  resources :users do
+    resources :pledges, only: [:index]
+  end
 
 
   resources :projects do 

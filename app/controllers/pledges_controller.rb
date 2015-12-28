@@ -33,6 +33,14 @@ class PledgesController < ApplicationController
     redirect_to(user_path(current_user))
   end
 
+  def index
+    pledges = Pledge.where(user_id: current_user.id)
+    @pledges_due = []
+    pledges.each do |pledge|
+      @pledges_due << pledge  if pledge.due
+    end
+  end
+
   private
   def pledge_params
     params.require(:pledge).permit(:value, :project_id, :user_id, :reward_id)
