@@ -1,9 +1,8 @@
 <% @pledge = Pledge.new %>
 
-<%= form_for [@reward, @pledge] do |f| %>
+<%= form_for [@reward, @pledge], :remote => true do |f| %>
 
   <p>Enter value you wish to pledge</p>
   <%= f.number_field :value, :placeholder => @reward.value %>
-  <%= f.submit "Claim this reward!" %>
-
+  <%= f.submit "Claim this reward!", :id => 'submit_pledge' %>
   <% end %>

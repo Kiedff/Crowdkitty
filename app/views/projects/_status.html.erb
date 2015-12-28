@@ -1,0 +1,34 @@
+<p><strong>Target:</strong> £<%= @project.target %></p>
+<p>
+  <strong>Total raised so far:</strong>
+  <div class="progress-bar-indication">
+    <span class="meter" style="width: <%= @project.current_percentage < 100 ? @project.current_percentage : 100 %>%">
+      <p>£<%= @project.total_raised %></p>
+    </span>
+  </div> 
+</p>
+
+<% if @project.funds_needed > 0 %>
+<p><strong>Total pledges needed to reach target:</strong> £<%= @project.funds_needed %></p>
+<% else %>
+<p><strong>Exceeded target by:</strong> £<%= @project.funds_needed.abs %></p>
+<% end %>
+
+<p>
+  <strong>Days remaining:</strong>
+  <% if @project.not_open_yet %>
+  <%= "This project opens on #{@project.human_readable_start_date}." %>
+  <% else %>
+  <h1><%= @project.days_remaining %></h1>
+  <% end %>
+</p>
+
+<p><strong>End date:</strong> <%= @project.human_readable_date %> </p>
+
+<% if @project.active? %>
+<h4>Pledge any value for no reward</h4>
+<%= render "pledges/rewardless" if current_user%>
+<% else %>
+<p>This project is not currently open to pledges</p>
+<% end %>
+

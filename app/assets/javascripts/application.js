@@ -73,3 +73,5 @@ crowdkittyApp.pledgeHandler = function(e) {
 $(document).ready(function() {
   crowdkittyApp.setup(); 
 });
+
+
