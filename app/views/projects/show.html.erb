@@ -88,21 +88,9 @@
         <% else %>
         <p>This project is not currently open for comments.</p>
         <% end %>
-
-        <% comments_ordered = @project.comments.order(:created_at).reverse %>
-        <% comments_ordered.each do |comment| %>
-        <div class="comment-wrapper">
-
-          <% @user = User.find(comment[:user_id])%>
-
-          <h5> <%= "#{@user.name}" %> says: </h5>
-          <p> "<%= "#{comment.content}" %>" </p>
-          <div class="terms"><%= "#{comment.created_at.ago_in_words }" %> </div>
-          <% if can? :destroy, comment %>
-          <%= button_to 'Delete comment', project_comment_path( comment.project.id, comment.id),method: :delete, data: {confirm: "Are you sure?"} %>
-          <% end %>
+        <div id='comments'>
+          <%= render "comments" %>
         </div>
-        <% end %>
       </div>
     </li>
 

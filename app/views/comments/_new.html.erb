@@ -1,5 +1,5 @@
 <div class='form'>
-<%= form_for [@project, @comment] do |f| %>
+<%= form_for [@project, @comment], :remote => true do |f| %>
 
   <%= f.label 'Add Comment' %>
   <br>
