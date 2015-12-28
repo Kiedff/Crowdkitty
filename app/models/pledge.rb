@@ -13,5 +13,11 @@ class Pledge < ActiveRecord::Base
   def project_active?
     self.project.active?
   end
+
+  def due
+    self.project.success_and_closed && (self.paid == false)
+  end
+
+  
 end
 
