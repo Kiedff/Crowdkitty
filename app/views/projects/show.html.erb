@@ -32,7 +32,7 @@
         <p><strong>Created by:</strong>
           <%= link_to "#{@project.user.try(:name).capitalize}", user_path(@project.user) %> </p>
 
-          <p><strong>Location:</strong> <%= @project.location.capitalize %> </p>
+          <p><strong>Location:</strong> <%= @project.location.name.capitalize %> </p>
 
           <p><strong>Project summary:</strong> <%= @project.description %> </p>
 
