@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :rewards 
     resources :pledges
     resources :comments
+
+    member do
+      get :autocomplete_locations
+    end
   end
 
   resources :rewards do 
