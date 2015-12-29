@@ -10,6 +10,7 @@ class Ability
       can :manage, :all
     elsif user.role? :user
       can :create, Project 
+      can :autocomplete_locations, Project
       can :update, Project, :user_id => user.id 
       can :destroy, Project, :user_id => user.id 
       can :cud, Reward # needs restrictions added 

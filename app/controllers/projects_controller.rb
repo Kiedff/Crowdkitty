@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
 
   def create
       project = Project.new(project_params)
-      binding.pry
       project.user_id = current_user.id if current_user
       project.end_date = project.start_date + project.days
       if project.save
@@ -81,6 +80,12 @@ class ProjectsController < ApplicationController
     project.end_date = project.start_date + project.days
     project.save
     redirect_to(project_path(project))
+  end
+
+  def autocomplete_locations
+    locations = Location.pluck(:name)
+
+    render json: locations
   end
 
   private

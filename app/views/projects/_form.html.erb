@@ -28,10 +28,29 @@
   <%= f.label :category_id %>
   <%= f.select :category_id, options_from_collection_for_select(@categories, 'id', 'name') %>
   <br>
-  <%= f.label :location %>
+  <%#= f.label :location %>
   <%#= f.select :location, options_for_select(@cities.map{|c| [c.name,c]}) %>
-  <%= f.collection_select :location_id, Location.all, :id, :name %>
+  <%#= f.collection_select :location_id, Location.all, :id, :name %>
   <br>
+
+
+
+  <%#= label_tag :location %>
+  <%#= hidden_field_tag 'project[location_id][]' %>
+  <%#= text_field_tag :location_search, '', placeholder: 'search for locations' %>
+  <%#= label_tag :shim, '' %>
+  <div id='project_locations'>
+    <% Location.all.each do |location| %>
+      <div class="checkbox">
+        <%= radio_button_tag 'project[location_id]', location.id%>
+        <%= label_tag location.name %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
   <%= f.label :project_image %><br>
   <%= f.file_field :project_image %>
   <br>
