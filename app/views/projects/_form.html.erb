@@ -34,16 +34,19 @@
   <br>
 
 
-
   <%= label_tag :location %>
   <%#= hidden_field_tag 'project[location_id][]' %>
-  <%= text_field_tag :location_search, '', placeholder: 'search for locations' %>
+
   <%#= label_tag :shim, '' %>
   <div id='project_locations'>
     <% if @project.location %>
       <div class="checkbox">
-        <%= radio_button_tag 'project[location_id]', @project.location.id, true %>
+        <%= check_box_tag 'project[location_id]', @project.location.id, true %>
         <%= label_tag @project.location.name %>
+      </div>
+    <% else %>
+      <div id="location_autocomplete">
+      <%= text_field_tag :location_search, '', placeholder: 'search for locations' %>
       </div>
     <% end %>
   </div>

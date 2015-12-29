@@ -81,16 +81,17 @@ $(function() {
       $.get("/projects/autocomplete_locations", {
         q: request.term
       }, function (data) {
+        console.log(data);
         response(data);
       });
     },
     select: function( event, ui ) {
+      console.log(ui);
       event.preventDefault();
 
-      var checkbox = '<li><input checked="checked" id="student_ids" name="cohort[student_ids][]" type="checkbox" value="' + ui.item.id + '" /><label>' + ui.item.value + '</label></li>';
+      var checkbox = '<li><input checked="checked" id="project_location_id" name="project[location_id]" type="checkbox" value="' + ui.item.id + '" /><label>' + ui.item.value + '</label></li>';
 
-      $('#cohort_students').prepend(checkbox);
-      $("#student_search").val('');
+      $('#location_autocomplete').html(checkbox);
     }
   });
 
