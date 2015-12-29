@@ -83,8 +83,7 @@ class ProjectsController < ApplicationController
   end
 
   def autocomplete_locations
-    locations = Location.pluck(:name)
-
+    locations = Location.for_autocomplete(params[:q])
     render json: locations
   end
 

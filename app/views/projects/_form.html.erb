@@ -35,15 +35,15 @@
 
 
 
-  <%#= label_tag :location %>
+  <%= label_tag :location %>
   <%#= hidden_field_tag 'project[location_id][]' %>
-  <%#= text_field_tag :location_search, '', placeholder: 'search for locations' %>
+  <%= text_field_tag :location_search, '', placeholder: 'search for locations' %>
   <%#= label_tag :shim, '' %>
   <div id='project_locations'>
-    <% Location.all.each do |location| %>
+    <% if @project.location %>
       <div class="checkbox">
-        <%= radio_button_tag 'project[location_id]', location.id, @project.location == location %>
-        <%= label_tag location.name %>
+        <%= radio_button_tag 'project[location_id]', @project.location.id, true %>
+        <%= label_tag @project.location.name %>
       </div>
     <% end %>
   </div>

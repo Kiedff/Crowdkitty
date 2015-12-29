@@ -74,4 +74,26 @@ $(document).ready(function() {
   crowdkittyApp.setup(); 
 });
 
+$(function() {
+
+  $("#location_search").autocomplete({ 
+    source: function (request, response) {
+      $.get("/projects/autocomplete_locations", {
+        q: request.term
+      }, function (data) {
+        response(data);
+      });
+    },
+    select: function( event, ui ) {
+      event.preventDefault();
+
+      var checkbox = '<li><input checked="checked" id="student_ids" name="cohort[student_ids][]" type="checkbox" value="' + ui.item.id + '" /><label>' + ui.item.value + '</label></li>';
+
+      $('#cohort_students').prepend(checkbox);
+      $("#student_search").val('');
+    }
+  });
+
+});
+
 
