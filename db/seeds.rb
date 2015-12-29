@@ -30,6 +30,67 @@ Category.create(name: 'Technology')
 Category.create(name: 'Theatre & Dance')
 Category.create(name: 'University & College')
 
+cities =[
+  'Aberdeen',
+  'Airdrie',
+  'Alloa',
+  'Arbroath',
+  'Ayr',
+  'Barrhead',
+  'Bathgate',
+  'Bearsden',
+  'Bellshill',
+  'Bishopbriggs',
+  'Blantyre',
+  'Bonnyrigg',
+  'Broxburn',
+  'Cambuslang',
+  'Clydebank',
+  'Coatbridge',
+  'Cumbernauld',
+  'Dumbarton',
+  'Dumfries',
+  'Dundee',
+  'Dunfermline',
+  'East Kilbride',
+  'Edinburgh',
+  'Elgin',
+  'Erskine',
+  'Falkirk',
+  'Glasgow',
+  'Glenrothes',
+  'Grangemouth',
+  'Greenock',
+  'Hamilton',
+  'Inverness',
+  'Irvine',
+  'Johnstone',
+  'Kilmarnock',
+  'Kilwinning',
+  'Kirkcaldy and Dysart',
+  'Kirkintilloch',
+  'Larkhall',
+  'Livingston',
+  'Motherwell',
+  'Musselburgh',
+  'Newton Mearns',
+  'Paisley',
+  'Penicuik',
+  'Perth',
+  'Peterhead',
+  'Port Glasgow',
+  'Renfrew',
+  'Rutherglen',
+  'St Andrews',
+  'Stirling',
+  'Viewpark',
+  'Wishaw'
+]
+
+cities.each do |city|
+  Location.create(name: city)
+end
+
 
 p1 = Project.create(name: "Restore the New Kilpatrick church clock.", summary: "The New Kilpatrick parish church clock was donated by Prince Albert in 1872. The clock dial and mechanism is now in need of restoration in order to save this historic piece of Scottish history.", target: 10000, start_date: "2015-11-11", end_date: "2016-02-25", user_id: 2, location: "Bearsden", description: "The clock dial and mechanism have been a part of the history of the school for 150 years but following a period of neglect are now in poor condition. Having been looked at by a local clock engineer we would like to raise the money necessary to save the clock. We'll restore the clock dial and mechanism back to what it looked like in 1872. We have just received £8200 to rebuild the bell tower which was rotting, but we are still missing the funding to restore the clock alongside this. I think this is the opportune moment to restore the clock and restore this crucial part of Bearsden's past so that it can be a part of Bearsden's future for generations to come.Once the funding is complete the clock engineer will be brought in to do the necessary work.", category_id: 4, project_image: "", days: 106)
 p2 = Project.create(name: "Drumry Orchard Project", summary: "This is a community led project to make our parks greener, cleaner and even more fantastic by planting orchards to increase foraging opportunities and create greater abundance for local people.", target: 5200, start_date: "2015-11-11", end_date: "2016-02-25", user_id: 5, location: "Clydebank", description: "To coincide with 'National Tree Planting' week, Drumry Transition will be launching The 'Drumry Orchard Project' on 5th December 2015. We hope to extend the project later to create at least five new orchards in Clydebank by 2020. We envision our parks and public spaces filled with a variety of fruit & nut trees and fruiting hedges which will provide free food for local people to enjoy. Although we anticipate completing the project within 5 years, we hope to go on taking care of the trees as a community long beyond this period. How will you get this done? Well, we intend to: utilise the expertise of Tree Council who have already partnered with us, recruit volunteer ‘Tree Wardens’ from the local community, provide ongoing training and support for the volunteers, organise fruit harvesting and litter picking events, engage local schools, businesses and places of worship AND hold promotional events to publicise the project.", category_id: 6, project_image: "", days: 106)
@@ -168,6 +229,8 @@ Pledge.create(user_id: 4, project_id: 11, value: 44)
 Pledge.create(user_id: 5, project_id: 2, value: 100)
 Pledge.create(user_id: 5, project_id: 6, value: 70)
 Pledge.create(user_id: 5, project_id: 10, value: 20)
+
+
 
 
 
