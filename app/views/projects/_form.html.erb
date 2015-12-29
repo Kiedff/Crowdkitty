@@ -42,7 +42,7 @@
   <div id='project_locations'>
     <% Location.all.each do |location| %>
       <div class="checkbox">
-        <%= radio_button_tag 'project[location_id]', location.id%>
+        <%= radio_button_tag 'project[location_id]', location.id, @project.location == location %>
         <%= label_tag location.name %>
       </div>
     <% end %>
