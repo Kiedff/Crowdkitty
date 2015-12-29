@@ -39,16 +39,15 @@
 
   <%#= label_tag :shim, '' %>
   <div id='project_locations'>
-    <% if @project.location %>
-      <div class="checkbox">
-        <%= check_box_tag 'project[location_id]', @project.location.id, true %>
-        <%= label_tag @project.location.name %>
-      </div>
-    <% else %>
-      <div id="location_autocomplete">
+    
+    <div id="location_checkbox" class="checkbox" style="display: none">
+      <%= check_box_tag 'project[location_id]', @project.location ? @project.location.id : 'placeholder', true %>
+      <%= label_tag @project.location ? @project.location.name : 'placeholder' %>
+    </div>
+
+    <div id="location_autocomplete">
       <%= text_field_tag :location_search, '', placeholder: 'search for locations' %>
-      </div>
-    <% end %>
+    </div>
   </div>
 
 
