@@ -92,7 +92,7 @@ $(function() {
       var checkbox = '<li><input checked="checked" id="project_location_id" name="project[location_id]" type="checkbox" value="' + ui.item.id + '" /><label>' + ui.item.value + '</label></li>';
 
       $('#location_checkbox').attr('style', 'display: inline-block');
-      $('#location_search').attr('style', 'display: none');
+      $('#location_autocomplete').attr('style', 'display: none');
       $('#project_location_id').attr('value', ui.item.id);
       $('#location_checkbox > label').attr('for', ui.item.value).html(ui.item.value);
       $("#project_location_id").prop("checked", true);
@@ -100,7 +100,7 @@ $(function() {
   });
 
   $("#project_location_id").change(function(){
-    $('#location_search').attr('style', 'display: block');
+    $('#location_autocomplete').attr('style', 'display: block');
     $('#location_checkbox').attr('style', 'display: none');
 
   });
