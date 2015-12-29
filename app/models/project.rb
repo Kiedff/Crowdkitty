@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
   has_many :pictures, dependent: :destroy
   has_many :rewards, dependent: :destroy
   has_many :comments, dependent: :destroy
+  belongs_to :location
 
   validates_presence_of :name, :summary, :description, :target, :start_date, :category, :location
   validates_inclusion_of :days, :in => -1..150
