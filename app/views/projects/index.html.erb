@@ -13,11 +13,7 @@
 
   <div id='project_locations'>
     
-    <div id="location_checkbox" class="checkbox"
-    <% unless @location %>
-    style='display: none'
-    <% end %>
-    >
+    <div id="location_checkbox" class="checkbox" style='display: none'>
       <%= check_box_tag 'project[location_id]', @location ? @location : 'placeholder', true %>
       <%= label_tag @location ? Location.find(@location).name : 'placeholder' %>
     </div>
@@ -29,8 +25,14 @@
     >
       <%= text_field_tag :location_search, '', placeholder: 'search for locations', class: 'location_search' %>
     </div>
-    <div class="selected_location" id="selected_location">
-
+    <div class="selected_location" id="selected_location"
+    <% if @location %>
+    style='display: inline'
+    <% end %>
+    >
+    <% if @location %>
+    <%= Location.find(@location).name %> <i class="fa fa-times"></i>
+    <% end %>
     </div>
   </div>
 

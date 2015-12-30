@@ -91,20 +91,18 @@ $(function() {
 
       var checkbox = '<li><input checked="checked" id="project_location_id" name="project[location_id]" type="checkbox" value="' + ui.item.id + '" /><label>' + ui.item.value + '</label></li>';
 
-      $('#location_checkbox').attr('style', 'display: inline-block');
       $('#location_autocomplete').attr('style', 'display: none');
       $('#project_location_id').attr('value', ui.item.id);
       $('#location_checkbox > label').attr('for', ui.item.value).html(ui.item.value);
       $("#project_location_id").prop("checked", true);
-      $('#selected_location').html(ui.item.value);
+      $('#selected_location').html(ui.item.value + ' <i class="fa fa-times"></i>');
       $('#selected_location').attr('style', 'display: inline');
     }
   });
 
-  $("#project_location_id").change(function(){
+  $("#selected_location").click(function(){
     $('#location_autocomplete').attr('style', 'display: inline');
-    $('#location_checkbox').attr('style', 'display: none');
-
+    $('#selected_location').attr('style', 'display: none');
   });
 
 });

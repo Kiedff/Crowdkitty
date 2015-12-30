@@ -38,12 +38,10 @@
   <%#= hidden_field_tag 'project[location_id][]' %>
 
   <%#= label_tag :shim, '' %>
-  <div id='project_locations'>
+  <div id='project_locations' class='form_location'>
     
     <div id="location_checkbox" class="checkbox" 
-    <% unless @project.location %>
     style='display: none'
-    <% end %>
     >
       <%= check_box_tag 'project[location_id]', @project.location ? @project.location.id : 'placeholder', true %>
       <%= label_tag @project.location ? @project.location.name : 'placeholder' %>
@@ -55,6 +53,15 @@
     <% end %>
     >
       <%= text_field_tag :location_search, '', placeholder: 'search for locations' %>
+    </div>
+    <div class="selected_location" id="selected_location"
+    <% if @project.location %>
+    style='display: inline; margin-bottom: 10px'
+    <% end %>
+    >
+    <% if @project.location %>
+    <%= @project.location.name %> <i class="fa fa-times"></i>
+    <% end %>
     </div>
   </div>
 
