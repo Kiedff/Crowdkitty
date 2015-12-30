@@ -22,6 +22,6 @@ class HomeController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:category_id, :search, :loc)
+    params.require(:project).permit(:category_id, :search, :project)
   end
 end

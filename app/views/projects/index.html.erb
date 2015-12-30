@@ -8,8 +8,32 @@
   </div>
   projects in
   <div class="styled-select">
-    <%= select_tag 'loc', options_for_select(@cities.map {|city| [city, city]}.uniq.unshift(['all locations', 'all']), selected: @location) %>
+    <%#= select_tag 'loc', options_for_select(@cities.map {|city| [city, city]}.uniq.unshift(['all locations', 'all']), selected: @location) %>
   </div>
+
+  <div id='project_locations'>
+    
+    <div id="location_checkbox" class="checkbox"
+    <% unless @location %>
+    style='display: none'
+    <% end %>
+    >
+      <%= check_box_tag 'project[location_id]', @location ? @location : 'placeholder', true %>
+      <%= label_tag @location ? Location.find(@location).name : 'placeholder' %>
+    </div>
+
+    <div id="location_autocomplete"
+    <% if @location %>
+    style='display: none'
+    <% end %>
+    >
+      <%= text_field_tag :location_search, '', placeholder: 'search for locations', class: 'location_search' %>
+    </div>
+    <div class="selected_location" id="selected_location">
+
+    </div>
+  </div>
+
   <% if @request_type %>
   <%= hidden_field_tag 'request_type', @request_type %>
   <% end %>

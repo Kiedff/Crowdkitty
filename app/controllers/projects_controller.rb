@@ -29,7 +29,8 @@ class ProjectsController < ApplicationController
     @projects = Project.search(@search).select{|project|project.active?}
     @categories = Category.all
     @cities = Location.pluck(:name)
-    @location = params[:loc]
+    @location = params[:project][:location_id].to_i if params[:project]
+
 
     case @request_type 
     when 'most_popular'
@@ -43,7 +44,7 @@ class ProjectsController < ApplicationController
     end
 
     if @location && @location != 'all'
-      @projects = @projects.select {|p| p.location.name == @location}
+      @projects = @projects.select {|p| p.location.id == @location}
     end   
 
     respond_to do |format|
