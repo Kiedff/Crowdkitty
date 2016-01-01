@@ -170,7 +170,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   border: 2px solid #d4d5d6;
 }
 .blurb_1 {
-  @include span-columns(6);
+  @include span-columns(8);
  float: left;
  font-size: 26px;
  text-align: center;
@@ -178,7 +178,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 }
 
 .blurb_image_1 {
-  @include span-columns(6);
+  @include span-columns(4);
   float: right;
 }
 
@@ -190,15 +190,16 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   border: 2px solid #d4d5d6;
 }
 .blurb_2 {
-  @include span-columns(6);
+  @include span-columns(8);
  float: right;
  font-size: 26px;
  text-align: center;
  padding-top: 90px;
+ margin-right: 0;
 }
 
 .blurb_image_2 {
-  @include span-columns(6);
+  @include span-columns(4);
   float: left;
 }
 .current_projects h6 {
@@ -207,8 +208,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .most-popular {
   padding: 5px 10px 5px 5px;
-  /*border: 2px solid #E0FFB3;
-  background-color: #E0FFB3;*/
   margin-bottom: 15px;
   margin-top: 25px;
   margin-left: 0px;
@@ -217,8 +216,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .finishing-soon {
   padding: 5px;
-  /*border: 2px solid #99e7ff;
-  background-color: #99e7ff;*/
   margin-bottom: 15px;
   margin-top: 25px;
   margin-left: 0px;
@@ -235,7 +232,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 }
 
 .home_about h4 {
-  /*-webkit-text-stroke: 0.1px #57b382;*/
   font-family: 'Sansita One', cursive;
   font-size: 40px;
   text-shadow: 0 0 3px #121313;
@@ -368,9 +364,6 @@ li, a {
 }
 
 .comment-wrapper {
-  /*margin: 10px 0 10px 0;
-  padding: 10px 10px 10px 10px;
-  border: 2px solid #d4d5d6;*/
   background-color: #e9eaea;
   margin-top: 20px;
   margin-bottom: 10px;
