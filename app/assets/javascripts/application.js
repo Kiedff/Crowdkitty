@@ -73,3 +73,38 @@ crowdkittyApp.pledgeHandler = function(e) {
 $(document).ready(function() {
   crowdkittyApp.setup(); 
 });
+
+$(function() {
+
+  $("#location_search").autocomplete({ 
+    source: function (request, response) {
+      $.get("/projects/autocomplete_locations", {
+        q: request.term
+      }, function (data) {
+        console.log(data);
+        response(data);
+      });
+    },
+    select: function( event, ui ) {
+      console.log(ui);
+      event.preventDefault();
+
+      var checkbox = '<li><input checked="checked" id="project_location_id" name="project[location_id]" type="checkbox" value="' + ui.item.id + '" /><label>' + ui.item.value + '</label></li>';
+
+      $('#location_autocomplete').attr('style', 'display: none');
+      $('#project_location_id').attr('value', ui.item.id);
+      $('#location_checkbox > label').attr('for', ui.item.value).html(ui.item.value);
+      $("#project_location_id").prop("checked", true);
+      $('#selected_location').html(ui.item.value + ' <i class="fa fa-times"></i>');
+      $('#selected_location').attr('style', 'display: inline');
+    }
+  });
+
+  $("#selected_location").click(function(){
+    $('#location_autocomplete').attr('style', 'display: inline');
+    $('#selected_location').attr('style', 'display: none');
+  });
+
+});
+
+

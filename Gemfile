@@ -15,6 +15,7 @@ gem 'rmagick'
 gem 'fog'
 gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
+gem 'font-awesome-sass'
 
 gem 'cancancan', '~> 1.10'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

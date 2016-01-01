@@ -2,71 +2,14 @@ class ProjectsController < ApplicationController
 
   load_and_authorize_resource
 
-    @@cities = [
-  'Aberdeen',
-  'Airdrie',
-  'Alloa',
-  'Arbroath',
-  'Ayr',
-  'Barrhead',
-  'Bathgate',
-  'Bearsden',
-  'Bellshill',
-  'Bishopbriggs',
-  'Blantyre',
-  'Bonnyrigg',
-  'Broxburn',
-  'Cambuslang',
-  'Clydebank',
-  'Coatbridge',
-  'Cumbernauld',
-  'Dumbarton',
-  'Dumfries',
-  'Dundee',
-  'Dunfermline',
-  'East Kilbride',
-  'Edinburgh',
-  'Elgin',
-  'Erskine',
-  'Falkirk',
-  'Glasgow',
-  'Glenrothes',
-  'Grangemouth',
-  'Greenock',
-  'Hamilton',
-  'Inverness',
-  'Irvine',
-  'Johnstone',
-  'Kilmarnock',
-  'Kilwinning',
-  'Kirkcaldy and Dysart',
-  'Kirkintilloch',
-  'Larkhall',
-  'Livingston',
-  'Motherwell',
-  'Musselburgh',
-  'Newton Mearns',
-  'Paisley',
-  'Penicuik',
-  'Perth',
-  'Peterhead',
-  'Port Glasgow',
-  'Renfrew',
-  'Rutherglen',
-  'St Andrews',
-  'Stirling',
-  'Viewpark',
-  'Wishaw'
-  ]
-
   def new
     @project = Project.new
-    @cities = @@cities
+    # needs altered to create using location model
+    @cities = Location.all 
   end
 
   def create
       project = Project.new(project_params)
-
       project.user_id = current_user.id if current_user
       project.end_date = project.start_date + project.days
       if project.save
@@ -85,8 +28,9 @@ class ProjectsController < ApplicationController
     @search = params[:search]
     @projects = Project.search(@search).select{|project|project.active?}
     @categories = Category.all
-    @cities = @@cities
-    @location = params[:loc]
+    @cities = Location.pluck(:name)
+    @location = params[:project][:location_id].to_i if params[:project]
+
 
     case @request_type 
     when 'most_popular'
@@ -100,14 +44,24 @@ class ProjectsController < ApplicationController
     end
 
     if @location && @location != 'all'
-      @projects = @projects.select {|p| p.location == @location}
+      @projects = @projects.select {|p| p.location.id == @location}
     end   
-    
+
+    respond_to do |format|
+      format.html
+      format.js
+      format.json {render :json =>  @projects }
+    end
   end
 
   def show
     @project = Project.find(params[:id])
     @reward = Reward.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
@@ -117,7 +71,8 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @cities = @@cities
+    # needs altered to create using location model
+    @cities = Location.all
   end
 
   def update
@@ -128,9 +83,14 @@ class ProjectsController < ApplicationController
     redirect_to(project_path(project))
   end
 
+  def autocomplete_locations
+    locations = Location.for_autocomplete(params[:q])
+    render json: locations
+  end
+
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image, :loc)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location_id, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image, :loc)
   end
 
 end

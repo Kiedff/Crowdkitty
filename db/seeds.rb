@@ -30,7 +30,6 @@ Category.create(name: 'Technology')
 Category.create(name: 'Theatre & Dance')
 Category.create(name: 'University & College')
 
-
 p1 = Project.create(name: "Restore the church clock.", summary: "The New Kilpatrick parish church clock was donated by Lord Buckingham in 1872. The dial, face and  mechanism is now in need of restoration in order to save this historic piece of Scottish history.", target: 10000, start_date: "2015-11-11", end_date: "2016-02-25", user_id: 2, location: "Bearsden", description: "The clock dial and mechanism have been a part of the history of the church for 139 years. However, following a period of neglect, they are now in desperate need of some restoration. We have consulted a specialist engineer and they believe the clock is repairable. As such, we would like to raise the money necessary to save the clock. We'll restore the clock back to what it originally looked like in 1876.", category_id: 4, project_image: "", days: 106)
 p2 = Project.create(name: "Drumry Orchard Project", summary: "This is a community led project to make our parks greener, cleaner and even more fantastic by planting orchards to increase foraging opportunities and create greater abundance for local people.", target: 5200, start_date: "2015-11-11", end_date: "2016-02-25", user_id: 5, location: "Clydebank", description: "To coincide with 'National Tree Planting' week, Drumry Transition will be launching The 'Drumry Orchard Project' on 5th December 2015. We hope to extend the project later to create at least five new orchards in Clydebank by 2020. We envision our parks and public spaces filled with a variety of fruit & nut trees and fruiting hedges which will provide free food for local people to enjoy. Although we anticipate completing the project within 5 years, we hope to go on taking care of the trees as a community long beyond this period. How will you get this done? Well, we intend to: utilise the expertise of Tree Council who have already partnered with us, recruit volunteer ‘Tree Wardens’ from the local community, provide ongoing training and support for the volunteers, organise fruit harvesting and litter picking events, engage local schools, businesses and places of worship AND hold promotional events to publicise the project.", category_id: 6, project_image: "", days: 106)
 p3 = Project.create(name: "Erskine Playbus", summary: "Our Playbus has been coming to Erskine for 8 years. In summer we welcomed over 70 children per session. Our funding ends in May. Please help us so we can be there in Spring 2016!", target: 3000, start_date: "2015-11-11", end_date: "2016-02-25", user_id: 4, location: "Erskine", description: "The Bargarran Community Education Centre has a well loved green space surrounded by dense housing. There are several housing estates where families live, often without outside space in over crowded conditions. When doing outreach we have met families, new to the area, who don't know where their local green space is. Our outreach makes sure that all families know what local support and facilities are available. Our Playbus sessions are a fantastic place for families to meet and share experiences and advice. Please help us keep these sessions going through Spring 2016. With your help to keep going we will have more time to secure funding so we can get more families out in the park, prevent isolation and have fun!", category_id: 11, project_image: "", days: 106)
@@ -50,6 +49,68 @@ p16 = Project.create(name: "A Case of History for Huntingtower Castle", summary:
 p17 = Project.create(name: "Cambridge Road lamp posts", summary: "Ensuring Cambridge Road has good street lighting that minimises the dazzle in people's homes and gardens - and is sympathetic to the architecture of the road.", target: 7343, start_date: "2015-11-11", end_date: "2015-12-01", user_id: 3, location: "Paisley", description: "Cambridge Rd residents have received a letter from the Council to say the only affordable street lighting are the ugly, tall thin columns that light the place up like a football stadium. There are other options available, some are on nearby roads, but the Council says it has no more money left. So if we do nothing, we get the ugly ones. This proposal is that residents of the road, who spend money on making their houses pleasant, could also contribute to making the street lamps more pleasant. Some households might contribute more, some less and some not at all. But between us we can make Cambridge Road a nicer road to live on and leave a better legacy for future residents. f we get enough funding to make it work, then we will. If we don't get enough, then you get your money back, and we get the standard lamp posts. If we get more than is needed, we'll agree with you what to spend the remainder on.", category_id: 4, project_image: "", days: -1)
 
 p18 = Project.create(name: "Grow an Entrepreneur for Tomorrow", summary: "Help us turn an empty shop into a buzzing hub for young entrepreneurs! We'll create space where imaginations can be unleashed and bright business ideas brought to life.", target: 51079, start_date: "2015-11-11", end_date: "2016-02-25", user_id: 3, location: "Wishaw", description: "With youth unemployment and shops vacancies both at record highs, we’ve developed a great idea that tackles both issues. Our new Ideas Hub, will allow budding entrepreneurs to share business ideas, get advice, and access support. Whether designing and selling clothes, creating new smartphone apps, setting up a radio station, or cooking culinary treats to service hungry traders, the bright ideas are out there. We just need to give them the right space to grow. The Hub will host five groups of young people, on three-month stints. Part of the money raised by our funding campaign will provide seed funding for the best business ideas, along with support from experienced businesses in the community. The aim is to nurture bright ideas into full-fledged enterprises in the real world. If you would like to see one of the town's empty spaces turned into a factory for young entrepreneurs, please click pledge to back this project!", category_id: 12, project_image: "", days: 106)
+
+cities =[
+  'Aberdeen',
+  'Airdrie',
+  'Alloa',
+  'Arbroath',
+  'Ayr',
+  'Barrhead',
+  'Bathgate',
+  'Bearsden',
+  'Bellshill',
+  'Bishopbriggs',
+  'Blantyre',
+  'Bonnyrigg',
+  'Broxburn',
+  'Cambuslang',
+  'Clydebank',
+  'Coatbridge',
+  'Cumbernauld',
+  'Dumbarton',
+  'Dumfries',
+  'Dundee',
+  'Dunfermline',
+  'East Kilbride',
+  'Edinburgh',
+  'Elgin',
+  'Erskine',
+  'Falkirk',
+  'Glasgow',
+  'Glenrothes',
+  'Grangemouth',
+  'Greenock',
+  'Hamilton',
+  'Inverness',
+  'Irvine',
+  'Johnstone',
+  'Kilmarnock',
+  'Kilwinning',
+  'Kirkcaldy and Dysart',
+  'Kirkintilloch',
+  'Larkhall',
+  'Livingston',
+  'Motherwell',
+  'Musselburgh',
+  'Newton Mearns',
+  'Paisley',
+  'Penicuik',
+  'Perth',
+  'Peterhead',
+  'Port Glasgow',
+  'Renfrew',
+  'Rutherglen',
+  'St Andrews',
+  'Stirling',
+  'Viewpark',
+  'Wishaw'
+  ]
+
+cities.each do |city|
+  Location.create(name: city)
+end
+
 
 p1.project_image = File.open(File.join(Rails.root, "db/images/clock.jpg"))
 p1.save!
@@ -168,6 +229,8 @@ Pledge.create(user_id: 4, project_id: 11, value: 44)
 Pledge.create(user_id: 5, project_id: 2, value: 100)
 Pledge.create(user_id: 5, project_id: 6, value: 70)
 Pledge.create(user_id: 5, project_id: 10, value: 20)
+
+
 
 
 

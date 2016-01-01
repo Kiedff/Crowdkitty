@@ -9,13 +9,17 @@ Rails.application.routes.draw do
   resources :pledges, only: [:show, :destroy]
   resources :pictures
   resources :categories
-  resources :users
+  
+  resources :users do
+    resources :pledges, only: [:index]
+  end
 
 
   resources :projects do 
     resources :rewards 
     resources :pledges
     resources :comments
+    get :autocomplete_locations, on: :collection
   end
 
   resources :rewards do 

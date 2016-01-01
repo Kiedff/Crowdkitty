@@ -28,9 +28,46 @@
   <%= f.label :category_id %>
   <%= f.select :category_id, options_from_collection_for_select(@categories, 'id', 'name') %>
   <br>
-  <%= f.label :location %>
-  <%= f.select :location, options_for_select(@cities.map{|c| [c,c]}) %>
+  <%#= f.label :location %>
+  <%#= f.select :location, options_for_select(@cities.map{|c| [c.name,c]}) %>
+  <%#= f.collection_select :location_id, Location.all, :id, :name %>
   <br>
+
+
+  <%= label_tag :location %>
+  <%#= hidden_field_tag 'project[location_id][]' %>
+
+  <%#= label_tag :shim, '' %>
+  <div id='project_locations' class='form_location'>
+    
+    <div id="location_checkbox" class="checkbox" 
+    style='display: none'
+    >
+      <%= check_box_tag 'project[location_id]', @project.location ? @project.location.id : 'placeholder', true %>
+      <%= label_tag @project.location ? @project.location.name : 'placeholder' %>
+    </div>
+
+    <div id="location_autocomplete"
+    <% if @project.location %>
+    style='display: none'
+    <% end %>
+    >
+      <%= text_field_tag :location_search, '', placeholder: 'search for locations' %>
+    </div>
+    <div class="selected_location" id="selected_location"
+    <% if @project.location %>
+    style='display: inline; margin-bottom: 10px'
+    <% end %>
+    >
+    <% if @project.location %>
+    <%= @project.location.name %> <i class="fa fa-times"></i>
+    <% end %>
+    </div>
+  </div>
+
+
+
+
   <%= f.label :project_image %><br>
   <%= f.file_field :project_image %>
   <br>
