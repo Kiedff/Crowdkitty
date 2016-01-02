@@ -31,7 +31,9 @@ before_save :set_default_role
         :cmd => '_cart',
         :upload => 1,
         :invoice => (rand() * 10000).to_i, #this should be id
-        :currency_code => 'GBP'
+        :currency_code => 'GBP',
+        :return => "http://localhost:3000/users/#{self.id}/pledges"
+        
       }
     pledges = self.pledges
     pledges_due = []
