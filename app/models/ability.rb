@@ -5,12 +5,12 @@ class Ability
     alias_action :create, :update, :destroy, :to => :cud
 
     user ||= User.new
+    can :autocomplete_locations, Project
 
     if user.role? :admin
       can :manage, :all
     elsif user.role? :user
       can :create, Project 
-      can :autocomplete_locations, Project
       can :update, Project, :user_id => user.id 
       can :destroy, Project, :user_id => user.id 
       can :cud, Reward # needs restrictions added 
