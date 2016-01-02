@@ -25,6 +25,30 @@ before_save :set_default_role
     b.include? true
   end
 
+  def paypal_url
+    values = {
+        :business => 'test-account@merchant.com',
+        :cmd => '_cart',
+        :upload => 1,
+        :invoice => (rand() * 10000).to_i, #this should be id
+        :currency_code => 'GBP'
+      }
+    pledges = self.pledges
+    pledges_due = []
+    pledges.each do |pledge|
+      pledges_due << pledge  if pledge.due
+    end
+    pledges_due.each_with_index do |pledge, index|
+      values.merge!({
+        "amount_#{index+1}" => pledge.value,
+        "item_name_#{index+1}" => pledge.project.name,
+        "item_number_#{index+1}" => pledge.id,
+        
+      })
+    end
+    "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+  end
+
   private
   def set_default_role
     self.role = "user" unless self.role == "admin"

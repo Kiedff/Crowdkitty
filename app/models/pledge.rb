@@ -18,6 +18,5 @@ class Pledge < ActiveRecord::Base
     self.project.success_and_closed && (self.paid == false)
   end
 
-  
 end
 
