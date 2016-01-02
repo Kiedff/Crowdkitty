@@ -30,7 +30,7 @@ before_save :set_default_role
         :business => 'test-account@merchant.com',
         :cmd => '_cart',
         :upload => 1,
-        :invoice => id,
+        :invoice => (rand() * 10000).to_i,
         :currency_code => 'GBP'
       }
     pledges = self.pledges
@@ -42,7 +42,8 @@ before_save :set_default_role
       values.merge!({
         "amount_#{index+1}" => pledge.value,
         "item_name_#{index+1}" => pledge.project.name,
-        "item_number_#{index+1}" => pledge.id
+        "item_number_#{index+1}" => pledge.id,
+        
       })
     end
     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
