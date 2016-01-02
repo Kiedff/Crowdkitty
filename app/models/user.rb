@@ -30,7 +30,7 @@ before_save :set_default_role
         :business => 'test-account@merchant.com',
         :cmd => '_cart',
         :upload => 1,
-        :invoice => (rand() * 10000).to_i,
+        :invoice => (rand() * 10000).to_i, #this should be id
         :currency_code => 'GBP'
       }
     pledges = self.pledges
