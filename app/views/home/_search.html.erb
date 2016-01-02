@@ -1,7 +1,7 @@
 <div class='fancy-search'>
 <%= form_tag projects_path, method: "get", class: 'search-form' do %>
   <%= label_tag('search', "Search for") %>
-  <%= text_field_tag('search', @search, class: 'search-text', placeholder: 'leave blank to show all') %>
+  <%= text_field_tag('search', @search, class: 'search-text', placeholder: 'Search for a project') %>
   show
   <div class="styled-select">
   <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
