@@ -25,6 +25,6 @@
 
 <% values_to_total = @pledges_due.map {|pledge| pledge.value} %>
 <% total = values_to_total.sum %>
-<strong>Total Due to be paid:  £<%= total %> </strong> <%= button_to 'pay now' %>
+<strong>Total Due to be paid:  £<%= total %> </strong> <%= button_to "Pay now", current_user.paypal_url %>
 <br>
 <br>
