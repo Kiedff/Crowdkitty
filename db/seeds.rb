@@ -111,7 +111,6 @@ p17 = Project.create(name: "Cambridge Road lamp posts", summary: "Ensuring Cambr
 
 p18 = Project.create(name: "Grow an Entrepreneur for Tomorrow", summary: "Help us turn an empty shop into a buzzing hub for young entrepreneurs! We'll create space where imaginations can be unleashed and bright business ideas brought to life.", target: 51079, start_date: "2015-11-11", end_date: "2016-02-25", user_id: 3, location: Location.where(name: "Wishaw").first, description: "With youth unemployment and shops vacancies both at record highs, we’ve developed a great idea that tackles both issues. Our new Ideas Hub, will allow budding entrepreneurs to share business ideas, get advice, and access support. Whether designing and selling clothes, creating new smartphone apps, setting up a radio station, or cooking culinary treats to service hungry traders, the bright ideas are out there. We just need to give them the right space to grow. The Hub will host five groups of young people, on three-month stints. Part of the money raised by our funding campaign will provide seed funding for the best business ideas, along with support from experienced businesses in the community. The aim is to nurture bright ideas into full-fledged enterprises in the real world. If you would like to see one of the town's empty spaces turned into a factory for young entrepreneurs, please click pledge to back this project!", category_id: 12, project_image: "", days: 106)
 
-
 p1.project_image = File.open(File.join(Rails.root, "db/images/clock.jpg"))
 p1.save!
 
