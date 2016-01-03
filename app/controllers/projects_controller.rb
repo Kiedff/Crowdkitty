@@ -69,7 +69,7 @@ class ProjectsController < ApplicationController
   def show
     
     @project = Project.find(params[:id])
-    @pictures = @projects.pictures.all
+    @pictures = @project.pictures
     @reward = Reward.new
 
     respond_to do |format|
