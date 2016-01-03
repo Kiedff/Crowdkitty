@@ -21,7 +21,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.nil?
       @user = User.create( email: @identity.email || "", name: @identity.name.split[0] || "", last_name: @identity.name.split[-1] || "")
       @identity.update_attribute( :user_id, @user.id )
-      binding.pry
 
     end
 
