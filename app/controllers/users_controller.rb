@@ -39,6 +39,7 @@ class UsersController < ApplicationController
  def hook
   params.permit! # Permit all Paypal input params
    status = params[:payment_status]
+   raise
   if status == "Completed"
   user = User.find params[:custom]
   pledges = user.pledges
