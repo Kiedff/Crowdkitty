@@ -59,10 +59,6 @@ main {
   margin-bottom: 10px;
 }
 
-.image_maps {
-  float: right;
-}
-
 .contact_details {
   float: left;
 }
@@ -444,5 +440,31 @@ header.navigation .search-bar form input[type=search] {
   color: #000;
 }
 
+#map_canvas {
+  height: 445px;
+  width: 50%;
+  float: right;
+}
+
+#map_canvas img { 
+  max-width: none; 
+// to prevent UI control bug
+}
+
+#map_canvas .content {
+  padding: 0 0.5em 1em 0.5em;
+}
+
+#map_canvas .firstHeading {
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  margin: 0;
+}
+
+#map_canvas #bodyContent p {
+  font-size: 1em;
+  margin: 0;
+}
 
 
