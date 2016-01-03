@@ -101,7 +101,7 @@
           <%#=image_tag('kittypic.jpg', alt: "Tech Support", class: 'summary_image', width:400) %>
             
             <% @pictures.each do |p| %>
-                <%= image_tag p.image_url %>
+                <%= image_tag p.image %>
                 <%= link_to "Edit Image", edit_pictures_path(p) %>
               <% end %>
           

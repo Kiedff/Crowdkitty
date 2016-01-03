@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
       project.end_date = project.start_date + project.days
       
       respond_to do |format|
-        if @project.save
+        if project.save
           params[:pictures]['image'].each do |a|
              @picture = @project.pictures.create!(:image => a)
           end
@@ -69,7 +69,7 @@ class ProjectsController < ApplicationController
   def show
     
     @project = Project.find(params[:id])
-    @pictures = @projects.pictures.all
+    @pictures = @project.pictures
     @reward = Reward.new
 
     respond_to do |format|
