@@ -102,7 +102,7 @@
             
             <% @pictures.each do |p| %>
                 <%= image_tag p.image_url %>
-                <%= link_to "Edit Image", edit_pictures_path(p) %>
+                <%= link_to "Edit Image", edit_picture_path(p) %>
               <% end %>
           
         </div>

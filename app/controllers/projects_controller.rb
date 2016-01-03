@@ -10,10 +10,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-      project = Project.new(project_params)
-      project.user_id = current_user.id if current_user
-      project.end_date = project.start_date + project.days
-      
+      @project = Project.new(project_params)
+      @project.user_id = current_user.id if current_user
+      @project.end_date = @project.start_date + @project.days
+
       respond_to do |format|
         if @project.save
           params[:pictures]['image'].each do |a|
