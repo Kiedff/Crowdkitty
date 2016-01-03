@@ -1,5 +1,5 @@
-
-<%= form_for @project do |f| %>
+<%= form_for(@project, :html => { :multipart => true }) do |f| %>
+<%#= form_for @project do |f| %>
 
 <% if (@project.start_date && @project.active?) && (current_user.role != "admin") %>
 <p> You cannot edit an active project </p>
@@ -65,13 +65,25 @@
     </div>
   </div>
 
-
-
-
   <%= f.label :project_image %><br>
   <%= f.file_field :project_image %>
   <br>
-  <%= f.submit button_text %>
+
+   <%= f.fields_for :picturess do |p| %>
+     <div class="field">
+       <%= p.label :image %><br>
+       <%= p.file_field :image, :multiple => true, name: "pictures[image][]" %>
+     </div>
+   <% end %>
+
+   <div class="actions">
+     <%= f.submit %>
+   </div>
+  <%#= f.submit button_text %>
 
 <% end %>
 <% end %>
+
+
+   
+

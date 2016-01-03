@@ -6,10 +6,14 @@ class Project < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :pledges, dependent: :destroy
-  has_many :pictures, dependent: :destroy
+  has_many :pictures, dependent: :destroy  
+  accepts_nested_attributes_for :pictures
   has_many :rewards, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :location
+
+
+   
 
   validates_presence_of :name, :summary, :description, :target, :start_date, :category, :location
   validates_inclusion_of :days, :in => -1..150

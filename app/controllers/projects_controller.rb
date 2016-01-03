@@ -4,6 +4,8 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @picture = @project.pictures.build
+
     @cities = Location.all 
   end
 
@@ -11,14 +13,26 @@ class ProjectsController < ApplicationController
       project = Project.new(project_params)
       project.user_id = current_user.id if current_user
       project.end_date = project.start_date + project.days
-      if project.save
-        flash[:success] = "Project created! Good luck!"
-
-        redirect_to project
-      else
-        render 'new'
+      
+      respond_to do |format|
+        if @project.save
+          params[:pictures]['image'].each do |a|
+             @picture = @project.pictures.create!(:image => a)
+          end
+          format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        else
+          format.html { render action: 'new' }
+        end
       end
 
+
+      # if project.save
+      #   flash[:success] = "Project created! Good luck!"
+
+      #   redirect_to project
+      # else
+      #   render 'new'
+      # end
   end
   
   def index
@@ -53,7 +67,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    
     @project = Project.find(params[:id])
+    @pictures = @projects.pictures.all
     @reward = Reward.new
 
     respond_to do |format|
@@ -88,7 +104,8 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location_id, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image, :location)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location_id, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image, :location, picture_attributes: [:id, :project_id, :image])
   end
 
 end
+
