@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
       @project.end_date = @project.start_date + @project.days
 
       respond_to do |format|
-        if project.save
+        if @project.save
           params[:pictures]['image'].each do |a|
              @picture = @project.pictures.create!(:image => a)
           end
