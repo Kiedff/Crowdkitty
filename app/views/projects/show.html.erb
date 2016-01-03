@@ -3,7 +3,7 @@
 <% unless @project.not_open_yet %>
 <%= render "projects/failed" if @project.failed  %>
 <% end %>
-
+<%= social_share_button_tag(@project.name, :popup => "true") %>
 
 
 
