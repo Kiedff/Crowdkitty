@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor'
 gem 'time_ago_in_words', '~> 0.1.1'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
