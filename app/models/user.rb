@@ -47,6 +47,7 @@ before_save :set_default_role
         "item_number_#{index+1}" => pledge.id,
         
       })
+   
     end
     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
   end
