@@ -44,14 +44,15 @@ class PledgesController < ApplicationController
 
 
     def hook
-      params.permit! # Permit all Paypal input params
+     params.permit! # Permit all Paypal input params
       status = params[:payment_status]
-      if status == "Completed"
-        raise
-        pledge = Pledge.find params[:product_number]
+     if status == "Completed"
+     pledge = Pledge.find params[:product_number]
+     pledge.paid = true
+     pledge.save
         
       end
-      render nothing: true
+     render nothing: true
     end
 
   private
