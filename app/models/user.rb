@@ -32,7 +32,8 @@ before_save :set_default_role
         :upload => 1,
         :invoice => (rand() * 10000).to_i, #this should be id
         :currency_code => 'GBP',
-        :return => "http://localhost:3000/users/#{self.id}/pledges"
+        :return => "https://arcane-harbor-4252.herokuapp.com/users/#{self.id}",
+        :notify_url => "https://arcane-harbor-4252.herokuapp.com/hook"
         
       }
     pledges = self.pledges
