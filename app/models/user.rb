@@ -34,7 +34,7 @@ before_save :set_default_role
         :invoice => (rand() * 10000).to_i, #this should be id
         :currency_code => 'GBP',
         :return => "https://arcane-harbor-4252.herokuapp.com/users/#{self.id}",
-        :ipn_notification_url => "https://arcane-harbor-4252.herokuapp.com/hook"
+        :ipn_notification_url => "https://arcane-harbor-4252.herokuapp.com/hook",
         
       }
     pledges = self.pledges
@@ -47,6 +47,7 @@ before_save :set_default_role
         "amount_#{index+1}" => pledge.value,
         "item_name_#{index+1}" => pledge.project.name,
         "item_number_#{index+1}" => pledge.id,
+        "custom" => self.id
         
       })
    
