@@ -25,6 +25,7 @@ before_save :set_default_role
     b.include? true
   end
 
+  serialize :notification_params, Hash
   def paypal_url
     values = {
         :business => 'test-account@merchant.com',
