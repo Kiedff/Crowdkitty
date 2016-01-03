@@ -48,7 +48,7 @@ class PledgesController < ApplicationController
       status = params[:payment_status]
       if status == "Completed"
         raise
-        @registration = Pledge.find params[:product_number]
+        pledge = Pledge.find params[:product_number]
         
       end
       render nothing: true
