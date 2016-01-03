@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
     @projects = Project.search(@search).select{|project|project.active?}
     @categories = Category.all
     @cities = Location.pluck(:name)
-    @location = params[:location] unless params[:location].empty?
+    @location = params[:location] unless !params[:location] || params[:location].empty?
 
 
     case @request_type 
