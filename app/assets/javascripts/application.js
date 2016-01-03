@@ -93,6 +93,7 @@ $(function() {
 
       $('#location_autocomplete').attr('style', 'display: none');
       $('#project_location_id').attr('value', ui.item.id);
+      $('#location').attr('value', ui.item.id);
       $('#location_checkbox > label').attr('for', ui.item.value).html(ui.item.value);
       $("#project_location_id").prop("checked", true);
       $('#selected_location').html(ui.item.value + ' <i class="fa fa-times"></i>');
@@ -103,6 +104,8 @@ $(function() {
   $("#selected_location").click(function(){
     $('#location_autocomplete').attr('style', 'display: inline');
     $('#selected_location').attr('style', 'display: none');
+    $('#location').attr('value', null);
+
   });
 
 });

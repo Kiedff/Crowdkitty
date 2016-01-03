@@ -7,26 +7,18 @@
   <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
   </div>
   projects in
-  <div class="styled-select">
-  <%#= select_tag 'loc', options_for_select(@cities.map {|city| [city, city]}.uniq.unshift(['all locations', 'all']), selected: @location) %>
-  </div>
+
   <div id='project_locations'>
     
-    <div id="location_checkbox" class="checkbox"style='display: none'>
-      <%= check_box_tag 'project[location_id]', 'placeholder', true %>
-      <%= label_tag 'placeholder' %>
-    </div>
-
     <div id="location_autocomplete">
-      <%= text_field_tag :location_search, '', placeholder: 'search for locations', class: 'location_search'  %>
+      <%= text_field_tag nil, '', placeholder: 'search for locations', class: 'location_search', id: 'location_search' %>
     </div>
 
     <div class="selected_location" id="selected_location">
     </div>
+
+    <%= hidden_field_tag 'location' %>
   </div>
-
-
-
 
 
   <%= submit_tag "Go" %>

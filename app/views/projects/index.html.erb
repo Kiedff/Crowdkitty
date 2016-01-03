@@ -7,16 +7,8 @@
     <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
   </div>
   projects in
-  <div class="styled-select">
-    <%#= select_tag 'loc', options_for_select(@cities.map {|city| [city, city]}.uniq.unshift(['all locations', 'all']), selected: @location) %>
-  </div>
 
   <div id='project_locations'>
-    
-    <div id="location_checkbox" class="checkbox" style='display: none'>
-      <%= check_box_tag 'project[location_id]', @location ? @location : 'placeholder', true %>
-      <%= label_tag @location ? Location.find(@location).name : 'placeholder' %>
-    </div>
 
     <div id="location_autocomplete"
     <% if @location %>
@@ -25,15 +17,18 @@
     >
       <%= text_field_tag :location_search, '', placeholder: 'search for locations', class: 'location_search' %>
     </div>
+
     <div class="selected_location" id="selected_location"
     <% if @location %>
     style='display: inline'
     <% end %>
     >
-    <% if @location %>
-    <%= Location.find(@location).name %> <i class="fa fa-times"></i>
-    <% end %>
+      <% if @location %>
+      <%= Location.find(@location).name %> <i class="fa fa-times"></i>
+      <% end %>
     </div>
+
+    <%= hidden_field_tag 'location' %>
   </div>
 
   <% if @request_type %>

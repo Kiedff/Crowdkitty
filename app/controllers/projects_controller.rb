@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    # needs altered to create using location model
     @cities = Location.all 
   end
 
@@ -29,7 +28,7 @@ class ProjectsController < ApplicationController
     @projects = Project.search(@search).select{|project|project.active?}
     @categories = Category.all
     @cities = Location.pluck(:name)
-    @location = params[:project][:location_id].to_i if params[:project]
+    @location = params[:location] unless params[:location].empty?
 
 
     case @request_type 
@@ -44,9 +43,8 @@ class ProjectsController < ApplicationController
     end
 
     if @location && @location != 'all'
-      @projects = @projects.select {|p| p.location.id == @location}
+      @projects = @projects.select {|p| p.location.id == @location.to_i}
     end   
-
     respond_to do |format|
       format.html
       format.js
@@ -90,7 +88,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location_id, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image, :loc)
+    params.require(:project).permit(:name, :description, :user_id, :target, :end_date, :location_id, :summary, :category_id, :search, :days, :request_type, :start_date, :project_image, :location)
   end
 
 end
