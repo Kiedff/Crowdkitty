@@ -46,7 +46,7 @@ class PledgesController < ApplicationController
      params.permit! # Permit all Paypal input params
       status = params[:payment_status]
      if status == "Completed"
-     pledges = Pledge.find params[:product_number1]
+     pledge = Pledge.find params[:item_number]
      pledge.paid = true
      pledge.save
         
