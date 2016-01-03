@@ -18,6 +18,7 @@ gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
 gem 'font-awesome-sass'
 gem 'social-share-button'
+gem 'rack-wwwhisper', '~> 1.0'
 
 gem 'cancancan', '~> 1.10'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
