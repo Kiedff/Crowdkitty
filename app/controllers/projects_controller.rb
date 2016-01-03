@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
 
     case @request_type 
     when 'most_popular'
-      @projects = Project.sort_by_pledges(@projects)
+      @projects = Project.sort_by_pledges(@projects).select{|p|p.pledges.count > 0}
     when 'finishing_soon'
       @projects = Project.sort_by_finishing_soon(@projects)
     end
