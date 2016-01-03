@@ -1,4 +1,5 @@
 class PledgesController < ApplicationController
+  protect_from_forgery except: [:hook]
 
   def create
     pledge = Pledge.new(pledge_params.merge( user_id: current_user.id, reward_id:params[:reward_id], project_id: params[:project_id] ))
@@ -40,6 +41,18 @@ class PledgesController < ApplicationController
       @pledges_due << pledge  if pledge.due
     end
   end
+
+
+    def hook
+      params.permit! # Permit all Paypal input params
+      status = params[:payment_status]
+      if status == "Completed"
+        raise
+        @registration = Pledge.find params[:product_number]
+        
+      end
+      render nothing: true
+    end
 
   private
   def pledge_params
