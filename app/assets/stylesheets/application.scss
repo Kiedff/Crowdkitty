@@ -186,6 +186,18 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .about_us {
   height: 300px;
+  margin-bottom: 30px;
+}
+
+.about_banner {
+background-color: #61C791;
+color: white;
+height: 170px; 
+font-size: 30px;
+font-family: 'Sansita One', cursive;
+margin-bottom: 20px;
+padding-top: 20px;
+border-radius: 0.5em;
 }
 
 .homepage_news a {
