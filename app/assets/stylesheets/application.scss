@@ -50,7 +50,6 @@ main {
 }
 
 .about_box {
-  
   margin-top: 20px;
   margin-bottom: 30px;
 }
@@ -181,46 +180,20 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   border: 2px solid #d4d5d6;
 }
 
-.homepage_blurb_1 {
-  @include outer-container;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  padding: 5px 10px 5px 5px;
-  border: 2px solid #d4d5d6;
-}
-.blurb_1 {
-  @include span-columns(8);
- float: left;
- font-size: 26px;
- text-align: center;
- padding-top: 90px;
+.homepage_news {
+  border-style: 4px solid #61C791;
+  height: 300px;
 }
 
-.blurb_image_1 {
-  @include span-columns(4);
-  float: right;
+.homepage_news a {
+  color: #61C791;
+  font-weight: bold;
 }
 
-.homepage_blurb_2 {
-  @include outer-container;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  padding: 5px 10px 5px 5px;
-  border: 2px solid #d4d5d6;
-}
-.blurb_2 {
-  @include span-columns(8);
- float: right;
- font-size: 26px;
- text-align: center;
- padding-top: 90px;
- margin-right: 0;
+.homepage_news h4 {
+  color: #fff;
 }
 
-.blurb_image_2 {
-  @include span-columns(4);
-  float: left;
-}
 .current_projects h6 {
   text-align: center;
 }
@@ -493,6 +466,7 @@ header.navigation .search-bar form input[type=search] {
 
 #left-tile {
   background: url('facebook-on-ipad.jpg');
+  background-size: cover;
 }
 
 #middle-tile {

@@ -9,6 +9,9 @@
   h4 {
     margin: 0;
     font-size: 26px;
+    text-shadow: 0 0 3px #121313;
+    color: #fff;
+    opacity: 0.95;
   }
 
   p {
@@ -16,7 +19,7 @@
   }
   //////////////////////////////////////////////////////////////////////////////////
 
-  $hover-tile-height: 10em;
+  $hover-tile-height: 300px;
   
   background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png");
   background-position: top;
@@ -28,7 +31,8 @@
   margin-bottom: $base-line-height;
   
   @include media($medium-screen) {
-    width: 30%;
+    width: 31.5%;
+    height: 100%;
 
   }
 
@@ -45,7 +49,7 @@
     @include transition(all, 0.2s ease-in-out);
     background: inherit;
     color: white;
-    height: inherit;
+    height: 300px;
     overflow: hidden;
     padding: $base-spacing;
   }
@@ -53,9 +57,9 @@
   .hover-tile-hidden {
     background: transparentize(#000, 0.5);
 
-    p {
+    /*p {
       color: transparentize(#fff, 0.05);
-    }
+    }*/
 
     h4 {
       margin-bottom: 0.5em;
