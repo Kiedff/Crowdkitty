@@ -65,19 +65,6 @@ main {
   margin-top: 30px;
   }
 
-.about_hover {
-  @include outer-container;
-}
-
-.about_hover_left {
-  @include span-columns(6);
-  float: left;
-}
-
-.about_hover_right {
-  @include span-columns(6);
-  float: right;
-}
 
 .contact_us {
   font-size: 18px;
@@ -502,6 +489,15 @@ header.navigation .search-bar form input[type=search] {
 
 .card {
   max-width: 30%;
+}
+
+#left-tile {
+  background: url('facebook-on-ipad.jpg');
+}
+
+#middle-tile {
+  background: url('helping.jpg');
+  background-size: cover;
 }
 
 

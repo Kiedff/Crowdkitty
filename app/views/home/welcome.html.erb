@@ -41,23 +41,34 @@
   <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
-<div class="homepage_blurb_1">
-  <div class="blurb_1">
-    You can now sign in using your Facebook profile! Log into CrowdKitty and spread the news of a worthy local cause!
-  </div>
-  <div class="blurb_image_1">
-    <%=image_tag('facebook-on-ipad.jpg', alt: "Facebook", width: '400') %>
-  </div>
+<div class="homepage_news">
+<center>
+    <div class="hover-tile-outer" id='left-tile'>
+      <div class="hover-tile-container">
+        <div class="hover-tile hover-tile-visible"><h4>Sign in with Facebook</h4></div>
+        <div class="hover-tile hover-tile-hidden">
+          <p>You can now sign in using your Facebook profile! Log into CrowdKitty and spread the news of a worthy local cause!</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="hover-tile-outer" id='middle-tile'>
+      <div class="hover-tile-container">
+        <div class="hover-tile hover-tile-visible"><h4>Get involved today</h4></div>
+        <div class="hover-tile hover-tile-hidden">
+          <p>CrowdKitty helps local people find the support they need to make neighbourhood projects come to life. Why not get involved and help your community today?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hover-tile-outer">
+      <div class="hover-tile-container">
+        <div class="hover-tile hover-tile-visible"><h4>Sign in with Facebook</h4></div>
+        <div class="hover-tile hover-tile-hidden">
+          <p>You can now sign in using your Facebook profile! Log into CrowdKitty and spread the news of a worthy local cause!</p>
+        </div>
+      </div>
+    </div>
+  </center>
 </div>
-
-<div class="homepage_blurb_2">
-  <div class="blurb_2">
-    CrowdKitty helps local people find the support they need to make neighbourhood projects come to life. Why not get involved and help your community today?
-  </div>
-  <div class="blurb_image_2">
-    <%=image_tag('helping.jpg', alt: "Help you community", width: '400') %>
-  </div>
-</div>
-
-
 
