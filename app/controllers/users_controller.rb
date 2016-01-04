@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  protect_from_forgery except: [:hook]
 
  load_and_authorize_resource
 
@@ -33,6 +34,26 @@ class UsersController < ApplicationController
 
  def edit
    @user= User.find(params[:id])
+ end
+
+ def hook
+  params.permit! # Permit all Paypal input params
+   status = params[:payment_status]
+   raise
+  if status == "Completed"
+  user = User.find params[:custom]
+  pledges = user.pledges
+  pledges_due = []
+  pledges.each do |pledge|
+    pledges_due << pledge  if pledge.due
+  end
+  pledges_due.each do |pledge|
+  pledge.paid = true
+  pledge.save
+end
+     
+   end
+  render nothing: true
  end
 
  private
