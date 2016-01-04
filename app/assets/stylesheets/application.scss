@@ -100,6 +100,10 @@ h2 {
 }
 
 h3 {
+  font-size: 40px;
+}
+
+h4 {
   font-size: 30px;
 }
 
@@ -180,8 +184,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   border: 2px solid #d4d5d6;
 }
 
-.homepage_news {
-  border-style: 4px solid #61C791;
+.about_us {
   height: 300px;
 }
 
@@ -225,15 +228,15 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .home_about h4 {
   font-family: 'Sansita One', cursive;
-  font-size: 40px;
+  font-size: 45px;
   text-shadow: 0 0 3px #121313;
   color: #fff;
   padding-top: 80px;
-  opacity: 0.95;
+  opacity: 0.97;
 }
 
 .home_about_link  {
-  margin-top: 60px;
+  margin-top: 53px;
 
 }
 
@@ -465,12 +468,17 @@ header.navigation .search-bar form input[type=search] {
 }
 
 #left-tile {
-  background: url('facebook-on-ipad.jpg');
+  background: url('bandwchae.jpg');
   background-size: cover;
 }
 
 #middle-tile {
-  background: url('helping.jpg');
+  background: url('bandwkat.jpg');
+  background-size: cover;
+}
+
+#right-tile {
+  background: url('bandwkeith.jpg');
   background-size: cover;
 }
 

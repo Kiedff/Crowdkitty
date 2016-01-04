@@ -6,9 +6,18 @@
   display: inline-block;
 
   
+  h3 {
+    margin: 0;
+    font-size: 35px;
+    text-shadow: 0 0 3px #121313;
+    color: #fff;
+    opacity: 0.95;
+    padding-top: 200px;
+  }
+
   h4 {
     margin: 0;
-    font-size: 26px;
+    font-size: 30px;
     text-shadow: 0 0 3px #121313;
     color: #fff;
     opacity: 0.95;
@@ -57,9 +66,10 @@
   .hover-tile-hidden {
     background: transparentize(#000, 0.5);
 
-    /*p {
-      color: transparentize(#fff, 0.05);
-    }*/
+    p {
+      padding-top: 30px;
+      font-size: 20px;
+    }
 
     h4 {
       margin-bottom: 0.5em;

@@ -10,8 +10,6 @@
   <h5>Most popular</h5>
   <div class="cards">
     <% @most_popular.each do |project| %>
-
-    
     <div class='card'>
       <div class="card-image">
         <%= link_to image_tag(project.project_image), project_path(project) %>
@@ -24,8 +22,12 @@
   <%= link_to 'See more...', projects_path(:request_type => 'most_popular', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
+<div class="">
+  
+</div>
+
 <div class="finishing-soon">
-  <h5>Finishing soon</h5>
+  <h4>Finishing soon</h4>
   <div class="cards">
     <% @finishing_soon.each do |project| %>
     <div class='card'>
@@ -41,34 +43,8 @@
   <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
-<div class="homepage_news">
-<center>
-    <div class="hover-tile-outer" id='left-tile'>
-      <div class="hover-tile-container">
-        <div class="hover-tile hover-tile-visible"><h4>Sign in with Facebook</h4></div>
-        <div class="hover-tile hover-tile-hidden">
-          <p>You can now sign in using your Facebook profile! <%= link_to 'Log into', new_user_session_path %> CrowdKitty and spread the news of a worthy local cause!</p>
-        </div>
-      </div>
-    </div>
+<div class="">
   
-    <div class="hover-tile-outer" id='middle-tile'>
-      <div class="hover-tile-container">
-        <div class="hover-tile hover-tile-visible"><h4>Get involved today</h4></div>
-        <div class="hover-tile hover-tile-hidden">
-          <p>CrowdKitty helps local people find the support they need to make neighbourhood projects come to life. Why not get involved and help your community today?</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="hover-tile-outer">
-      <div class="hover-tile-container">
-        <div class="hover-tile hover-tile-visible"><h4>Sign in with Facebook</h4></div>
-        <div class="hover-tile hover-tile-hidden">
-          <p>You can now sign in using your Facebook profile! Log into CrowdKitty and spread the news of a worthy local cause!</p>
-        </div>
-      </div>
-    </div>
-  </center>
 </div>
+
 
