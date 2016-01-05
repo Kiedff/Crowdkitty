@@ -1,7 +1,7 @@
 
 <div class="search-container">
   <%= form_tag projects_path, method: "get", class: 'projects-filter', :remote => true do %>
-  <h3>Search for </h3>
+  <h2>Search for  </h2>
   <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'search') %> show
   <div class="styled-select">
     <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
