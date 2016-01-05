@@ -2,26 +2,26 @@
  *= require jquery-ui
  */
 
-@import "bourbon";
-@import "neat";
-@import "base/base";
-@import "category";
-@import 'refills/_navigation';
-@import 'refills/_hover-tile-animation';
-@import 'refills/_footer';
-@import 'refills/_cards';
-@import 'refills/_search-tools';
-@import 'refills/_progress-bar-indication';
-@import 'refills/_expander';
-@import 'refills/_accordion-tabs-minimal';
-@import 'refills/_vertical-tabs';
-@import 'refills/_scroll-on-page';
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "social-share-button";
+ @import "bourbon";
+ @import "neat";
+ @import "base/base";
+ @import "category";
+ @import 'refills/_navigation';
+ @import 'refills/_hover-tile-animation';
+ @import 'refills/_footer';
+ @import 'refills/_cards';
+ @import 'refills/_search-tools';
+ @import 'refills/_progress-bar-indication';
+ @import 'refills/_expander';
+ @import 'refills/_accordion-tabs-minimal';
+ @import 'refills/_vertical-tabs';
+ @import 'refills/_scroll-on-page';
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import "social-share-button";
 
 
-main {
+ main {
   @include outer-container;
 }
 
@@ -59,11 +59,9 @@ main {
   font-size: 20px;
 }
 
-.about_text {
-  
+.about_text { 
   margin-top: 30px;
-  }
-
+}
 
 .contact_us {
   font-size: 18px;
@@ -123,13 +121,13 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .input {
   color: white;
-    background-color: #61C791;
-    font-weight: bold;
-    font-size: 18px;
-    border: 3px solid #fff;
-    width: 220px;
-    padding: 8px;
-    border-radius: 0.5rem;
+  background-color: #61C791;
+  font-weight: bold;
+  font-size: 18px;
+  border: 3px solid #fff;
+  width: 220px;
+  padding: 8px;
+  border-radius: 0.5rem;
 }
 
 .input:hover {
@@ -190,14 +188,16 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 }
 
 .about_banner {
-background-color: #61C791;
-color: white;
-height: 170px; 
-font-size: 30px;
-font-family: 'Sansita One', cursive;
-margin-bottom: 20px;
-padding-top: 20px;
-border-radius: 0.5em;
+  background-color: #61C791;
+  color: white;
+  height: 170px; 
+  font-size: 30px;
+  font-family: 'Sansita One', cursive;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 0.5em;
 }
 
 .homepage_news a {
@@ -456,7 +456,7 @@ header.navigation .search-bar form input[type=search] {
 
 #map_canvas img { 
   max-width: none; 
-// to prevent UI control bug
+  // to prevent UI control bug
 }
 
 #map_canvas .content {
@@ -494,4 +494,13 @@ header.navigation .search-bar form input[type=search] {
   background-size: cover;
 }
 
+#questions_link a {
+  color: #61C791;
+  font-weight: bold;
+}
+
+.scroll-on-page a{
+  color: #61C791;
+  font-weight: bold;
+}
 
