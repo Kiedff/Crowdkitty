@@ -10,8 +10,6 @@
   <h5>Most popular</h5>
   <div class="cards">
     <% @most_popular.each do |project| %>
-
-    
     <div class='card'>
       <div class="card-image">
         <%= link_to image_tag(project.project_image), project_path(project) %>
@@ -24,8 +22,13 @@
   <%= link_to 'See more...', projects_path(:request_type => 'most_popular', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
+<div class="about_banner">
+  <center><p>CrowdKitty help to get ideas designed, funded and realized. We provide the tools to help campaigns—large or small —boost the awareness, funds and resources they need.</p></center>
+</div>
+
+
 <div class="finishing-soon">
-  <h5>Finishing soon</h5>
+  <h4>Finishing soon</h4>
   <div class="cards">
     <% @finishing_soon.each do |project| %>
     <div class='card'>
@@ -41,23 +44,8 @@
   <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
-<div class="homepage_blurb_1">
-  <div class="blurb_1">
-    You can now sign in using your Facebook profile! Log into CrowdKitty and spread the news of a worthy local cause!
-  </div>
-  <div class="blurb_image_1">
-    <%=image_tag('facebook-on-ipad.jpg', alt: "Facebook", width: '400') %>
-  </div>
+<div class="">
+  
 </div>
-
-<div class="homepage_blurb_2">
-  <div class="blurb_2">
-    CrowdKitty helps local people find the support they need to make neighbourhood projects come to life. Why not get involved and help your community today?
-  </div>
-  <div class="blurb_image_2">
-    <%=image_tag('helping.jpg', alt: "Help you community", width: '400') %>
-  </div>
-</div>
-
 
 

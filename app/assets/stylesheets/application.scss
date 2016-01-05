@@ -2,26 +2,26 @@
  *= require jquery-ui
  */
 
-@import "bourbon";
-@import "neat";
-@import "base/base";
-@import "category";
-@import 'refills/_navigation';
-@import 'refills/_hover-tile-animation';
-@import 'refills/_footer';
-@import 'refills/_cards';
-@import 'refills/_search-tools';
-@import 'refills/_progress-bar-indication';
-@import 'refills/_expander';
-@import 'refills/_accordion-tabs-minimal';
-@import 'refills/_vertical-tabs';
-@import 'refills/_scroll-on-page';
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "social-share-button";
+ @import "bourbon";
+ @import "neat";
+ @import "base/base";
+ @import "category";
+ @import 'refills/_navigation';
+ @import 'refills/_hover-tile-animation';
+ @import 'refills/_footer';
+ @import 'refills/_cards';
+ @import 'refills/_search-tools';
+ @import 'refills/_progress-bar-indication';
+ @import 'refills/_expander';
+ @import 'refills/_accordion-tabs-minimal';
+ @import 'refills/_vertical-tabs';
+ @import 'refills/_scroll-on-page';
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import "social-share-button";
 
 
-main {
+ main {
   @include outer-container;
 }
 
@@ -50,7 +50,6 @@ main {
 }
 
 .about_box {
-  
   margin-top: 20px;
   margin-bottom: 30px;
 }
@@ -60,23 +59,8 @@ main {
   font-size: 20px;
 }
 
-.about_text {
-  
+.about_text { 
   margin-top: 30px;
-  }
-
-.about_hover {
-  @include outer-container;
-}
-
-.about_hover_left {
-  @include span-columns(6);
-  float: left;
-}
-
-.about_hover_right {
-  @include span-columns(6);
-  float: right;
 }
 
 .contact_us {
@@ -114,6 +98,10 @@ h2 {
 }
 
 h3 {
+  font-size: 40px;
+}
+
+h4 {
   font-size: 30px;
 }
 
@@ -133,13 +121,13 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .input {
   color: white;
-    background-color: #61C791;
-    font-weight: bold;
-    font-size: 18px;
-    border: 3px solid #fff;
-    width: 220px;
-    padding: 8px;
-    border-radius: 0.5rem;
+  background-color: #61C791;
+  font-weight: bold;
+  font-size: 18px;
+  border: 3px solid #fff;
+  width: 220px;
+  padding: 8px;
+  border-radius: 0.5rem;
 }
 
 .input:hover {
@@ -194,46 +182,33 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   border: 2px solid #d4d5d6;
 }
 
-.homepage_blurb_1 {
-  @include outer-container;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  padding: 5px 10px 5px 5px;
-  border: 2px solid #d4d5d6;
-}
-.blurb_1 {
-  @include span-columns(8);
- float: left;
- font-size: 26px;
- text-align: center;
- padding-top: 90px;
+.about_us {
+  height: 300px;
+  margin-bottom: 30px;
 }
 
-.blurb_image_1 {
-  @include span-columns(4);
-  float: right;
+.about_banner {
+  background-color: #61C791;
+  color: white;
+  height: 170px; 
+  font-size: 30px;
+  font-family: 'Sansita One', cursive;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 0.5em;
 }
 
-.homepage_blurb_2 {
-  @include outer-container;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  padding: 5px 10px 5px 5px;
-  border: 2px solid #d4d5d6;
-}
-.blurb_2 {
-  @include span-columns(8);
- float: right;
- font-size: 26px;
- text-align: center;
- padding-top: 90px;
- margin-right: 0;
+.homepage_news a {
+  color: #61C791;
+  font-weight: bold;
 }
 
-.blurb_image_2 {
-  @include span-columns(4);
-  float: left;
+.homepage_news h4 {
+  color: #fff;
 }
+
 .current_projects h6 {
   text-align: center;
 }
@@ -265,15 +240,15 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .home_about h4 {
   font-family: 'Sansita One', cursive;
-  font-size: 40px;
+  font-size: 45px;
   text-shadow: 0 0 3px #121313;
   color: #fff;
   padding-top: 80px;
-  opacity: 0.95;
+  opacity: 0.97;
 }
 
 .home_about_link  {
-  margin-top: 60px;
+  margin-top: 53px;
 
 }
 
@@ -481,7 +456,7 @@ header.navigation .search-bar form input[type=search] {
 
 #map_canvas img { 
   max-width: none; 
-// to prevent UI control bug
+  // to prevent UI control bug
 }
 
 #map_canvas .content {
@@ -504,4 +479,47 @@ header.navigation .search-bar form input[type=search] {
   max-width: 30%;
 }
 
+#left-tile {
+  background: url('bandwchae.jpg');
+  background-size: cover;
+}
+
+#middle-tile {
+  background: url('bandwkat.jpg');
+  background-size: cover;
+}
+
+#right-tile {
+  background: url('bandwkeith.jpg');
+  background-size: cover;
+}
+
+.gallery-pictures {
+  height: 60px;
+  width: auto;
+  padding: 0 10px;
+}
+
+#main-image {
+  height: 400px;
+  width: auto;
+}
+
+.main-image-container {
+  text-align: center;
+}
+
+.gallery-container {
+  margin: 0 -10px;
+}
+
+#questions_link a {
+  color: #61C791;
+  font-weight: bold;
+}
+
+.scroll-on-page a{
+  color: #61C791;
+  font-weight: bold;
+}
 
