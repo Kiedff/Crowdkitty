@@ -517,6 +517,25 @@ header.navigation .search-bar form input[type=search] {
   background-size: cover;
 }
 
+.gallery-pictures {
+  height: 60px;
+  width: auto;
+  padding: 0 10px;
+}
+
+#main-image {
+  height: 400px;
+  width: auto;
+}
+
+.main-image-container {
+  text-align: center;
+}
+
+.gallery-container {
+  margin: 0 -10px;
+}
+
 #questions_link a {
   color: #61C791;
   font-weight: bold;
