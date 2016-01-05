@@ -21,54 +21,25 @@
 
 var crowdkittyApp = crowdkittyApp || {};
 
-// function filter(data) {
-//   $.each(data, function(i, project) {
-
-// }
-
-// function ajaxRequest(data) {
-//   var ajaxOptions = {
-//     url: '/projects',
-//     type: 'GET',
-//     data: data
-//   };
-//   return $.ajax(ajaxOptions).success(filter);
-// }
-
 crowdkittyApp.setup = function() {
-  console.log('setting up');
-  // $('.projects-filter').on('submit', crowdkittyApp.searchHandler);
   $('#new_pledge').on('submit', crowdkittyApp.pledgeHandler);
+  $('#main-picture-thumb').click($('#main-picture-thumb').attr('src'), crowdkittyApp.changePicture);
+  $('#gallery-picture0').click($('#gallery-picture0').attr('src'), crowdkittyApp.changePicture);
+  $('#gallery-picture1').click($('#gallery-picture1').attr('src'), crowdkittyApp.changePicture);
+  $('#gallery-picture2').click($('#gallery-picture2').attr('src'), crowdkittyApp.changePicture);
+  $('#gallery-picture3').click($('#gallery-picture3').attr('src'), crowdkittyApp.changePicture);
+  $('#gallery-picture4').click($('#gallery-picture4').attr('src'), crowdkittyApp.changePicture);
+  $('#gallery-picture5').click($('#gallery-picture5').attr('src'), crowdkittyApp.changePicture);
+  $('#gallery-picture6').click($('#gallery-picture6').attr('src'), crowdkittyApp.changePicture);
 };
 
-// crowdkittyApp.searchHandler = function(e) {
-//   e.preventDefault();
-//   console.log('search');
-//   ajaxRequest({
-//     'search': $('#search').val(),
-//     'loc': $('#loc').val(),
-//     'category_id': $('#category_id').val()
-//   });
-// };
-
-// function pledgeAjaxRequest(data) {
-//   var ajaxOptions = {
-//     url: '/projects/12/pledges',
-//     type: 'POST',
-//     data: data
-//   };
-//   return $.ajax(ajaxOptions).success();
-// }
-
-crowdkittyApp.pledgeHandler = function(e) {
-  console.log('pledge');
-  // e.preventDefault();
-  // pledgeAjaxRequest({
-  //   'user_id': $('#user_id').val(),
-  //   'project_id': $('#project_id').val(),
-  //   'value': $('#pledge_value').val()
-  // });
+crowdkittyApp.pledgeHandler = function() {
   $('#successful-pledge').slideDown()
+};
+
+crowdkittyApp.changePicture = function(e) {
+  console.log(e.data);
+  $('#main-image').attr('src', e.data)
 };
 
 $(document).ready(function() {
@@ -82,12 +53,10 @@ $(function() {
       $.get("/projects/autocomplete_locations", {
         q: request.term
       }, function (data) {
-        console.log(data);
         response(data);
       });
     },
     select: function( event, ui ) {
-      console.log(ui);
       event.preventDefault();
 
       var checkbox = '<li><input checked="checked" id="project_location_id" name="project[location_id]" type="checkbox" value="' + ui.item.id + '" /><label>' + ui.item.value + '</label></li>';

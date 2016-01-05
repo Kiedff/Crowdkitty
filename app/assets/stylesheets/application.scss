@@ -495,9 +495,21 @@ header.navigation .search-bar form input[type=search] {
 }
 
 .gallery-pictures {
-  height: auto;
-  width: 20%;
+  height: 60px;
+  width: auto;
   padding: 0 10px;
 }
 
+#main-image {
+  height: 400px;
+  width: auto;
+}
+
+.main-image-container {
+  text-align: center;
+}
+
+.gallery-container {
+  margin: 0 -10px;
+}
 
