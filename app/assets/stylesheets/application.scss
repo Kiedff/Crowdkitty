@@ -209,18 +209,90 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   padding-bottom: 2px;
 }
 
-
-.about_banner {
-  background-color: #61C791;
+.news_banner {
+  @include outer-container;
+  background-color: #80d2a7;
   color: white;
-  height: 170px; 
-  font-size: 30px;
-  font-family: 'Sansita One', cursive;
+  height: 300px; 
   margin-bottom: 20px;
   padding-top: 20px;
   padding-right: 5px;
   padding-left: 5px;
   border-radius: 0.5em;
+  width: 96%;
+}
+
+.news_text_1 h4 {
+  @include span-columns(8);
+  font-family: 'Sansita One', cursive;
+  font-size: 34px;
+  text-align: center;
+  float: right;
+  padding-right: 28px;
+  padding-bottom: 5px;
+  text-shadow: 0 0 3px #121313;
+  margin:0 0;
+}
+
+.news_text_1 p {
+  @include span-columns(8);
+  font-size: 24px;
+  text-align: center;
+  float: right;
+  padding-right: 30px;
+  font-weight: bold;
+  text-shadow: 0 0 2px #414242;
+}
+
+.news_img_1 {
+  @include span-columns(4);
+  float: left;
+  text-align: center;
+  padding-left: 40px;
+  margin: 0 0;
+}
+
+.news_banner a {
+  color: white;
+}
+
+.news_banner a:hover {
+  color: #2A2F36;
+  text-shadow: none;
+}
+
+.news_text_2 h4 {
+  @include span-columns(8);
+  font-family: 'Sansita One', cursive;
+  font-size: 34px;
+  text-align: center;
+  float: left;
+  padding-left: 28px;
+  padding-bottom: 5px;
+  text-shadow: 0 0 3px #121313;
+  margin:0 0;
+}
+
+.news_text_2 p {
+  @include span-columns(8);
+  font-size: 24px;
+  text-align: center;
+  float: left;
+  padding-left: 30px;
+  font-weight: bold;
+  text-shadow: 0 0 2px #414242;
+}
+
+.news_img_2 {
+  @include span-columns(4);
+  float: right;
+  text-align: center;
+  padding-left: 40px;
+  margin: 0 0;
+}
+
+.img-responsive {
+  width: 100%;
 }
 
 .homepage_news a {
