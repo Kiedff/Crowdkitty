@@ -34,7 +34,7 @@ before_save :set_default_role
         :invoice => (rand() * 10000).to_i, #this should be id
         :currency_code => 'GBP',
         #:return => "http://localhost:3000/users/#{self.id}/paid",
-        :return => "https://arcane-harbor-4252.herokuapp.com/users/#{self.id}/paid",
+        :return => "http://www.crowdkitty.co.uk/users/#{self.id}/paid",
         :notify_url => "https://arcane-harbor-4252.herokuapp.com/hook"
         
       }
