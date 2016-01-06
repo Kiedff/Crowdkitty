@@ -120,7 +120,7 @@ p2.save!
 p3.project_image = File.open(File.join(Rails.root, "db/images/playbus.jpg"))
 p3.save!
 
-p4.project_image = File.open(File.join(Rails.root, "db/images/watertank.jpg"))
+p4.project_image = File.open(File.join(Rails.root, "db/images/fire_house.jpg"))
 p4.save!
 
 p5.project_image = File.open(File.join(Rails.root, "db/images/edsheeran.jpg"))
@@ -129,7 +129,7 @@ p5.save!
 p6.project_image = File.open(File.join(Rails.root, "db/images/Procession.jpg"))
 p6.save!
 
-p7.project_image = File.open(File.join(Rails.root, "db/images/communityres.jpg"))
+p7.project_image = File.open(File.join(Rails.root, "db/images/hospice.jpg"))
 p7.save!
 
 p8.project_image = File.open(File.join(Rails.root, "db/images/homeless.jpg"))
