@@ -85,7 +85,6 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    # needs altered to create using location model
     @cities = Location.all
   end
 
