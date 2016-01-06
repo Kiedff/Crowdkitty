@@ -48,7 +48,7 @@
             <% end %>
           <% end %>
           <strong>Reward:</strong>
-          <%= pledge.reward.description %><br>
+          <%= pledge.reward.description if pledge.reward %><br>
           <strong>Pledge Value:</strong> £<%= pledge.value %>
 
           <% if current_user %>
