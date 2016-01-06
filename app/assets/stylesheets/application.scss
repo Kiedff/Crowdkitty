@@ -178,8 +178,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 .pledge {
   margin-bottom: 15px;
   margin-top: 15px;
-  padding: 5px 10px 5px 5px;
-  border: 2px solid #d4d5d6;
+  /*padding: 5px 10px 5px 5px;*/
+  /*border: 2px solid #d4d5d6;*/
 }
 
 .about_us {
@@ -618,5 +618,15 @@ header.navigation .search-bar form input[type=search] {
 .scroll-on-page a{
   color: #61C791;
   font-weight: bold;
+}
+
+.cards {
+  justify-content: flex-start;
+}
+
+input[type="submit"] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 3px;
 }
 
