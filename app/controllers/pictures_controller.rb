@@ -42,7 +42,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
         if @picture.update(picture_params)
-          format.html { redirect_to @picture.post, notice: 'Images was successfully updated.' }
+          format.html { redirect_to @picture.post, notice: 'Images were successfully updated.' }
         end 
       end
   end
