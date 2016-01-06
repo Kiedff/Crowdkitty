@@ -20,8 +20,10 @@ class Ability
       can :read, :all
       can :create, Comment
       can :destroy, Comment, :user_id => user.id 
+      can :paid, User
     else
       can :read, :all
+
     end
     
   end

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
 before_save :set_default_role
 
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -33,8 +34,10 @@ before_save :set_default_role
         :upload => 1,
         :invoice => (rand() * 10000).to_i, #this should be id
         :currency_code => 'GBP',
-        :return => "https://arcane-harbor-4252.herokuapp.com/users/#{self.id}",
-        :ipn_notification_url => "https://arcane-harbor-4252.herokuapp.com/hook",
+        #:return => "http://localhost:3000/users/#{self.id}/paid",
+        :return => "http://www.crowdkitty.co.uk/users/#{self.id}/paid",
+        :notify_url => "https://arcane-harbor-4252.herokuapp.com/hook"
+
         
       }
     pledges = self.pledges
@@ -42,6 +45,7 @@ before_save :set_default_role
     pledges.each do |pledge|
       pledges_due << pledge  if pledge.due
     end
+
     pledges_due.each_with_index do |pledge, index|
       values.merge!({
         "amount_#{index+1}" => pledge.value,
@@ -50,10 +54,10 @@ before_save :set_default_role
         "custom" => self.id
         
       })
-   
     end
-    "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
-  end
+
+     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+   end
 
   private
   def set_default_role
