@@ -30,8 +30,11 @@
 <div class="cards">
   <% @user.pledges.each do |pledge| %>
   <div class='card'>
+  <div class="card-image">
+    <%= link_to image_tag(pledge.project.project_image), project_path(pledge.project) %>
+  </div>
     <div class='card-header'>
-      <%= pledge.project.name %>
+      <%= link_to pledge.project.name, project_path(pledge.project) %>
     </div>
     <div class='card-copy'>
       <div class="pledge">
@@ -44,7 +47,9 @@
             </div>
             <% end %>
           <% end %>
-          Pledge value: £<%= pledge.value %>
+          <strong>Reward:</strong>
+          <%= pledge.reward.description %><br>
+          <strong>Pledge Value:</strong> £<%= pledge.value %>
 
           <% if current_user %>
             <% if @user.id == current_user.id %>
@@ -58,7 +63,7 @@
               <strong>Payment received, thank you.</strong>
             </div>
             <% end %>
-             <p><%= link_to "Show details", pledge_path(pledge)%></p>
+             <!-- <p><%#= link_to "Show details", pledge_path(pledge)%></p> -->
             <% end %>
           <% end %>
 

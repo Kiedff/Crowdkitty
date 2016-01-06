@@ -8,7 +8,7 @@
 
 
 site_admin = User.create(name: "site_admin", email: "admin@admin.admin", password: "password", role: 'admin', last_name: Faker::Name.last_name, address1: Faker::Address.building_number, address2: Faker::Address.street_name, city: Faker::Address.city, postcode: Faker::Address.postcode, username: Faker::Internet.user_name)
-ada = User.create(name: "Ada", email: "ada@email.example", password: 'password', role: 'user', last_name: "Jones", address1: Faker::Address.building_number, address2: Faker::Address.street_name, city: Faker::Address.city, postcode: Faker::Address.postcode, username: Faker::Internet.user_name)
+ada = User.create(name: "Ada", email: "ada@email.example", password: 'password', role: 'user', last_name: "Lovelace", address1: Faker::Address.building_number, address2: Faker::Address.street_name, city: Faker::Address.city, postcode: Faker::Address.postcode, username: "Ada Lovelace")
 obedia = User.create(name: "Obedia", email: "obedia@email.example", password: 'password', role: 'user', last_name: "Smith", address1: Faker::Address.building_number, address2: Faker::Address.street_name, city: Faker::Address.city, postcode: Faker::Address.postcode, username: Faker::Internet.user_name)
 tristan = User.create(name: "Tristan", email: "tristan@email.example", password: 'password', role: 'user', last_name: "Johnson", address1: Faker::Address.building_number, address2: Faker::Address.street_name, city: Faker::Address.city, postcode: Faker::Address.postcode, username: Faker::Internet.user_name)
 isolde = User.create(name: "Isolde", email: "isolde@email.example", password: 'password', role: 'user', last_name: "Martin", address1: Faker::Address.building_number, address2: Faker::Address.street_name, city: Faker::Address.city, postcode: Faker::Address.postcode, username: Faker::Internet.user_name)
@@ -120,7 +120,7 @@ p2.save!
 p3.project_image = File.open(File.join(Rails.root, "db/images/playbus.jpg"))
 p3.save!
 
-p4.project_image = File.open(File.join(Rails.root, "db/images/watertank.jpg"))
+p4.project_image = File.open(File.join(Rails.root, "db/images/fire_house.jpg"))
 p4.save!
 
 p5.project_image = File.open(File.join(Rails.root, "db/images/edsheeran.jpg"))
@@ -129,7 +129,7 @@ p5.save!
 p6.project_image = File.open(File.join(Rails.root, "db/images/Procession.jpg"))
 p6.save!
 
-p7.project_image = File.open(File.join(Rails.root, "db/images/communityres.jpg"))
+p7.project_image = File.open(File.join(Rails.root, "db/images/hospice.jpg"))
 p7.save!
 
 p8.project_image = File.open(File.join(Rails.root, "db/images/homeless.jpg"))

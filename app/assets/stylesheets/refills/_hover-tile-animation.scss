@@ -5,27 +5,9 @@
   $medium-screen: em(640) !default;
   display: inline-block;
 
-  
-  h3 {
-    margin: 0;
-    font-size: 35px;
-    text-shadow: 0 0 3px #121313;
-    color: #fff;
-    opacity: 0.95;
-    padding-top: 200px;
-  }
-
-  h4 {
-    margin: 0;
-    font-size: 30px;
-    text-shadow: 0 0 3px #121313;
-    color: #fff;
-    opacity: 0.95;
-  }
-
-  p {
+  /*p {
     line-height: $base-line-height;
-  }
+  }*/
   //////////////////////////////////////////////////////////////////////////////////
 
   $hover-tile-height: 300px;
@@ -67,12 +49,12 @@
     background: transparentize(#000, 0.5);
 
     p {
-      padding-top: 30px;
-      font-size: 20px;
+      padding-top: 10px;
+      font-size: 18px;
     }
 
     h4 {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.1em;
     }
   }
 }
