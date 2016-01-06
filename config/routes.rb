@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root to: 'home#welcome'
 
-  post "/hook" => "pledges#hook"
+  get "/users/:id/paid" => "users#paid"
 
   devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
   

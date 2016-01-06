@@ -35,6 +35,20 @@ class UsersController < ApplicationController
    @user= User.find(params[:id])
  end
 
+ def paid
+  user = User.find(params[:id])
+  pledges = user.pledges
+  pledges_due = []
+  pledges.each do |pledge|
+    pledges_due << pledge  if pledge.due
+  end
+  pledges_due.each do |pledge|
+    pledge.paid = true
+    pledge.save
+  end
+  redirect_to(user_path(user))
+ end
+
  private
 
   def user_params
