@@ -1,5 +1,5 @@
 $(function() {
-  $("#modal-1").on("change", function() {
+  $(".modal-button").on("change", function() {
     if ($(this).is(":checked")) {
       $("body").addClass("modal-open");
     } else {

@@ -275,7 +275,7 @@ li, a {
 .form-wrapper {
   @include outer-container;
   width: 80%;
-  margin: 0 auto;
+  margin: 10px auto 10px auto;
   border: 2px solid #d4d5d6;
   padding: 20px 20px 20px 20px;
 }

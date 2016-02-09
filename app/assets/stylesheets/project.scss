@@ -31,8 +31,83 @@
   @include span-columns(1);
 }
 
-.help_box img {
+#proj_help_1 img {
   max-height: 30px;
   position: relative;
-  top: 5px;
+  top: 17px;
+}
+
+#proj_help_2 img {
+  margin-top: 53px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#proj_help_3 img {
+  margin-top: 45px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#proj_help_4 img {
+  margin-top: 30px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#proj_help_5 img {
+  margin-top: 30px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#proj_help_6 img {
+  margin-top: 48px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#proj_help_7 img {
+  margin-top: 35px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#proj_help_8 img {
+  margin-top: 75px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#proj_help_9 img {
+  margin-top: 35px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#proj_help_10 img {
+  margin-top: 45px;
+  max-height: 30px;
+  position: relative;
+  top: 17px;
+}
+
+#project_save {
+  margin-top: 40px; 
+}
+
+ol {
+  padding-left: 20px; 
+}
+
+ol li {
+  list-style-type: decimal;
 }
