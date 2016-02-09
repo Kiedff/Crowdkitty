@@ -272,6 +272,7 @@ li, a {
 }
 
 .form-wrapper {
+  @include outer-container;
   width: 80%;
   margin: 0 auto;
   border: 2px solid #d4d5d6;

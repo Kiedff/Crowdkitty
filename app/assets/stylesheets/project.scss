@@ -20,3 +20,13 @@
   border-radius: 0.5em;
   height: auto;
 }
+
+//create a new project form//
+
+.new_form {
+  @include span-columns(11);
+}
+
+.help_box {
+  @include span-columns(1);
+}
