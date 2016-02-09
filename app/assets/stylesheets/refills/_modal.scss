@@ -5,7 +5,7 @@
   $base-background-color: white !default;
   $base-font-size: 1em !default;
   $base-line-height: 1.5em !default;
-  $base-accent-color: #477DCA !default;
+  $base-accent-color: white !default;
   $dark-gray: #333 !default;
   $light-gray: #DDD !default;
   $medium-screen: em(640) !default;
@@ -20,6 +20,8 @@
     color: $base-font-color;
     line-height: $base-line-height;
   }
+
+
   //////////////////////////////////////////////////////////////////////////////////
 
   $modal-padding: 3em;
@@ -36,7 +38,9 @@
 
   label img {
     border-radius: $modal-trigger-image-width / 2;
-    display: block;
+    display: inline-block;
+    top: 14px;
+    padding-right: 5px;
     max-width: $modal-trigger-image-width;
   }
 
@@ -48,6 +52,7 @@
     @include button(flat, $base-accent-color);
     padding: 0.8em 1em;
   }
+
 
   .modal-window { // overlay
     @include transition(opacity 0.25s ease);

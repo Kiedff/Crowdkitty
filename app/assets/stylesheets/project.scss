@@ -30,3 +30,9 @@
 .help_box {
   @include span-columns(1);
 }
+
+.help_box img {
+  max-height: 30px;
+  position: relative;
+  top: 5px;
+}
