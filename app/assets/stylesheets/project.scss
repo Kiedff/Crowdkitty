@@ -1,0 +1,22 @@
+.top_of_page_project{
+  @include outer-container;
+  margin-bottom: 20px;
+}
+
+.project_status {
+  @include span-columns(6);
+  font-size: 18px;
+}
+
+.project_image {
+  @include span-columns(6);
+}
+
+.reward {
+  font-size: 18px;
+  background-color: #e9eaea;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 0.5em;
+  height: auto;
+}

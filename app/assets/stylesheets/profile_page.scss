@@ -1,0 +1,22 @@
+.profile_box {
+  @include outer-container;
+  margin-bottom: 20px;
+}
+
+.profile_info {
+  @include span-columns(6);
+  float: right;
+}
+
+.profile_image {
+  @include span-columns(6);
+  float: left;
+}
+
+.pledge {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  /*padding: 5px 10px 5px 5px;*/
+  /*border: 2px solid #d4d5d6;*/
+}
+

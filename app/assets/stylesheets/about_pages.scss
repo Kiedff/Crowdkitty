@@ -1,0 +1,79 @@
+//about us page css//
+.about_us {
+  height: 300px;
+  margin-bottom: 30px;
+}
+
+.about_us p {
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+.about_us h3 {
+  margin: 0;
+  font-size: 35px;
+  text-shadow: 0 0 3px #121313;
+  color: #fff;
+  opacity: 0.95;
+  padding-top: 200px;
+}
+
+.about_us h4 {
+  font-size: 25px;
+  text-shadow: 0 0 3px #121313;
+  color: #fff;
+  opacity: 0.95;
+  padding-bottom: 2px;
+}
+
+#left-tile {
+  background: url('bandwchae.jpg');
+  background-size: cover;
+}
+
+#middle-tile {
+  background: url('bandwkat.jpg');
+  background-size: cover;
+}
+
+#right-tile {
+  background: url('bandwkeith.jpg');
+  background-size: cover;
+}
+
+//contact page css//
+
+.contact_details {
+  float: left;
+}
+
+.contact_us {
+  font-size: 18px;
+}
+
+#map_canvas {
+  height: 445px;
+  width: 50%;
+  float: right;
+}
+
+#map_canvas img { 
+  max-width: none; 
+  // to prevent UI control bug
+}
+
+#map_canvas .content {
+  padding: 0 0.5em 1em 0.5em;
+}
+
+#map_canvas .firstHeading {
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  margin: 0;
+}
+
+#map_canvas #bodyContent p {
+  font-size: 1em;
+  margin: 0;
+}
