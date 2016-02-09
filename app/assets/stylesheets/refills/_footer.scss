@@ -4,7 +4,6 @@
   $base-accent-color: #31797D !default;
   $medium-screen: em(640) !default;
   $large-screen: em(860) !default;
-
   
   ul {
     padding: 0;
@@ -41,6 +40,7 @@
   .footer-links {
     @include clearfix;
     margin-bottom: 0.2px;
+    margin-top: 20px;
 
     @include media($medium-screen) {
       @include shift(3);
@@ -91,8 +91,12 @@
     color: $footer-disclaimer-color;
     font-size: 0.9em;
     line-height: 1.5em;
-    margin: auto;
+    margin: auto auto 10px auto;
     max-width: 35em;
     text-align: center;
+  }
+
+ #footer_copyright {
+    margin-bottom: 30px;
   }
 }
