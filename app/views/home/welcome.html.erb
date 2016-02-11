@@ -7,7 +7,7 @@
 </div>
 
 <div class="most-popular">
-  <h5>Most popular</h5>
+  <h4>Most popular</h4>
   <div class="cards">
     <% @most_popular.each do |project| %>
     <div class='card'>
@@ -19,7 +19,7 @@
     </div>
     <% end %>
   </div>
-  <%= link_to 'See more...', projects_path(:request_type => 'most_popular', :category_id => @category_id, :search => @search, :loc => @location) %>
+  <%= link_to 'See more popular projects...', projects_path(:request_type => 'most_popular', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
 <div class="news_banner">
@@ -43,7 +43,7 @@
     </div>
     <% end %>
   </div>
-  <%= link_to 'See more...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>
+  <%= link_to 'See more projects that are finishing soon...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>
 </div>
 
 <div class="news_banner">
