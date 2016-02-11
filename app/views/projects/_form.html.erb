@@ -14,15 +14,15 @@
   <%= f.text_area :description %>
   <br>
   <%= f.label :target %>
-  <%= f.number_field :target %>
+  <%= f.number_field :target, placeholder: '£' %>
   <br>
   <%= f.label :start_date  %>
   <div class="date-select">
   <%= f.date_select :start_date, :order => [:day, :month, :year]%>
   </div>
   <br>
-  <%= f.label :project_length_in_days %>
-  <%= f.number_field :days %>
+  <%= f.label :project_length %>
+  <%= f.number_field :days, placeholder: 'Project length in days' %>
   <br>
   <% @categories = Category.all %>
   <%= f.label :category_id %>
@@ -42,7 +42,7 @@
     style='display: none'
     <% end %>
     >
-      <%= text_field_tag :location_search, '', placeholder: 'search for locations' %>
+      <%= text_field_tag :location_search, '', placeholder: 'Search for locations' %>
     </div>
     <div class="selected_location" id="selected_location"
     <% if @project.location %>
