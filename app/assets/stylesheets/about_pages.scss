@@ -30,6 +30,35 @@
   margin-top: 30px;
 }
 
+.about_header {
+  color: white;
+  background-image: url('helpinghand.jpg');
+  height: 260px;
+  width:100%;
+  background-size: cover;
+  text-align: center;
+}
+
+.about_header h1 {
+  font-family: 'Sansita One', cursive;
+  font-size: 100px;
+  text-shadow: 0 0 3px #121313;
+  color: #fff;
+  padding-top: 50px;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.about_box {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.about_box h6 {
+  color: #61C791;
+  font-size: 20px;
+}
+
 #paragraph_indent { 
   margin: 10px 30px;
 }
