@@ -11,74 +11,78 @@
   </div>
 </div>
 
-<h3>Projects</h3>
-<div class="cards">
-  <% @user.projects.each do |project| %>
-  <div class='card'>
-    <div class="card-image">
-      <%= link_to image_tag(project.project_image), project_path(project) %>
+
+<div class="my_pledges">
+  <h3>My Projects</h3>
+  <div class="cards">
+    <% @user.projects.each do |project| %>
+    <div class='card'>
+      <div class="card-image">
+        <%= link_to image_tag(project.project_image), project_path(project) %>
+      </div>
+      <div class='card-header'><%= link_to project.name, project_path(project) %></div>
+      <div class='card-copy'><p><%= project.summary %></p></div>
     </div>
-    <div class='card-header'><%= link_to project.name, project_path(project) %></div>
-    <div class='card-copy'><p><%= project.summary %></p></div>
+    <% end %>
   </div>
-  <% end %>
 </div>
-<br>
 
-<h3>Pledges made</h3>
+<div class="my_pledges">
+  <h3>My Pledges</h3>
 
-<div class="cards">
-  <% @user.pledges.each do |pledge| %>
-  <div class='card'>
-  <div class="card-image">
-    <%= link_to image_tag(pledge.project.project_image), project_path(pledge.project) %>
-  </div>
-    <div class='card-header'>
-      <%= link_to pledge.project.name, project_path(pledge.project) %>
-    </div>
-    <div class='card-copy'>
-      <div class="pledge">
-        <% if pledge.project.active? || pledge.project.success %>
+  <div class="cards">
+    <% @user.pledges.each do |pledge| %>
+    <div class='card'>
+      <div class="card-image">
+        <%= link_to image_tag(pledge.project.project_image), project_path(pledge.project) %>
+      </div>
+      <div class='card-header'>
+        <%= link_to pledge.project.name, project_path(pledge.project) %>
+      </div>
+      <div class='card-copy'>
+        <div class="pledge">
+          <% if pledge.project.active? || pledge.project.success %>
 
           <% if current_user %>
-            <% if pledge.project.success && pledge.user.id == current_user.id && (pledge.paid == false) %>
-            <div class="payment_due"> 
-              <p><strong>Project reached target! This Payment is now due.</strong></p> 
-            </div>
-            <% end %>
+          <% if pledge.project.success && pledge.user.id == current_user.id && (pledge.paid == false) %>
+          <div class="payment_due"> 
+            <p><strong>Project reached target! This Payment is now due.</strong></p> 
+          </div>
+          <% end %>
           <% end %>
           <strong>Reward:</strong>
           <%= pledge.reward.description if pledge.reward %><br>
           <strong>Pledge Value:</strong> £<%= pledge.value %>
 
           <% if current_user %>
-            <% if @user.id == current_user.id %>
+          <% if @user.id == current_user.id %>
 
-            <% if pledge.due %>
-            <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get %>
-            <% end %>
-            <% if pledge.paid %>
-            
-            <div class="received">
-              <strong>Payment received, thank you.</strong>
-            </div>
-            <% end %>
-             
-            <% end %>
+          <% if pledge.due %>
+          <%= button_to 'Pay now',  edit_project_pledge_path( pledge.project.id, pledge.id),method: :get %>
+          <% end %>
+          <% if pledge.paid %>
+
+          <div class="received">
+            <strong>Payment received, thank you.</strong>
+          </div>
           <% end %>
 
-        <% else %>
-        <% if (pledge.project.active? == false) && (pledge.project.success == false) %>
+          <% end %>
+          <% end %>
+
+          <% else %>
+          <% if (pledge.project.active? == false) && (pledge.project.success == false) %>
           <div class="project_failed"> 
             <p><strong><%= "#{pledge.project.name} failed to meet target, pledge deleted." %></strong></p>
           </div>
           <% end %>
-        <% end %> 
+          <% end %> 
+        </div>
       </div>
     </div>
-  </div>
-  <% end %>
+    <% end %>
 
+  </div>
 </div>
 
 <% if current_user %>
