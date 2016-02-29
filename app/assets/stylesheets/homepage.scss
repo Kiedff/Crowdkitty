@@ -22,6 +22,16 @@
 .project_link {
   padding-left: 30px;
   padding-bottom: 10px;
+  
+}
+
+.project_link a {
+  color: #2A2F36;
+  font-weight: bold;
+}
+
+.project_link a:hover {
+  color: #61C791;
 }
 
 .home_about {
