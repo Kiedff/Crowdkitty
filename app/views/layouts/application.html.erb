@@ -11,9 +11,29 @@
 </head>
 <body>
 
-<% if current_user %>
-<%= render "layouts/due" if current_user.pledge_payments_due %>
-<% end %>
+  <div class="notification_header">
+    <div class="header_notification">
+      <% if current_user %>
+      <%= render "layouts/due" if current_user.pledge_payments_due %>
+      <% end %>
+    </div>
+
+    <div class="header_login">
+      <% if user_signed_in? %>
+      <li class="nav-link">
+        <%= link_to "Profile", User.find(current_user.id) %> 
+        <img src='/assets/dot.png' %>  
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
+      </li>
+      <% else %>
+      <li class="nav-link">
+        <%= link_to "Login", new_user_session_path %> 
+        <img src='/assets/dot.png' %>  
+        <%= link_to "Register", new_user_registration_path %>
+      </li> 
+      <% end %>
+    </div>
+  </div>
 
   <header class="navigation" role="banner">
     <div class="navigation-wrapper">
@@ -21,27 +41,14 @@
         <ul class="centered-navigation-menu show">
          <%= link_to image_tag('logo.jpg', size: '', alt: "Home", class: "logo"), root_path %>
 
-         
 
          <% if can? :create, Project %>
-         <li class="nav-link"><%= link_to 'Create a Project', new_project_path %></li>
+         <li class="nav-link"><%= link_to 'Create a Project', '/pages/create_page_advice' %><img src='/assets/dot2.png' %></li> 
          <% end %>
-         <li class="nav-link"><%= link_to 'Discover a Project', projects_path %></li>
+         <li class="nav-link"><%= link_to 'Discover a Project', projects_path %><img src='/assets/dot2.png' %></li>
+         <li class="nav-link"><%= link_to 'How it Works', '/pages/how_it_works' %></li>
 
          
-         <% if user_signed_in? %>
-         <li class="nav-link">
-          <%= link_to "Profile", User.find(current_user.id) %> 
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
-        </li>
-        <% else %>
-        <li class="nav-link">
-          <%= link_to "Login", new_user_session_path %>    
-        </li>
-        <li class="nav-link">
-          <%= link_to "Register", new_user_registration_path %>
-        </li> 
-        <% end %>
       </ul>
     </nav>
     <div class="navigation-tools">
@@ -74,7 +81,7 @@
     <ul>
       <li><h3>Projects</h3></li>
       <% if can? :create, Project %>
-      <li class="nav-link"><%= link_to 'Create a Project', new_project_path %></li>
+      <li class="nav-link"><%= link_to 'Create a Project', '/pages/create_page_advice' %></li>
       <% end %>
       <li class="nav-link"><%= link_to 'Discover a Project', projects_path %></li>
       
@@ -90,9 +97,9 @@
   <hr>
 
   <p class="social_share">
-  <a href="http://www.facebook.com"><img src="/assets/icons/facebook.png"></a>
-  <a href="http://www.instagram.com"><img src="/assets/icons/instagram.png"></a>
-  <a href="https://twitter.com/crowd_kitty"><img src="/assets/icons/twitter.png"></a>
+    <a href="http://www.facebook.com"><img src="/assets/icons/facebook.png"></a>
+    <a href="http://www.instagram.com"><img src="/assets/icons/instagram.png"></a>
+    <a href="https://twitter.com/crowd_kitty"><img src="/assets/icons/twitter.png"></a>
   </p>
 
   <p id="footer_copyright">© 2015 CrowdKitty. Registration no. #########</p>

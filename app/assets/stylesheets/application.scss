@@ -58,6 +58,46 @@ main {
   border: 3px solid #fff;
 }
 
+.notification_header {
+  @include outer-container;
+  background-color: #2A2F36;
+  margin: 0px 0px;
+  height: 35px;
+  padding-left: 20px;
+  max-width: 100%;
+}
+
+.header_notification {
+  @include span-columns(6);
+  float: left;
+  padding-top: 10px;
+}
+
+.header_login {
+  @include span-columns(6);
+  float: right;
+  text-align: right;
+  padding-right: 20px;
+  padding-top: 5px;
+  font-family: 'Sansita One', cursive;
+}
+
+.header_login a {
+  padding-right: 15px;
+  color: white;
+}
+
+.header_login a:hover {
+  color: #80d2a7;
+}
+
+.header_login img {
+  position: relative;
+  padding-right: 15px;
+  max-height: 10px;
+  max-width: auto;
+}
+
 h1, h2, h3, h4, h5 {
   font-family: 'Sansita One', cursive;
 }
@@ -126,8 +166,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   padding-top: 10px;
 }
 
-
-
 .current_projects h6 {
   text-align: center;
 }
@@ -138,6 +176,17 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   text-decoration: none;
   list-style: none;
   font-size: 18px;
+}
+
+header.navigation ul li.nav-link {
+  padding: 0;
+}
+
+.nav-link img {
+  position: relative;
+  padding-right: 15px;
+  max-height: 10px;
+  max-width: auto;
 }
 
 li, a {
