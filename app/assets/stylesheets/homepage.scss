@@ -1,22 +1,27 @@
 
-.most-popular {
+.most-popular, .finishing-soon {
   padding: 5px 10px 5px 5px;
   margin-bottom: 15px;
   margin-top: 25px;
   margin-left: 0px;
   margin-right: 0px;
+  background-color: white;
+  width: 100%;
+  border: 2px solid #e9eaea;
 }
 
-.finishing-soon {
-  padding: 5px;
-  margin-bottom: 15px;
-  margin-top: 25px;
-  margin-left: 0px;
-  margin-right: 0px;
+.most-popular h4, .finishing-soon h4 {
+  padding-left: 30px;
+  padding-top: 10px;
 }
 
 .most-popular a, .finishing-soon a {
   color: #61C791;
+}
+
+.project_link {
+  padding-left: 30px;
+  padding-bottom: 10px;
 }
 
 .home_about {

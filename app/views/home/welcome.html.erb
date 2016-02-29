@@ -19,7 +19,9 @@
     </div>
     <% end %>
   </div>
+  <div class="project_link">
   <%= link_to 'See more popular projects...', projects_path(:request_type => 'most_popular', :category_id => @category_id, :search => @search, :loc => @location) %>
+  </div>
 </div>
 
 <div class="news_banner">
@@ -43,7 +45,9 @@
     </div>
     <% end %>
   </div>
+  <div class="project_link">
   <%= link_to 'See more projects that are finishing soon...', projects_path(:request_type => 'finishing_soon', :category_id => @category_id, :search => @search, :loc => @location) %>
+  </div>
 </div>
 
 <div class="news_banner">

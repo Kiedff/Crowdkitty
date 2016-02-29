@@ -2,6 +2,7 @@
   @include display(flex);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
+  padding-left: 10px;
 }
 
 .card {
