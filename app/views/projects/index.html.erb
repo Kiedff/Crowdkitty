@@ -1,35 +1,42 @@
 
+<div class="categories">
+  
+</div>
+
+
 <div class="search-container">
   <%= form_tag projects_path, method: "get", class: 'projects-filter', :remote => true do %>
-  <h2>Search for  </h2>
-  <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'search') %> show
-  <div class="styled-select">
-    <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
-  </div>
+    <h2>Search for  </h2>
+    <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'search') %> show
+
+    <div class="styled-select">
+      <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
+    </div>
   projects in
 
-  <div id='project_locations'>
+    <div id='project_locations'>
 
-    <div id="location_autocomplete"
-    <% if @location %>
-    style='display: none'
-    <% end %>
-    >
-      <%= text_field_tag :location_search, '', placeholder: 'search for locations', class: 'location_search' %>
+      <div id="location_autocomplete"
+        <% if @location %>
+        style='display: none'
+        <% end %>
+        >
+        <%= text_field_tag :location_search, '', placeholder: 'search for locations', class: 'location_search' %>
+      </div>
+
+      <div class="selected_location" id="selected_location"
+        <% if @location %>
+        style='display: inline'
+        <% end %>
+        >
+        <% if @location %>
+        <%= Location.find(@location).name %> <i class="fa fa-times"></i>
+        <% end %>
+      </div>
+
+      <%= hidden_field_tag 'location' %>
+      
     </div>
-
-    <div class="selected_location" id="selected_location"
-    <% if @location %>
-    style='display: inline'
-    <% end %>
-    >
-      <% if @location %>
-      <%= Location.find(@location).name %> <i class="fa fa-times"></i>
-      <% end %>
-    </div>
-
-    <%= hidden_field_tag 'location' %>
-  </div>
 
   <% if @request_type %>
   <%= hidden_field_tag 'request_type', @request_type %>
@@ -37,6 +44,7 @@
   <%= submit_tag "Go" %>
   <% end %><br>
 </div>
+
 <div class="current_projects">
   <% case @request_type %>
   <% when 'most_popular' %>
