@@ -18,6 +18,8 @@
 .box-header-image {
   @include span-columns(3);
   width: 40px;
+  margin-right: 10px;
+
 }
 
 .box-header-image img {
@@ -73,7 +75,29 @@
   border: 2px solid #e9eaea;
 }
 
-#create_project_input {
-  margin-left: 40%;
-  margin-right: 40%;
+.create_project_row {
+  @include span-columns(12);
+  @include omega();
+  text-align: center;
+}
+
+#create_project2 {
+  margin: 20px auto 10px auto;
+}
+
+.advice_box {
+  @include outer-container;
+}
+
+.advice_text_right {
+  @include span-columns(6);
+  @include omega();
+  float: right;
+}
+
+.advice_text_left {
+  @include span-columns(6);
+  @include omega();
+
+  float: left;
 }
