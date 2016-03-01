@@ -1,0 +1,79 @@
+
+
+.bootcamp_boxes {
+  @include outer-container;
+  background-color: #2A2F36;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.bootcamp {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+  padding-left: 10px;
+}
+
+.box-header-image {
+  @include span-columns(3);
+  width: 40px;
+}
+
+.box-header-image img {
+  min-height: 40px;
+  max-height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.box-header-title {
+  @include span-columns(9);
+  @include omega();
+}
+
+.box-header-title h4 {
+  font-size: 20px;
+  font-family: 'Sansita One', cursive;
+  margin: 0;
+  font-weight: bold;
+  position: relative;
+  top: 10px;
+}
+
+.box_text {
+  @include span-columns(12);
+  @include omega();
+}
+
+.box_text p {
+  margin-top: 10px;
+}
+
+.bootcamp_box1, .bootcamp_box2, .bootcamp_box3, .bootcamp_box4 {
+  vertical-align: top;
+  background-color: white;
+  border: 1px solid #bec7d1;
+  display: inline-block;
+  width: 24%;
+  height: 190px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.create_project_advice {
+  @include outer-container;
+  padding: 5px 10px 5px 5px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: white;
+  width: 100%;
+  border: 2px solid #e9eaea;
+}
+
+#create_project_input {
+  margin-left: 40%;
+  margin-right: 40%;
+}
