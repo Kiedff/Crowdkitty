@@ -2,9 +2,13 @@
 
 .bootcamp_boxes {
   @include outer-container;
-  background-color: #2A2F36;
+  background-image: url('cork.jpg');
+  background-size: cover;
+  border: 10px black solid;
   padding-top: 10px;
   padding-bottom: 15px;
+  height: 320px;
+  width: auto;
 }
 
 .bootcamp {
@@ -13,20 +17,22 @@
   margin-top: 5px;
   margin-left: 5px;
   padding-left: 10px;
+  display: inline-block;
 }
 
-.box-header-image {
-  @include span-columns(3);
-  width: 40px;
+.bootcamp1, .bootcamp2, .bootcamp3, .bootcamp4 {
+  vertical-align: top;
+  display: inline-block;
+  width: 240px;
+  height: 190px;
   margin-right: 10px;
-
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
-.box-header-image img {
-  min-height: 40px;
-  max-height: 40px;
+.bootcamp1 img, .bootcamp2 img, .bootcamp3 img, .bootcamp4 img {
+  height: 280px;
   width: auto;
-  margin-right: 10px;
 }
 
 .box-header-title {
@@ -49,18 +55,10 @@
 }
 
 .box_text p {
+  text-align: justify;
   margin-top: 10px;
-}
-
-.bootcamp_box1, .bootcamp_box2, .bootcamp_box3, .bootcamp_box4 {
-  vertical-align: top;
-  background-color: white;
-  border: 1px solid #bec7d1;
-  display: inline-block;
-  width: 24%;
-  height: 190px;
+  font-size: 14px;
   padding: 5px;
-  margin-right: 5px;
 }
 
 .create_project_advice {
