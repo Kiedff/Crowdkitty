@@ -11,14 +11,26 @@
 </div>
 
 <div class="category_boxes">
-<h4>All <%= @category.name %> Projects</h4>
-  <% @category.projects.each do |project| %>
-  <div class="my_cards">
-    <img src="<%= project.project_image %>">
-    <div class="category_card_text">
-      <h2><%= link_to (project.name), project_path(project) %></h2>
-      <p><%= project.summary %></p>
+  the following information about the category will go in here:
+  <li>* category total raised so far - closed projects?</li>
+  <li>* total number of projects included in this category</li>
+  <li>* number of projects ending soon</li>
+  
+</div>
+
+<div class="category_boxes">
+  <h4>All <%= @category.name %> Projects</h4>
+  <div class="category_box_projects">
+    <% @category.projects.each do |project| %>
+    <a href='<%= project_path(project) %>'>
+    <div class="my_cards">
+      <img src="<%= project.project_image %>">
+      <div class="category_card_text">
+        <h2><%= link_to (project.name), project_path(project) %></h2>
+        <p><%= project.summary %></p>
+      </div>
     </div>
+    </a>
+    <% end %>
   </div>
-  <% end %>
 </div>
