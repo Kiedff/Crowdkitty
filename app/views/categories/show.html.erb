@@ -1,17 +1,24 @@
 <h1><%= @category.name %></h1>
 
 <div class="category_boxes">
-
+  the image of the category will go in here
+  <%#= @category.picture %>
 </div>
 
 <div class="category_boxes">
-<div class="my_cards">
+  the description of the category will go in here
+  <%#= @category.description %>
+</div>
+
+<div class="category_boxes">
+<h4>All <%= @category.name %> Projects</h4>
   <% @category.projects.each do |project| %>
-  <div>
-    <%= project.name %><br>
-    <%= project.summary %>
-    <%= link_to 'show', project %>
+  <div class="my_cards">
+    <img src="<%= project.project_image %>">
+    <div class="category_card_text">
+      <h2><%= link_to (project.name), project_path(project) %></h2>
+      <p><%= project.summary %></p>
+    </div>
   </div>
   <% end %>
-  </div>
 </div>
