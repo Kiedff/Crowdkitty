@@ -1,13 +1,18 @@
 
-<div class="categories">
+<div class="discover_projects_header">
   
+</div>
+
+<div class="categories">
+  <h2>Search for Projects in a Category</h2>
+
 </div>
 
 
 <div class="search-container">
   <%= form_tag projects_path, method: "get", class: 'projects-filter', :remote => true do %>
     <h2>Search for  </h2>
-    <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'search') %> show
+    <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'Keywords') %> show
 
     <div class="styled-select">
       <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
@@ -21,7 +26,7 @@
         style='display: none'
         <% end %>
         >
-        <%= text_field_tag :location_search, '', placeholder: 'search for locations', class: 'location_search' %>
+        <%= text_field_tag :location_search, '', placeholder: 'Search for locations', class: 'location_search' %>
       </div>
 
       <div class="selected_location" id="selected_location"
@@ -52,7 +57,7 @@
   <% when 'finishing_soon' %>
   <h6>Projects Finishing Soon</h6>
   <% else %>
-  <h6>Current Projects</h6>
+  <h6>All Current Projects</h6>
   <% end %><br>
 
   <div class="cards" id="projects">
