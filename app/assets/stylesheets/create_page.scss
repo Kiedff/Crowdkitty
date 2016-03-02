@@ -1,10 +1,8 @@
-
-
 .bootcamp_boxes {
   @include outer-container;
   background-image: url('cork.jpg');
   background-size: cover;
-  border: 10px black solid;
+  border: 10px #2A2F36 solid;
   padding-top: 10px;
   padding-bottom: 15px;
   height: 320px;
@@ -81,6 +79,7 @@
 
 #create_project2 {
   margin: 20px auto 10px auto;
+  margin-bottom: 10px;
 }
 
 .advice_box {
@@ -96,6 +95,21 @@
 .advice_text_left {
   @include span-columns(6);
   @include omega();
-
   float: left;
+}
+
+.link {
+  padding-bottom: 20px;
+}
+
+.link a {
+  color: #2A2F36;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.link a:hover {
+  color: #61C791;
+  font-weight: bold;
+  text-decoration: underline;
 }
