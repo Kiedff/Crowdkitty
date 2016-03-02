@@ -26,6 +26,16 @@
   width: 100%;
 }
 
+.category_button_box {
+  margin: 0px auto 20px auto;
+  display: block;
+}
+
+#category_buttons {
+  display: inline-block;
+  text-align: center;
+}
+
 .current_projects {
   padding: 15px 30px;
   border: 2px solid #e9eaea;
@@ -38,4 +48,5 @@
   font-family: 'Sansita One', cursive;
   margin-top: 10px;
   font-size: 30px;
+  margin-left: 30px;
 }
