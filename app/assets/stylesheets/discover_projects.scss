@@ -1,11 +1,21 @@
 .discover_projects_header {
   border: 2px solid #e9eaea;
   margin-bottom: 5px;
-  background-image: url('charity_run.jpg');
-  position: no-repeat center fixed;
+  background-image: url('raising.jpg');
   background-size: cover;
   width: 100%;
   height: 250px;
+}
+
+.discover_projects_header h4 {
+  font-family: 'Sansita One', cursive;
+    font-size: 70px;
+    text-shadow: 0 0 3px #121313;
+    color: #fff;
+    padding-top: 70px;
+    opacity: 0.97;
+    text-align: center;
+    margin: 0;
 }
 
 .categories {
