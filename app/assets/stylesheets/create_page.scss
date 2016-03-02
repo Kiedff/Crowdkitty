@@ -86,16 +86,31 @@
   @include outer-container;
 }
 
+#advice_box_tagline {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 25px;
+}
+
 .advice_text_right {
   @include span-columns(6);
   @include omega();
   float: right;
+  padding: 10px;
+
 }
 
 .advice_text_left {
   @include span-columns(6);
   @include omega();
   float: left;
+  font-size: 20px;
+  padding: 10px;
+  text-align: justify;
+}
+
+#further_information {
+  font-size: 16px;
 }
 
 .link {
