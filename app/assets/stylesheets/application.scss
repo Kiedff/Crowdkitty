@@ -27,6 +27,8 @@
  @import 'profile_page.scss';
  @import 'discover_projects.scss';
  @import 'create_page.scss';
+ @import 'category_page.scss';
+
 
 
 
@@ -45,6 +47,9 @@ main {
   margin-bottom: 20px;
 }
 
+.my_cards {
+  
+}
 
 .terms {
   font-size: 14px;

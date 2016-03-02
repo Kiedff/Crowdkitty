@@ -1,11 +1,17 @@
 <h1><%= @category.name %></h1>
 
+<div class="category_boxes">
 
-<% @category.projects.each do |project| %>
-    <div>
-      <%= project.name %><br>
-      <%= project.summary %>
-      <%= link_to 'show', project %>
-    </div>
-<% end %>
+</div>
 
+<div class="category_boxes">
+<div class="my_cards">
+  <% @category.projects.each do |project| %>
+  <div>
+    <%= project.name %><br>
+    <%= project.summary %>
+    <%= link_to 'show', project %>
+  </div>
+  <% end %>
+  </div>
+</div>
