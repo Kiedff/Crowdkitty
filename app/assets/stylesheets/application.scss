@@ -47,11 +47,17 @@ main {
   margin-bottom: 20px;
 }
 
+.fixed {
+    position: fixed;
+    top:0; left:0;
+    width: 100%; 
+  }
+
 .my_cards {
   @include span-columns(4);
   background-color:#f8f8f8;
   border: 1px solid #ebeef1;
-  height: 400px;
+  height: 440px;
   margin: 10px 15px 10px 5px;
 }
 

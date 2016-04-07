@@ -1,9 +1,10 @@
-<%= form_for(@project, :html => { :multipart => true }) do |f| %>
-<%#= form_for @project do |f| %>
 
-<% if (@project.start_date && @project.active?) && (current_user.role != "admin") %>
-<p> You cannot edit an active project </p>
-<% else %>
+  <%= form_for(@project, :html => { :multipart => true }) do |f| %>
+  <%#= form_for @project do |f| %>
+
+  <% if (@project.start_date && @project.active?) && (current_user.role != "admin") %>
+  <p> You cannot edit an active project </p>
+  <% else %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br>
@@ -18,7 +19,7 @@
   <br>
   <%= f.label :start_date  %>
   <div class="date-select">
-  <%= f.date_select :start_date, :order => [:day, :month, :year]%>
+    <%= f.date_select :start_date, :order => [:day, :month, :year]%>
   </div>
   <br>
   <%= f.label :project_length %>
@@ -33,48 +34,48 @@
     
     <div id="location_checkbox" class="checkbox" 
     style='display: none'>
-      <%= check_box_tag 'project[location_id]', @project.location ? @project.location.id : 'placeholder', true %>
-      <%= label_tag @project.location ? @project.location.name : 'placeholder' %>
-    </div>
-
-    <div id="location_autocomplete"
-    <% if @project.location %>
-    style='display: none'
-    <% end %>
-    >
-      <%= text_field_tag :location_search, '', placeholder: 'Search for locations' %>
-    </div>
-    <div class="selected_location" id="selected_location"
-    <% if @project.location %>
-    style='display: inline; margin-bottom: 10px'
-    <% end %>
-    >
-
-    <% if @project.location %>
-    <%= @project.location.name %> <i class="fa fa-times"></i>
-    <% end %>
-    </div>
+    <%= check_box_tag 'project[location_id]', @project.location ? @project.location.id : 'placeholder', true %>
+    <%= label_tag @project.location ? @project.location.name : 'placeholder' %>
   </div>
-  <br>
-  <%= f.label :main_project_image %><br>
-  <%= f.file_field :project_image %>
-  <br>
 
-   <%= f.fields_for :picturess do |p| %>
-     <div class="field">
-       <%= p.label :other_images %><br>
-       <%= p.file_field :image, :multiple => true, name: "pictures[image][]" %>
-     </div>
-   <% end %>
+  <div id="location_autocomplete"
+  <% if @project.location %>
+  style='display: none'
+  <% end %>
+  >
+  <%= text_field_tag :location_search, '', placeholder: 'Search for locations' %>
+</div>
+<div class="selected_location" id="selected_location"
+<% if @project.location %>
+style='display: inline; margin-bottom: 10px'
+<% end %>
+>
 
-   <div class="actions" id="project_save">
-     <%= f.submit %>
-   </div>
-  <%#= f.submit button_text %>
+<% if @project.location %>
+<%= @project.location.name %> <i class="fa fa-times"></i>
+<% end %>
+</div>
+</div>
+<br>
+<%= f.label :main_project_image %><br>
+<%= f.file_field :project_image %>
+<br>
+
+<%= f.fields_for :picturess do |p| %>
+<div class="field">
+ <%= p.label :other_images %><br>
+ <%= p.file_field :image, :multiple => true, name: "pictures[image][]" %>
+</div>
+<% end %>
+
+<div class="actions" id="project_save">
+ <%= f.submit %>
+</div>
+<%#= f.submit button_text %>
 
 <% end %>
 <% end %>
 
 
-   
+
 

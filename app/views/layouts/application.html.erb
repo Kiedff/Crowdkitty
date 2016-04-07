@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+<div class="fixed-header">
   <div class="notification_header">
     <div class="header_notification">
       <% if current_user %>
@@ -22,13 +22,13 @@
       <% if user_signed_in? %>
       <li class="nav-link">
         <%= link_to "Profile", User.find(current_user.id) %> 
-        <img src='/assets/dot.png' %>  
+        <img src='/assets/icons/dot.png' %>  
         <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
       </li>
       <% else %>
       <li class="nav-link">
         <%= link_to "Login", new_user_session_path %> 
-        <img src='/assets/dot.png' %>  
+        <img src='/assets/icons/dot.png' %>  
         <%= link_to "Register", new_user_registration_path %>
       </li> 
       <% end %>
@@ -43,9 +43,9 @@
 
 
          <% if can? :create, Project %>
-         <li class="nav-link"><%= link_to 'Create a Project', '/pages/create_page_advice' %><img src='/assets/dot2.png' %></li> 
+         <li class="nav-link"><%= link_to 'Create a Project', '/pages/create_page_advice' %><img src='/assets/icons/dot2.png' %></li> 
          <% end %>
-         <li class="nav-link"><%= link_to 'Discover a Project', projects_path %><img src='/assets/dot2.png' %></li>
+         <li class="nav-link"><%= link_to 'Discover a Project', projects_path %><img src='/assets/icons/dot2.png' %></li>
          <li class="nav-link"><%= link_to 'How it Works', '/pages/how_it_works' %></li>
 
          
@@ -61,6 +61,7 @@
     </div>      
   </div>
 </header>
+</div>
 
 <main>
  <p class="notice"><%= notice %></p>

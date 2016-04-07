@@ -1,10 +1,12 @@
 <div class="form-wrapper">
   <h1>Create a Project</h1>
-<div class="new_form">
-  <% @project = Project.new %>
-  <%= render partial: "form", locals: { button_text: "create!" }, cities: @cities %>
-  </div>
-  <div class="help_box">
-    <%= render 'modal' %>
+  <div class="form_formatting">
+    <div class="new_form">
+      <% @project = Project.new %>
+      <%= render partial: "form", locals: { button_text: "create!" }, cities: @cities %>
+    </div>
+    <div class="help_box">
+      <%= render 'modal' %>
+    </div>
   </div>
 </div>

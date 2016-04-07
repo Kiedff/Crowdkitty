@@ -1,35 +1,11 @@
 .bootcamp_boxes {
   @include outer-container;
-  background-image: url('cork.jpg');
+  background-image: url('advice_pinboard.png');
   background-size: cover;
   border: 10px #2A2F36 solid;
   padding-top: 10px;
   padding-bottom: 15px;
   height: 320px;
-  width: auto;
-}
-
-.bootcamp {
-  margin-right: 5px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-left: 5px;
-  padding-left: 10px;
-  display: inline-block;
-}
-
-.bootcamp1, .bootcamp2, .bootcamp3, .bootcamp4 {
-  vertical-align: top;
-  display: inline-block;
-  width: 240px;
-  height: 190px;
-  margin-right: 10px;
-  margin-bottom: 5px;
-  margin-left: 5px;
-}
-
-.bootcamp1 img, .bootcamp2 img, .bootcamp3 img, .bootcamp4 img {
-  height: 280px;
   width: auto;
 }
 
