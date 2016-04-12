@@ -26,6 +26,10 @@ before_save :set_default_role
     b.include? true
   end
 
+  def joined_date
+    created_at.strftime('%d %B %Y')
+  end
+
   serialize :notification_params, Hash
   def paypal_url
     values = {

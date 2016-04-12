@@ -25,7 +25,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # end
 
   def default_url()
-    "/assets/" + [version_name, "user.png"].compact.join('_')
+    "/assets/icons" + [version_name, "user.png"].compact.join('_')
   end
 
   # Process files as they are uploaded:

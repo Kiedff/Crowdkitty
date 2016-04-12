@@ -1,17 +1,22 @@
 
 .profile_box {
   @include outer-container;
-  margin-bottom: 20px;
 }
 
 .profile_info {
-  @include span-columns(6);
+  @include span-columns(8);
   float: right;
 }
 
 .profile_image {
-  @include span-columns(6);
+  @include span-columns(4);
   float: left;
+}
+
+.profile_image img {
+  border-radius: 50%;
+  height: 300px;
+  width: auto;
 }
 
 .pledge {
@@ -24,4 +29,26 @@
 background-color: white;
 padding: 15px;
 margin-bottom: 20px;
+}
+
+#cancel-account {
+  text-align: right;
+}
+
+#cancel-account a {
+  font-size: 20px;
+}
+
+#icon-dot{
+  height: 5px;
+  width: auto;
+  margin: 3px 10px;
+}
+
+#profile-box {
+  margin-bottom: 10px;
+}
+
+.profile-box1 {
+  height: 50%;
 }

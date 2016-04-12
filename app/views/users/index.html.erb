@@ -1,9 +1,9 @@
-<div class="side-image">
+<!-- <div class="side-image">
 
-<% @users.each do |user| %>
+<%# @users.each do |user| %>
 
 <div class="images-wrapper myLeftPane">
-<%=image_tag(user.user_image, alt: 'alt text is really require', width:600) %>
+<%=image_tag(user.user_image) %>
 </div>
 
 <div class="side-image-content myRightPane">
@@ -17,9 +17,9 @@
 <p><%= user.address1 %>, <%= user.address2 %>, <%= user.city %>, <%= user.postcode %></p>
 
 
-<%= link_to 'Edit', edit_user_path(user) if can? :edit, User %>
+<%#= link_to 'Edit', edit_user_path(user) if can? :edit, User %>
 
-<% end %>
+<%# end %>
 
   </div>
-</div>
+</div> -->

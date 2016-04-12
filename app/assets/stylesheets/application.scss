@@ -30,8 +30,6 @@
  @import 'category_page.scss';
 
 
-
-
  body {
   background-color:#f8f8f8;
   margin: 0px;
@@ -122,8 +120,9 @@ main {
   max-width: auto;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Sansita One', cursive;
+  margin: 0px 0px 15px 0px;
 }
 
 h1 {
@@ -174,6 +173,22 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 
 .input a{
   color: white;
+}
+
+.link {
+  padding: 0px;
+  text-align: right;
+}
+
+.link a {
+  color: #61C791;
+  font-weight: bold;
+}
+
+.link a:hover {
+  color: #61C791;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .card a {
