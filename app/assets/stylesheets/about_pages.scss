@@ -26,27 +26,8 @@
   padding-bottom: 2px;
 }
 
-.about_text { 
-  margin-top: 30px;
-}
-
-.about_header {
-  color: white;
+#about_header {
   background-image: url('helpinghand.jpg');
-  height: 260px;
-  width:100%;
-  background-size: cover;
-  text-align: center;
-}
-
-.about_header h1 {
-  font-family: 'Sansita One', cursive;
-  font-size: 100px;
-  text-shadow: 0 0 3px #121313;
-  color: #fff;
-  padding-top: 50px;
-  opacity: 0.95;
-  margin: 0;
 }
 
 .about_box {
@@ -80,18 +61,22 @@
 
 //contact page css//
 
-.contact_details {
-  float: left;
+.contact-left {
+  @include span-columns(5);
 }
 
 .contact_us {
   font-size: 18px;
 }
 
+.mapbox {
+  @include span-columns(7);
+  float: right;
+}
+
 #map_canvas {
   height: 445px;
   width: 50%;
-  float: right;
 }
 
 #map_canvas img { 

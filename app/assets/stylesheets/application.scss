@@ -191,6 +191,31 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
   text-decoration: underline;
 }
 
+.header {
+  color: white;
+  height: 260px;
+  width:100%;
+  background-size: cover;
+  text-align: center;
+}
+
+.header h1,.header h2,.header h3, .header h4 {
+  font-family: 'Sansita One', cursive;
+  text-shadow: 0 0 3px #121313;
+  color: #fff;
+  padding-top: 50px;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.header h1 {
+  font-size: 100px;
+}
+
+.header h2 {
+  font-size: 70px;
+}
+
 .card a {
   color: #61C791;
   text-align: center;
@@ -416,8 +441,15 @@ input[type="submit"] {
 }
 
 .page_main {
+  @include outer-container;
   background-color: white;
   padding: 30px;
   border: 2px solid #e9eaea;
 }
 
+.page_main_box {
+  background-color: white;
+  padding: 30px;
+  border: 2px solid #e9eaea;
+  margin: 10px 0px;
+}

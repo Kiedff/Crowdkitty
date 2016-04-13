@@ -13,22 +13,23 @@ obedia = User.create(name: "Obedia", email: "obedia@email.example", password: 'p
 tristan = User.create(name: "Tristan", email: "tristan@email.example", password: 'password', role: 'user', last_name: "Johnson", address1: Faker::Address.building_number, address2: Faker::Address.street_name, city: Faker::Address.city, postcode: Faker::Address.postcode, username: Faker::Internet.user_name)
 isolde = User.create(name: "Isolde", email: "isolde@email.example", password: 'password', role: 'user', last_name: "Martin", address1: Faker::Address.building_number, address2: Faker::Address.street_name, city: Faker::Address.city, postcode: Faker::Address.postcode, username: Faker::Internet.user_name)
 
-Category.create(name: 'Arts')
-Category.create(name: 'Business')
-Category.create(name: 'Charities')
-Category.create(name: 'Civic Space')
-Category.create(name: 'Community')
-Category.create(name: 'Environment')
-Category.create(name: 'Film')
-Category.create(name: 'Food & Drink')
-Category.create(name: 'Music')
-Category.create(name: 'Publishing')
-Category.create(name: 'Schools')
-Category.create(name: 'Social Enterprise')
-Category.create(name: 'Sports')
-Category.create(name: 'Technology')
-Category.create(name: 'Theatre & Dance')
-Category.create(name: 'University & College')
+c1 = Category.create(name: 'Arts', description: '')
+c2 = Category.create(name: 'Business', description: '')
+c3 = Category.create(name: 'Charities', description: '')
+c4 = Category.create(name: 'Civic Space', description: '')
+c5 = Category.create(name: 'Community', description: '')
+c6 = Category.create(name: 'Environment', description: '')
+c7 = Category.create(name: 'Film', description: '')
+c8 = Category.create(name: 'Food & Drink', description: '')
+c9 = Category.create(name: 'Music', description: '')
+c10 = Category.create(name: 'Publishing', description: '')
+c11 = Category.create(name: 'Schools', description: '')
+c12 = Category.create(name: 'Social Enterprise', description: '')
+c13 = Category.create(name: 'Sports', description: '')
+c14 = Category.create(name: 'Technology', description: '')
+c15 = Category.create(name: 'Theatre & Dance', description: '')
+c16 = Category.create(name: 'University & College', description: '')
+
 
 cities =[
   'Aberdeen',
@@ -179,6 +180,54 @@ isolde.save!
 
 site_admin.user_image = File.open(File.join(Rails.root, "db/images/admin.png"))
 site_admin.save!
+
+c1.category_image = "categories/Art.jpg"
+c1.save!
+
+c2.category_image = "categories/business.jpeg"
+c2.save!
+
+c3.category_image = "categories/money.jpg"
+c3.save!
+
+c4.category_image = "categories/park.jpg"
+c4.save!
+
+c5.category_image = "categories/community.jpg"
+c5.save!
+
+c6.category_image = "categories/growing.jpg"
+c6.save!
+
+c7.category_image = "categories/Film.jpg"
+c7.save!
+
+c8.category_image = "categories/food.jpg"
+c8.save!
+
+c9.category_image = "categories/music.jpg"
+c9.save!
+
+c10.category_image = "categories/publishing.jpg"
+c10.save!
+
+c11.category_image = "categories/Education.jpg"
+c11.save!
+
+c12.category_image = "categories/social.jpg"
+c12.save!
+
+c13.category_image = "categories/Sports.jpg"
+c13.save!
+
+c14.category_image = "categories/technology.jpg"
+c14.save!
+
+c15.category_image = "categories/theatre.jpg"
+c15.save!
+
+c16.category_image = "categories/uni.jpg"
+c16.save!
 
 Reward.create(project_id: 17, description: "Thor's hammer", value: 50 , quantity: 1, delivery: "2016-02-25", ships_to: "UK" )
 Reward.create(project_id: 17, description: "Your name engraved in a lamp post", value: 50 , quantity: 1, delivery: "2016-02-25", ships_to: "UK" )

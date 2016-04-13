@@ -35,3 +35,17 @@
 .category_box_projects {
   margin: 5px;
 }
+
+#category_header img {
+  position: relative;
+  height: 260px;
+  width:100%;
+}
+
+#category_header h2 {
+  position: absolute;
+  top: 140px; 
+  left: 0; 
+  width:100%;
+  font-size: 100px;
+}

@@ -1,64 +1,63 @@
-<h1>Contact Us</h1>
-
-<div class="contact_us">
-
-  <div id="map_canvas"></div>
-
-  <div class="contact_details">
-    <p>
+<div class="page_main">
+  <div class="contact-left">
+   <h1>Contact Us</h1> 
+   <p>
     <strong>Our Address </strong><br>
-      37 Castle Terrace, Edinburgh EH1 2EL
-    </p>
+    37 Castle Terrace, Edinburgh EH1 2EL
+  </p>
 
-    <p>
+  <p>
     <strong>Our Email </strong><br>
-        If you've got a question please get in touch with us at:<br> 
-        info@crowdkitty.co.uk
-    </p>
+    If you've got a question please get in touch with us at:<br> 
+    info@crowdkitty.co.uk
+  </p>
 
-    <p>
+  <p>
     <strong>Our Customer Services</strong><br>
-          000 000 0000 <br>
-          Day Opening Hours<br>
-          Monday to Friday: 8am to 8pm<br>
-          Saturday: 8am to 6pm
-    </p>
+    000 000 0000 <br>
+    Day Opening Hours<br>
+    Monday to Friday: 8am to 8pm<br>
+    Saturday: 8am to 6pm
+  </p>
   </div>
 
+  <div class="mapbox" id="map_canvas"></div>
 </div>
+
+
 
 <script>
   var bittersMap = (function () {
     var myLatlng = new google.maps.LatLng(55.946981, -3.202055),
-        mapCenter = new google.maps.LatLng(55.946981, -3.202055),
-        mapCanvas = document.getElementById('map_canvas'),
-        mapOptions = {
-          center: mapCenter,
-          zoom: 16,
-          scrollwheel: true,
-          draggable: true,
-          disableDefaultUI: false,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        },
-        map = new google.maps.Map(mapCanvas, mapOptions),
-        contentString =
-          '<div id="content">'+
-          '<div id="siteNotice">'+
-          '</div>'+
-          '<h1 id="firstHeading" class="firstHeading">CowdKitty</h1>'+
-          '<div id="bodyContent"'+
-          '<p>Edinburgh</p>'+
-          '</div>'+
-          '</div>',
-        infowindow = new google.maps.InfoWindow({
-          content: contentString,
-          maxWidth: 300
-        }),
-        marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'CrowdKitty'
-        });
+    mapCenter = new google.maps.LatLng(55.946981, -3.202055),
+    mapCanvas = document.getElementById('map_canvas'),
+    mapOptions = {
+      center: mapCenter,
+      zoom: 16,
+      scrollwheel: true,
+      draggable: true,
+      disableDefaultUI: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    },
+    map = new google.maps.Map(mapCanvas, mapOptions),
+    contentString =
+    '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">CowdKitty</h1>'+
+    '<div id="bodyContent"'+
+    '<p>Edinburgh</p>'+
+    '</div>'+
+    '</div>',
+    infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      maxWidth: 300
+    }),
+    marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'CrowdKitty'
+    });
 
     return {
       init: function () {
@@ -66,11 +65,11 @@
           featureType: 'landscape',
           elementType: 'geometry',
           stylers: [
-            { hue: '#ffff00' },
-            { saturation: 30 },
-            { lightness: 10}
+          { hue: '#ffff00' },
+          { saturation: 30 },
+          { lightness: 10}
           ]}
-        ]);
+          ]);
 
         google.maps.event.addListener(marker, 'click', function () {
           infowindow.open(map,marker);
@@ -79,6 +78,6 @@
     };
   }());
 
-  bittersMap.init();
+bittersMap.init();
 </script>
-
+</div>

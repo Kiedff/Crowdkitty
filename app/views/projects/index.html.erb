@@ -1,5 +1,5 @@
 
-<div class="discover_projects_header">
+<div class="header" id="discover_projects_header">
   <h4>Discover a Project to Support</h4>
 </div>
 
@@ -10,42 +10,42 @@
     <div class="input" id="category_buttons">
       <%= link_to category.name, category_path(category, params) %>
     </div>
-   <% end %>
- </div>
+    <% end %>
+  </div>
 </div>
 
+<div class="page_main" id="search_background">
+  <div class="search-container">
+    <%= form_tag projects_path, method: "get", class: 'projects-filter', :remote => true do %>
+    <h2>Search for  </h2>
+    <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'Keywords') %> show
 
-<div class="search-container">
-  <%= form_tag projects_path, method: "get", class: 'projects-filter', :remote => true do %>
-  <h2>Search for  </h2>
-  <%= text_field_tag('search', @search, class: 'projects-search', placeholder: 'Keywords') %> show
+    <div class="styled-select">
+      <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
+    </div>
+    projects in
 
-  <div class="styled-select">
-    <%= select_tag 'category_id', options_for_select(@categories.map {|c| [c.name, c.id]}.uniq.unshift(['all', 'all']), selected: @category_id) %>
-  </div>
-  projects in
+    <div id='project_locations'>
 
-  <div id='project_locations'>
+      <div id="location_autocomplete"
+      <% if @location %>
+      style='display: none'
+      <% end %>
+      >
+      <%= text_field_tag :location_search, '', placeholder: 'Search for locations', class: 'location_search' %>
+    </div>
 
-    <div id="location_autocomplete"
+    <div class="selected_location" id="selected_location"
     <% if @location %>
-    style='display: none'
+    style='display: inline'
     <% end %>
     >
-    <%= text_field_tag :location_search, '', placeholder: 'Search for locations', class: 'location_search' %>
+    <% if @location %>
+    <%= Location.find(@location).name %> <i class="fa fa-times"></i>
+    <% end %>
   </div>
 
-  <div class="selected_location" id="selected_location"
-  <% if @location %>
-  style='display: inline'
-  <% end %>
-  >
-  <% if @location %>
-  <%= Location.find(@location).name %> <i class="fa fa-times"></i>
-  <% end %>
-</div>
-
-<%= hidden_field_tag 'location' %>
+  <%= hidden_field_tag 'location' %>
 
 </div>
 
@@ -55,6 +55,8 @@
 <%= submit_tag "Go" %>
 <% end %><br>
 </div>
+</div>
+
 
 <div class="current_projects">
   <% case @request_type %>

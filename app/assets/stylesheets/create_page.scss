@@ -31,7 +31,7 @@
 .box_text p {
   text-align: justify;
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   padding: 5px;
 }
 
@@ -62,10 +62,19 @@
   @include outer-container;
 }
 
-#advice_box_tagline {
+#paragraph-tagline {
+  font-weight: bold;
   padding-top: 10px;
-  text-align: center;
-  font-size: 25px;
+  font-size: 20px;
+  color: #61C791;
+  margin: 0px 10px;
+}
+
+#paragraph-tagline2 {
+  font-weight: bold;
+  padding-top: 10px;
+  font-size: 18px;
+  margin: 0px 10px;
 }
 
 .advice_text_right {
@@ -87,4 +96,15 @@
 
 #further_information {
   font-size: 16px;
+}
+
+#read_link {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#create_project_header {
+  margin-left: 10px;
+  font-family: 'Sansita One', cursive;
+  font-size: 40px;
 }
