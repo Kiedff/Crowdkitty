@@ -144,7 +144,11 @@ h4 {
 h5 {
   font-size: 22px;
   margin-left: 0px;
-  width: 50%;
+  // width: 50%;
+}
+
+h6 {
+  font-size: 18px;
 }
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {
@@ -152,6 +156,14 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 }
 
 button, input[type="button"], input[type="reset"], input[type="submit"]:hover { 
+  background-color: #F23C55;
+}
+
+button {
+  background-color: #61C791;
+}
+
+button:hover {
   background-color: #F23C55;
 }
 

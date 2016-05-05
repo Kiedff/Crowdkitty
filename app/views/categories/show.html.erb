@@ -6,27 +6,38 @@
 
 
 <div class="category_boxes">
-  the description of the category will go in here
-  <%#= @category.description %>
+
+  <h3 id="category-title"><%= @category.name %></h3>
+  <p id="category_boxes_text"><%= @category.description %></p>
+
+  <div class="create_link">
+    <h6>Want to Start a Project?</h6>
+    <p>Click on the 'create a project' button now and start changing your community for the better.</p>
+    <center><button><%= link_to 'Create a Project', '/pages/create_page_advice' %></button></center>
+    <p id="category-advice-links">Need some help? We know all about running projects in each of our categories. Drop us a line about your project idea on our <%= link_to 'contact us', '/pages/contact' %> page. Have questions? Visit our <%= link_to 'FAQs', '/pages/faq' %> for further details.</p>
+  </div>
+
+  <div class="category_info">
+    <div class="category_info_inner">
+      <div class="category_box_left">
+        <p>the following information about the category will go in here:</p>
+        <p>* category total raised so far - closed projects?</p>
+      </div>
+      <div class="category_box_right">
+        <p>* total number of projects included in this category</p>
+        <p>* number of projects ending soon</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<div class="category_boxes">
-  the following information about the category will go in here:
-  <li>* category total raised so far - closed projects?</li>
-  <li>* total number of projects included in this category</li>
-  <li>* number of projects ending soon</li>
-  
-</div>
-
 
 <div class="category_boxes">
-  <h4>All <%= @category.name %> Projects</h4>
-
+  <h4>Live Projects</h4>
   <div class="cards">
     <% @category.projects.each do |project| %>
-
     <div class="card">
-
       <div class="card-image">
         <%= link_to image_tag(project.project_image), project_path(project) %>
       </div>
@@ -39,5 +50,23 @@
     </div>
     <% end %>
   </div>
-  
+</div>
+
+<div class="category_boxes">
+  <h4>Projects Finishing Soon</h4>
+  <div class="cards">
+    <% @category.projects.each do |project| %>
+    <div class="card">
+      <div class="card-image">
+        <%= link_to image_tag(project.project_image), project_path(project) %>
+      </div>
+      <div class="card-header">
+        <%= link_to (project.name), project_path(project) %>
+      </div>
+      <div class="card-copy">
+        <p><%= project.summary %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
