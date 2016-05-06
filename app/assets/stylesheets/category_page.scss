@@ -7,10 +7,16 @@
   min-height: 260px;
 }
 
+.category-info {
+  background-color: #58C9B9;
+  min-height: 30px;
+  margin: 10px 25px;
+}
+
 .create_link {
   @include span-columns(3);
   float: left;
-  background-color: #f8f8f8;
+  background-color: #f5f5f5;
   border-radius: 25px;
   margin: 0px 0px 10px 10px;
   min-height: 300px;
