@@ -31,12 +31,12 @@
 }
 
 #category-advice-links a{
-  color: #61C791;
+  color: #58C9B9;
   font-weight: bold;
 }
 
 #category-advice-links a:hover{
-  color: #306348;
+  color: #2c645c;
   font-weight: bold;
 }
 
@@ -44,7 +44,7 @@
   font-size: 20px;
   font-weight: bold;
   padding-top: 10px;
-  color: #61C791;
+  color: #58C9B9;
 }
 
 .category_info {
@@ -56,12 +56,12 @@
 
 .category_info_inner{
   @include outer-container;
-  background-color: #61C791;
+  background-color: #58C9B9;
   margin-right: 15px;
 }
 
 #category_info_background {
-  background-color: #61C791;
+  background-color: #58C9B9;
 }
 
 .category_boxes h4 {
@@ -92,7 +92,7 @@
 }
 
 .category_card_text a {
-  color: #61C791;
+  color: #58C9B9;
 }
 
 #category_header img {

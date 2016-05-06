@@ -31,7 +31,7 @@
 }
 
 .project_link a:hover {
-  color: #61C791;
+  color: #58C9B9;
 }
 
 .home_about {
@@ -69,14 +69,14 @@
 }
 
 .home_about_link a:hover { 
-  background-color: #61C791;
-  border: 3px solid #61C791;
+  background-color: #58C9B9;
+  border: 3px solid #58C9B9;
 }
 
 
 .news_banner {
   @include outer-container;
-  background-color: #61C791;
+  background-color: #58C9B9;
   color: white;
   height: 300px; 
   margin-bottom: 20px;
@@ -161,7 +161,7 @@
 }
 
 .homepage_news a {
-  color: #61C791;
+  color: #58C9B9;
   font-weight: bold;
 }
 

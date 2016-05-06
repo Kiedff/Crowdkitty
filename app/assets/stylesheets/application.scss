@@ -51,21 +51,6 @@ main {
     width: 100%; 
   }
 
-.my_cards {
-  @include span-columns(4);
-  background-color:#f8f8f8;
-  border: 1px solid #ebeef1;
-  height: 440px;
-  margin: 10px 15px 10px 5px;
-}
-
-.my_cards:hover {
-  background-color: white;
-  -webkit-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.53);
-  -moz-box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.53);
-  box-shadow: 0px 0px 24px -5px rgba(0,0,0,0.53);
-}
-
 .terms {
   font-size: 14px;
   margin-bottom: 10px;
@@ -152,7 +137,7 @@ h6 {
 }
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {
-  background-color: #61C791;
+  background-color: #58C9B9;
 }
 
 button, input[type="button"], input[type="reset"], input[type="submit"]:hover { 
@@ -160,7 +145,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"]:hover {
 }
 
 button {
-  background-color: #61C791;
+  background-color: #58C9B9;
 }
 
 button:hover {
@@ -169,7 +154,7 @@ button:hover {
 
 .input {
   color: white;
-  background-color: #61C791;
+  background-color: #58C9B9;
   font-weight: bold;
   font-size: 18px;
   border: 3px solid #fff;
@@ -193,12 +178,12 @@ button:hover {
 }
 
 .link a {
-  color: #61C791;
+  color: #58C9B9;
   font-weight: bold;
 }
 
 .link a:hover {
-  color: #61C791;
+  color: #58C9B9;
   font-weight: bold;
   text-decoration: underline;
 }
@@ -229,7 +214,7 @@ button:hover {
 }
 
 .card a {
-  color: #61C791;
+  color: #58C9B9;
   text-align: center;
 }
 
@@ -438,7 +423,7 @@ header.navigation .search-bar form input[type=search] {
 }
 
 .scroll-on-page a{
-  color: #61C791;
+  color: #58C9B9;
   font-weight: bold;
 }
 

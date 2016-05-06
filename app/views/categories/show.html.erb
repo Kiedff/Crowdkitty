@@ -7,7 +7,6 @@
 
 <div class="category_boxes">
 
-  <h3 id="category-title"><%= @category.name %></h3>
   <p id="category_boxes_text"><%= @category.description %></p>
 
   <div class="create_link">
@@ -52,8 +51,29 @@
   </div>
 </div>
 
+<div class="category_boxes"></div>
+
 <div class="category_boxes">
   <h4>Projects Finishing Soon</h4>
+  <div class="cards">
+    <% @category.projects.each do |project| %>
+    <div class="card">
+      <div class="card-image">
+        <%= link_to image_tag(project.project_image), project_path(project) %>
+      </div>
+      <div class="card-header">
+        <%= link_to (project.name), project_path(project) %>
+      </div>
+      <div class="card-copy">
+        <p><%= project.summary %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="category_boxes">
+  <h4>Successful Projects</h4>
   <div class="cards">
     <% @category.projects.each do |project| %>
     <div class="card">

@@ -36,12 +36,21 @@
 }
 
 .about_box h6 {
-  color: #61C791;
+  color: #58C9B9;
   font-size: 20px;
 }
 
 #paragraph_indent { 
   margin: 10px 30px;
+}
+
+#paragraph_indent a {
+  color: #58C9B9;
+  font-weight: bold;
+}
+
+#paragraph_indent a:hover{ 
+color: #2c645c;
 }
 
 #left-tile {
